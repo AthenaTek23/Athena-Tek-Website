@@ -1,0 +1,9 @@
+export { default as HomePage } from './HomePage';
+export { default as NetworkPage } from './NetworkPage';
+export { default as TEDPage } from './TEDPage';
+export { default as TrainingPage } from './TrainingPage';
+export { default as TEPage } from './TEPage';
+export { default as AIPage } from './AIPage';
+export { default as PartnersPage } from './PartnersPage';
+export { default as AboutPage } from './AboutPage';
+export { default as NewsPage } from './NewsPage';
