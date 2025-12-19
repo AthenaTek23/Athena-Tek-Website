@@ -4,11 +4,11 @@
   "description": "Professional website for Athena-Tek - AI-Driven Defense Technology",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
+    "dev": "node node_modules/vite/bin/vite.js",
+    "build": "node node_modules/vite/bin/vite.js build",
+    "preview": "node node_modules/vite/bin/vite.js preview",
     "lint": "eslint . --ext js,jsx",
-    "deploy": "vite build && gh-pages -d dist"
+    "deploy": "node node_modules/vite/bin/vite.js build && node node_modules/gh-pages/bin/gh-pages.js -d dist"
   },
   "dependencies": {
     "framer-motion": "^11.0.0",

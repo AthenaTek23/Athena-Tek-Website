@@ -4,7 +4,7 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/',  // User/org site (athenatek23.github.io) uses root path
+  base: '/Athena-Tek-Website/',  // Must match GitHub repo name for project sites
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
