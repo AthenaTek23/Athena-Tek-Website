@@ -5,6 +5,9 @@ import { Menu, X, Shield } from 'lucide-react';
 import { Button } from '../ui';
 import { navItems, companyInfo } from '../../styles/theme';
 
+/* Logo image - import */
+import LogoImg from '../../assets/Logo.png';
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,7 +34,16 @@ export default function Header() {
     >
       <nav className="container-main">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+		
+			{/* RichNote: Logo img */}
+		  <Link to="/" className="flex items-center gap-3 group">
+            <div>
+				<img src={LogoImg} />
+			</div>
+          </Link>
+		
+          {/* Logo - shield/text */}
+			  {/*
           <Link to="/" className="flex items-center gap-3 group">
             <div className="w-11 h-11 bg-gradient-to-br from-primary-501 to-primary-601 rounded-xl flex items-center justify-center text-white transition-transform group-hover:scale-105">
               <Shield size={24} />
@@ -40,6 +52,7 @@ export default function Header() {
               {companyInfo.name.toUpperCase()}
             </span>
           </Link>
+			  */}
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
