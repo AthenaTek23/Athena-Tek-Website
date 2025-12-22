@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import { Shield } from 'lucide-react';
 import { companyInfo } from '../../styles/theme';
 
+/* Logo image - import */
+import LogoImg from '../../assets/Logo.png';
+
 const footerLinks = {
   solutions: [
     { label: 'Network', path: '/network' },
@@ -24,15 +27,27 @@ export default function Footer() {
     <footer className="bg-dark-950 border-t border-white/5">
       <div className="container-main py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
-          {/* Brand */}
+		
+		
+          {/* Brand - Footer logo and company tag line.*/}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-501 to-primary-601 rounded-xl flex items-center justify-center text-white">
+			
+				{/* RichNote: Logo img */}
+				<div>
+					<img src={LogoImg} />
+				</div>
+              
+			  {/* Shield icon and company name text */}
+			  {/*
+			  <div className="w-10 h-10 bg-gradient-to-br from-primary-501 to-primary-601 rounded-xl flex items-center justify-center text-white">
                 <Shield size={20} />
               </div>
               <span className="text-lg font-bold tracking-wider text-white">
                 {companyInfo.name.toUpperCase()}
               </span>
+			  */}
+			  
             </Link>
             <p className="text-sm text-dark-400 leading-relaxed">
               {companyInfo.tagline}
