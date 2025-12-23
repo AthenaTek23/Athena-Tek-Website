@@ -3,11 +3,6 @@ import { Brain, Check } from 'lucide-react';
 import { Card } from '../components/ui';
 import { PageHero, SectionHeader, CTASection } from '../components/common';
 
-/* RichNote - Small shield images - import */
-import SmallShields_Medium_Blue from '../assets/SmallShields_Medium_Blue.png';
-import SmallShields_Gold from '../assets/SmallShields_Gold.png';
-import SmallShields_Blue from '../assets/SmallShields_Blue.png';
-
 export default function AIPage() {
   return (
     <div>
@@ -60,7 +55,7 @@ export default function AIPage() {
 
 function AILevelsSection() {
   const levels = [
-    { Image: 'SmallShields_Medium_Blue', /*level: '01',*/ title: 'AI at the Soldier', subtitle: 'Edge AI — TED', desc: 'On-device inference with zero cloud dependency for RTCA, safety, and positioning.', color: 'text-primary-500' },
+    { level: '01', title: 'AI at the Soldier', subtitle: 'Edge AI — TED', desc: 'On-device inference with zero cloud dependency for RTCA, safety, and positioning.', color: 'text-primary-500' },
     { level: '02', title: 'AI in the Network', subtitle: 'AI-Assisted Connectivity', desc: 'Real-time network optimization, bearer selection, and QoS adjustments.', color: 'text-accent-amber' },
     { level: '03', title: 'AI at EXCON', subtitle: 'Training & T&E Intelligence', desc: 'Automated analysis, AAR generation, and test data processing.', color: 'text-accent-indigo' },
   ];
@@ -77,12 +72,6 @@ function AILevelsSection() {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="xl">
-			
-			<img
-			  src={SmallShields_Medium_Blue}
-			  alt="Athena-Tek banner"
-			/>
-			
               <span className={`text-5xl font-extrabold font-mono ${ai.color} opacity-50 mb-4 block`}>
                 {ai.level}
               </span>
