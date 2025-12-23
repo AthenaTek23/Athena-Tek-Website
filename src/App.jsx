@@ -12,25 +12,25 @@ import {
   NewsPage,
 } from './pages';
 
-import ContactUsPage from './pages/ContactUsPage'; //RichNote: I added this
+import ContactUsPage from './pages/ContactUsPage'; //RichNote: I added this so the contact us page can link.
 
 function App() {
   return (
     <div className="min-h-screen bg-dark-950">
       <Header />
       <main className="pt-20">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/network" element={<NetworkPage />} />
-          <Route path="/ted" element={<TEDPage />} />
-          <Route path="/training" element={<TrainingPage />} />
-          <Route path="/te" element={<TEPage />} />
-          <Route path="/ai" element={<AIPage />} />
-          <Route path="/partners" element={<PartnersPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/news" element={<NewsPage />} />
-		  <Route path="/contactuspage" element={<ContactUsPage />} /> //RichNote: Added this
-        </Routes>
+			<Routes>
+			  <Route path="/" element={<HomePage />} />
+			  <Route path="/network" element={<NetworkPage />} />
+			  <Route path="/ted" element={<TEDPage />} />
+			  <Route path="/training" element={<TrainingPage />} />
+			  <Route path="/te" element={<TEPage />} />
+			  <Route path="/ai" element={<AIPage />} />
+			  <Route path="/partners" element={<PartnersPage />} />
+			  <Route path="/about" element={<AboutPage />} />
+			  <Route path="/news" element={<NewsPage />} />
+			  <Route path="/contactuspage" element={<ContactUsPage />} /> //RichNote: Added this so the contact us page can link.
+			</Routes>
       </main>
       <Footer />
     </div>
