@@ -86,7 +86,7 @@ export const companyInfo = {
   name: 'Athena-Tek',
   tagline: 'Network Focused Solution Driven',
   email: 'info@athena-tek.com',
-  pressEmail: 'press@athena-tek.com',
+  //pressEmail: 'press@athena-tek.com',
   location: 'Orlando, FL',
   founded: '2010',
 };
