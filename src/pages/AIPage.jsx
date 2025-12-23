@@ -5,6 +5,11 @@ import { PageHero, SectionHeader, CTASection } from '../components/common';
 import { MonitorApp } from '../components/monitors';
 import { applicationsViewsConfig, applicationsSiteConfig } from '../config/monitors';
 
+/* RichNote - Small shield images - import */
+import SmallShields_Medium_Blue from '../assets/SmallShields_Medium_Blue.png';
+import SmallShields_Gold from '../assets/SmallShields_Gold.png';
+import SmallShields_Blue from '../assets/SmallShields_Blue.png';
+
 export default function AIPage() {
   return (
     <div>
@@ -53,10 +58,33 @@ export default function AIPage() {
 }
 
 function AILevelsSection() {
+	
+	{/* Array of values used in the return below to populate the info. cards. The Image key is the small shield icons. */}
   const levels = [
-    { level: '01', title: 'AI at the Soldier', subtitle: 'Edge AI — TED', desc: 'On-device inference with zero cloud dependency for RTCA, safety, and positioning.', color: 'text-primary-500' },
-    { level: '02', title: 'AI in the Network', subtitle: 'AI-Assisted Connectivity', desc: 'Real-time network optimization, bearer selection, and QoS adjustments.', color: 'text-accent-amber' },
-    { level: '03', title: 'AI at EXCON', subtitle: 'Training & T&E Intelligence', desc: 'Automated analysis, AAR generation, and test data processing.', color: 'text-accent-indigo' },
+    {
+		Image: SmallShields_Medium_Blue,
+		level: '01',
+		title: 'AI at the Soldier',
+		subtitle: 'Edge AI — TED',
+		desc: 'On-device inference with zero cloud dependency for RTCA, safety, and positioning.',
+		color: 'text-primary-500'
+	},
+    {
+		Image: SmallShields_Gold,
+		level: '02',
+		title: 'AI in the Network',
+		subtitle: 'AI-Assisted Connectivity',
+		desc: 'Real-time network optimization, bearer selection, and QoS adjustments.',
+		color: 'text-accent-amber'
+	},
+    {
+		Image: SmallShields_Blue,
+		level: '03',
+		title: 'AI at EXCON',
+		subtitle: 'Training & T&E Intelligence',
+		desc: 'Automated analysis, AAR generation, and test data processing.',
+		color: 'text-accent-indigo'
+	},
   ];
 
   return (
@@ -71,9 +99,20 @@ function AILevelsSection() {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="xl">
+			{/* Note: old numbers that were different colors.
               <span className={`text-5xl font-extrabold font-mono ${ai.color} opacity-50 mb-4 block`}>
                 {ai.level}
               </span>
+			*/}
+			
+				{/* Call images from the "levels" array above and display them from. */}
+				<span className={`text-5xl font-extrabold font-mono ${ai.color} opacity-50 mb-4 block`}>
+					<img
+						src={ai.Image}
+						alt={ai.title}
+					/>
+				</span>
+			  
               <h3 className="text-xl font-bold text-white mb-2">{ai.title}</h3>
               <p className="text-sm text-dark-500 mb-4">{ai.subtitle}</p>
               <p className="text-dark-400 leading-relaxed">{ai.desc}</p>
