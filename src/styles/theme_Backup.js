@@ -84,7 +84,7 @@ export const navItems = [
 // Company information
 export const companyInfo = {
   name: 'Athena-Tek',
-  tagline: 'Network Focused. Solution Driven.',
+  tagline: 'AI-Driven Soldier Insight at the Point of Need',
   email: 'info@athena-tek.com',
   pressEmail: 'press@athena-tek.com',
   location: 'Orlando, FL',
