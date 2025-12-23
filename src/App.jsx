@@ -10,6 +10,7 @@ const TrainingPage = lazy(() => import('./pages/TrainingPage'));
 const TEPage = lazy(() => import('./pages/TEPage'));
 const AIPage = lazy(() => import('./pages/AIPage'));
 const PartnersPage = lazy(() => import('./pages/PartnersPage'));
+const ProductsPage = lazy(() => import('./pages/ProductsPage')); //TODO: Add Products page here.
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const NewsPage = lazy(() => import('./pages/NewsPage'));
 const ContactUsPage = lazy(() => import('./pages/ContactUsPage'));
@@ -36,7 +37,8 @@ function App() {
             <Route path="/training" element={<TrainingPage />} />
             <Route path="/te" element={<TEPage />} />
             <Route path="/ai" element={<AIPage />} />
-            <Route path="/partners" element={<PartnersPage />} />
+			<Route path="/partners" element={<PartnersPage />} />
+			<Route path="/products" element={<ProductsPage />} /> //TODO: Add Products page here.
             <Route path="/about" element={<AboutPage />} />
             <Route path="/news" element={<NewsPage />} />
             <Route path="/contactuspage" element={<ContactUsPage />} />

@@ -76,7 +76,8 @@ export const navItems = [
   { path: '/training', label: 'Live Training' },
   { path: '/te', label: 'T&E' },
   { path: '/ai', label: 'AI Ecosystem' },
-  { path: '/partners', label: 'Partners' },
+  //{ path: '/partners', label: 'Partners' }, //RichNote: Commenting out this line removes the Partners from the main navigation.
+  { path: '/products', label: 'Products' },
   { path: '/about', label: 'About' },
   { path: '/news', label: 'Newsroom' },
 ];

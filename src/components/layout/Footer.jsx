@@ -11,7 +11,8 @@ const footerLinks = {
   ],
   company: [
     { label: 'About', path: '/about' },
-    { label: 'Partners', path: '/partners' },
+    /*{ label: 'Partners', path: '/partners' },*/ /* RichNote: Removed partners from footer nav. */
+	{ label: 'Products', path: '/products' }, /* RichNote: Added Products page to the footer nav. */
     { label: 'AI Ecosystem', path: '/ai' },
     { label: 'Newsroom', path: '/news' },
   ],
