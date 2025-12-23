@@ -189,10 +189,11 @@
 
 .monitor-view__main {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-  gap: 1.8rem;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
   height: 100%;
   min-height: 0;
+  overflow-y: auto;
 }
 
 /* Full-width view - graphic takes full width (no text panel) */
@@ -322,14 +323,6 @@ video.monitor-graphic-panel__img {
 }
 
 /* Responsive */
-@media (max-width: 1180px) {
-  .monitor-view__main {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .monitor-text-panel {
-    margin-top: 0.6rem;
-  }
-}
 
 @media (max-width: 900px) {
   .monitor-app {
