@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Card } from '../components/ui';
 import { PageHero, SectionHeader, CTASection } from '../components/common';
 
-export default function PartnersPage() {
+export default function ProductsPage() {
   return (
     <div>
       {/* Custom compact hero section */}
@@ -10,15 +10,15 @@ export default function PartnersPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-dark-900 to-dark-950" />
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <div className="relative z-10 max-w-sm mx-auto text-center">
-          <span className="tag-base tag-primary mb-1 inline-block text-xs">STRATEGIC PARTNERSHIPS</span>
+          <span className="tag-base tag-primary mb-1 inline-block text-xs">ATHENA-TEK PRODUCTS</span>
           <h1 className="text-xl md:text-2xl font-extrabold text-white mb-1 whitespace-nowrap">
-            Partners That Amplify Mission Impact
+            Athena-Tek’s Product Line, ARES.
           </h1>
           <h2 className="text-base md:text-lg font-semibold text-primary-500 mb-1">
-            A Premier Defense Ecosystem
+            Engineered for Precision, Resilience, and Real-World Readiness
           </h2>
           <p className="text-xs text-dark-400 leading-relaxed">
-            Athena-Tek's strength is built upon a broad ecosystem of defense, telecommunications, AI, and technology partners.
+            Discover what sets Athena-Tek’s ARES systems apart.
           </p>
         </div>
       </section>
@@ -33,7 +33,7 @@ export default function PartnersPage() {
     </div>
   );
 }
-
+//TODO - Start here...
 function DefensePartnersSection() {
   const partners = [
     { name: 'Cubic', desc: 'IWS & Soldier system integration' },
