@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Athena-Tek delivers AI-driven defense technology solutions for military and government applications including network systems, training edge devices, and AI ecosystems." />
+    <meta name="keywords" content="defense technology, AI, military, government, network systems, training, Athena-Tek" />
+    <meta name="author" content="Athena-Tek" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Athena-Tek | AI-Driven Defense Technology" />
+    <meta property="og:description" content="Advanced AI-driven defense technology solutions for military and government applications." />
+    <meta property="og:image" content="/og-image.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Athena-Tek | AI-Driven Defense Technology" />
+    <meta name="twitter:description" content="Advanced AI-driven defense technology solutions for military and government applications." />
+
+    <title>Athena-Tek | AI-Driven Defense Technology</title>
+    <script>
+      // Handle SPA redirect from 404.html (GitHub Pages)
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(dir /s /b \"C:\\\\Users\\\\william.sanchez\\\\Development\\\\Tools\\\\Athena_Tek_Website\\\\athena-tek-monitor-integration\\\\public\")",
+      "Bash(dir:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm install:*)",
+      "Bash(git init:*)",
+      "Bash(git remote add:*)",
+      "Bash(npm run deploy:*)",
+      "Bash(find:*)",
+      "Bash(ls:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}
