@@ -15,17 +15,17 @@ export default function ProductsPage() {
             Athena-Tek’s Product Line, ARES.
           </h1>
           <h2 className="text-base md:text-lg font-semibold text-primary-500 mb-1">
-            Engineered for Precision, Resilience, and Real-World Readiness
+            Discover Athena-Tek’s ARES Systems
           </h2>
           <p className="text-xs text-dark-400 leading-relaxed">
-            Discover what sets Athena-Tek’s ARES systems apart.
+            Engineered for Precision, Resilience, and Real-World Readiness.
           </p>
         </div>
       </section>
       <DefensePartnersSection />
       <TelecomPartnersSection />
       <AIPartnersSection />
-      <GovernmentSection />
+      <PartnerSection />
       <CTASection
         title="Become Part of the Ecosystem"
         subtitle="Contact us for integration opportunities and partnership discussions."
@@ -142,37 +142,20 @@ function AIPartnersSection() {
   );
 }
 
-function GovernmentSection() {
-  const gov = [
-    { name: 'PM TRADE', desc: 'CTC Enterprise, Home Station, STE-LTS alignment' },
-    { name: 'PM CT2', desc: 'Soldier and weapon system integration' },
-    { name: 'ATEC', desc: 'Operational Test support' },
-    { name: 'DOT&E', desc: 'Live test oversight and evaluation' },
-  ];
-
+function PartnerSection() {
   return (
     <section className="section-dark section-padding">
       <div className="container-main">
         <SectionHeader
-          tag="GOVERNMENT"
-          title="U.S. Army & Government Integration"
+          tag="STRATEGIC PARTNERSHIPS"
+          title="Partners That Amplify Mission Impact"
           light
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
-          {gov.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-            >
-              <Card variant="featured" size="md">
-                <h4 className="text-base font-semibold text-white mb-2">{item.name}</h4>
-                <p className="text-sm text-dark-400">{item.desc}</p>
-              </Card>
-            </motion.div>
-          ))}
+          <a href="#">Click here </a> {/*//TODO*/}
+		  
+		
+		  
         </div>
       </div>
     </section>
