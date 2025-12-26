@@ -68,18 +68,41 @@ export const transitions = {
   slow: 'transition-all duration-300',
 };
 
+// Standardized icon sizes
+export const iconSizes = {
+  xs: 14,
+  sm: 16,
+  md: 20,
+  lg: 24,
+  xl: 32,
+};
+
+// Standardized grid gaps
+export const gridGaps = {
+  tight: 'gap-4',   // 16px - tight grids
+  default: 'gap-6', // 24px - default
+  spacious: 'gap-8', // 32px - spacious layouts
+};
+
 // Navigation items
 export const navItems = [
-  { path: '/', label: 'Home' },
+  { path: '/about', label: 'About Us' },
+  { path: '/capabilities', label: 'Capabilities' },
+  { path: '/products', label: 'Products' },
+  { path: '/services', label: 'Services' },
+  { path: '/innovation', label: 'Innovation' },
+  { path: '/news', label: 'Newsroom' },
+  { path: '/contact', label: 'Contact Us' },
+];
+
+// Legacy navigation items (for internal routing, not shown in main nav)
+export const legacyNavItems = [
   { path: '/network', label: 'Network' },
   { path: '/ted', label: 'TED' },
   { path: '/training', label: 'Live Training' },
   { path: '/te', label: 'T&E' },
   { path: '/ai', label: 'AI Ecosystem' },
-  //{ path: '/partners', label: 'Partners' }, //RichNote: Commenting out this line removes the Partners from the main navigation.
-  { path: '/products', label: 'Products' },
-  { path: '/about', label: 'About' },
-  { path: '/news', label: 'Newsroom' },
+  { path: '/partners', label: 'Partners' },
 ];
 
 // Company information
@@ -97,6 +120,9 @@ export default {
   spacing,
   typography,
   transitions,
+  iconSizes,
+  gridGaps,
   navItems,
+  legacyNavItems,
   companyInfo,
 };

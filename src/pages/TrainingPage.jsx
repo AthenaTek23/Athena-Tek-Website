@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { ChevronRight, MapPin, Activity, Shield, Zap, Eye } from 'lucide-react';
-import { Card } from '../components/ui';
+import { Card, BannerImage } from '../components/ui';
 import { PageHero, SectionHeader, CTASection } from '../components/common';
+import { iconSizes } from '../styles/theme';
 
 /* Banner image - import */
 import bannerImg from '../assets/New_OV1_Slide_Banner2_V2_Small_JPG.jpg';
@@ -21,21 +22,18 @@ export default function TrainingPage() {
           <h2 className="text-base md:text-lg font-semibold text-primary-500 mb-1">
             For the Modern Battlefield
           </h2>
-          <p className="text-xs text-dark-400 leading-relaxed">
+          <p className="text-xs text-dark-300 leading-relaxed">
             Next-generation Live Training powered by TED, AI-enabled networks, and deep integration with Army enterprise EXCON systems.
           </p>
         </div>
       </section>
-	  
-	<div style={{ width: '100%', overflow: 'hidden' }} /* Banner image - Start */>
-	  <img
-		src={bannerImg}
-		alt="Athena-Tek network overview"
-		loading="lazy"
-		style={{ display: 'block', width: '100%', height: 'auto' }}
-	  />
-	</div /* Banner image - End */>
-	
+
+      {/* Banner image */}
+      <BannerImage
+        src={bannerImg}
+        alt="Athena-Tek network overview"
+      />
+
       <ChallengeSection />
       <FoFSection />
       <PositioningSection />
@@ -56,13 +54,13 @@ function ChallengeSection() {
 
   return (
     <section className="section-padding container-main">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center content-medium">
         <div>
           <span className="tag-base tag-primary mb-4">THE CHALLENGE</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-display-md text-white mb-6">
             Why Live Training Must Evolve
           </h2>
-          <p className="text-dark-400 leading-relaxed">
+          <p className="text-dark-300 leading-relaxed">
             Modern conflict involves complex urban terrain, multi-level buildings, GPS-denied environments,
             distributed formations, and wearable-driven health monitoring. Legacy systems cannot scale to
             these requirements.
@@ -72,8 +70,8 @@ function ChallengeSection() {
           <h4 className="text-lg font-semibold text-primary-500 mb-5">Athena-Tek Solutions</h4>
           <ul className="space-y-3">
             {solutions.map((sol, i) => (
-              <li key={i} className="flex items-center gap-3 text-dark-300">
-                <ChevronRight size={16} className="text-primary-500 flex-shrink-0" />
+              <li key={i} className="flex items-center gap-3 text-dark-200">
+                <ChevronRight size={iconSizes.sm} className="text-primary-500 flex-shrink-0" />
                 {sol}
               </li>
             ))}
@@ -109,12 +107,12 @@ function FoFSection() {
           title="FoF Modernization"
           light
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 content-medium">
           <Card size="lg" className="bg-white/[0.03]">
             <h4 className="text-lg font-semibold text-white mb-4">Direct Fire Enhancements</h4>
             <ul className="space-y-2">
               {directFire.map((item, i) => (
-                <li key={i} className="text-sm text-dark-400">• {item}</li>
+                <li key={i} className="text-sm text-dark-300">• {item}</li>
               ))}
             </ul>
           </Card>
@@ -122,7 +120,7 @@ function FoFSection() {
             <h4 className="text-lg font-semibold text-white mb-4">Weapon Integrations</h4>
             <ul className="space-y-2">
               {weapons.map((item, i) => (
-                <li key={i} className="text-sm text-dark-400">• {item}</li>
+                <li key={i} className="text-sm text-dark-300">• {item}</li>
               ))}
             </ul>
           </Card>
@@ -141,28 +139,28 @@ function PositioningSection() {
   ];
 
   const safetyFeatures = [
-    { title: 'Heat Casualty Prediction', icon: <Activity size={20} /> },
-    { title: 'Fall Detection', icon: <Shield size={20} /> },
-    { title: 'Movement Deviation Alerts', icon: <Eye size={20} /> },
-    { title: 'Panic Button Integration', icon: <Zap size={20} /> },
+    { title: 'Heat Casualty Prediction', icon: <Activity size={iconSizes.md} /> },
+    { title: 'Fall Detection', icon: <Shield size={iconSizes.md} /> },
+    { title: 'Movement Deviation Alerts', icon: <Eye size={iconSizes.md} /> },
+    { title: 'Panic Button Integration', icon: <Zap size={iconSizes.md} /> },
   ];
 
   return (
     <section className="section-padding container-main">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div>
           <span className="tag-base tag-primary mb-4">MOUT & GPS-DENIED</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+          <h2 className="text-display-sm text-white mb-6">
             Industry-Leading Positioning
           </h2>
-          <p className="text-dark-400 mb-6 leading-relaxed">
+          <p className="text-dark-300 mb-6 leading-relaxed">
             TED delivers hybrid indoor/outdoor positioning using GPS RTK, Wi-Fi HaLow, BLE, ZigBee,
             IMU, and barometer for vertical floor detection.
           </p>
           <div className="space-y-3">
             {posCapabilities.map((cap, i) => (
-              <div key={i} className="flex items-center gap-3 text-dark-300">
-                <MapPin size={16} className="text-primary-500" />
+              <div key={i} className="flex items-center gap-3 text-dark-200">
+                <MapPin size={iconSizes.sm} className="text-primary-500" />
                 <span>{cap}</span>
               </div>
             ))}
@@ -170,15 +168,15 @@ function PositioningSection() {
         </div>
         <div>
           <span className="tag-base tag-primary mb-4">SOLDIER SAFETY</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+          <h2 className="text-display-sm text-white mb-6">
             Predictive Safety Monitoring
           </h2>
-          <p className="text-dark-400 mb-6 leading-relaxed">
+          <p className="text-dark-300 mb-6 leading-relaxed">
             TED integrates wearable devices to track physiological data and provide predictive safety alerts.
           </p>
           <div className="grid grid-cols-2 gap-4">
             {safetyFeatures.map((feat, i) => (
-              <div key={i} className="flex items-center gap-3 p-4 bg-white/[0.02] rounded-xl text-sm text-dark-300">
+              <div key={i} className="flex items-center gap-3 p-4 bg-white/[0.02] rounded-xl text-sm text-dark-200">
                 <span className="text-primary-500">{feat.icon}</span>
                 <span>{feat.title}</span>
               </div>

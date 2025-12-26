@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -38,6 +39,53 @@ export default {
           amber: '#f59e0b',
           indigo: '#6366f1',
           red: '#ef4444',
+          teal: '#14b8a6',
+        },
+        teal: {
+          50: '#f0fdfa',
+          100: '#ccfbf1',
+          200: '#99f6e4',
+          300: '#5eead4',
+          400: '#2dd4bf',
+          500: '#14b8a6',
+          600: '#0d9488',
+          700: '#0f766e',
+          800: '#115e59',
+          900: '#134e4a',
+          950: '#042f2e',
+        },
+        // Semantic color tokens
+        semantic: {
+          success: '#10b981',
+          warning: '#f59e0b',
+          error: '#ef4444',
+          info: '#3b82f6',
+        },
+        // Text-specific tokens for improved contrast
+        text: {
+          primary: '#ffffff',
+          secondary: '#e2e8f0',
+          tertiary: '#94a3b8',
+          muted: '#64748b',
+        },
+        // Surface/background tokens
+        surface: {
+          base: '#0a0f1a',
+          elevated: '#0f172a',
+          overlay: 'rgba(255, 255, 255, 0.02)',
+        },
+        // Light mode colors
+        light: {
+          50: '#ffffff',
+          100: '#f8fafc',
+          200: '#f1f5f9',
+          300: '#e2e8f0',
+          400: '#cbd5e1',
+          500: '#94a3b8',
+          600: '#64748b',
+          700: '#475569',
+          800: '#334155',
+          900: '#1e293b',
         },
       },
       fontFamily: {

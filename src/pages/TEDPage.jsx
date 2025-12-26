@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import { Check, Zap } from 'lucide-react';
-import { Card } from '../components/ui';
+import { Card, BannerImage } from '../components/ui';
 import { PageHero, SectionHeader, CTASection } from '../components/common';
 import { MonitorApp } from '../components/monitors';
 import { tedViewsConfig, tedSiteConfig } from '../config/monitors';
+import { iconSizes } from '../styles/theme';
 
 // Banner image - import
 import bannerImg from '../assets/TED_AI-EnabledSensor_and_EmitterFusionEngine_v2/TED_AI-EnabledSensor_and_EmitterFusionEngine_v2.jpg';
@@ -27,23 +28,17 @@ export default function TEDPage() {
           <h2 className="text-base md:text-lg font-semibold text-primary-500 mb-1">
             Real-Time Intelligence at the Edge
           </h2>
-          <p className="text-xs text-dark-400 leading-relaxed">
+          <p className="text-xs text-dark-300 leading-relaxed">
             A rugged, smartphone-sized device that fuses sensors, emitters, networks, and AI inference into the most advanced soldier state engine ever developed.
           </p>
         </div>
       </section>
-	  
-		<div
-			/* Banner image - Start */
-		  style={{ width: '100%', overflow: 'hidden' }}>
-		  <img
-			src={bannerImg}
-			alt="Athena-Tek TED overview"
-			loading="lazy"
-			style={{ display: 'block', width: '100%', height: 'auto' }}
-			/* Banner image - End */
-		  />
-		</div>
+
+      {/* Banner image */}
+      <BannerImage
+        src={bannerImg}
+        alt="Athena-Tek TED overview"
+      />
 
       {/* Integrated TED Monitor Application */}
       <section className="w-full bg-dark-950">
@@ -63,41 +58,24 @@ export default function TEDPage() {
         </div>
       </section>
 
-		<div
-			/* TED image - Start */
-		  style={{
-			minHeight: '100vh',
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'center',
-			padding: '2rem',
-			boxSizing: 'border-box',
-			//background: '#0b2e7a1a'
-		  }}
-		>
-		  <motion.img
-			src={TEDImg}
-			alt="Athena-Tek ARES IV device"
-			loading="lazy"
-			initial={{ opacity: 0, scale: 0.98 }}
-			animate={{ opacity: 1, scale: 1 }}
-			transition={{ duration: 0.6, ease: 'easeOut' }}
-			style={{
-			  width: '100%',
-			  maxWidth: 480,
-			  height: 'auto',
-			  borderRadius: 12,
-			  boxShadow: '0 10px 30px rgba(0,0,0,0.25)'
-			}}
-		  />
-		</div>
+      {/* TED device showcase */}
+      <div className="image-showcase">
+        <motion.img
+          src={TEDImg}
+          alt="Athena-Tek ARES V device"
+          loading="lazy"
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="showcase-image"
+        />
+      </div>
 
       <AICapabilitiesSection />
       <SensorFusionSection />
       <SpecificationsSection />
       <IntegrationSection />
       <CTASection />
-	  
     </div>
   );
 }
@@ -121,7 +99,7 @@ function AICapabilitiesSection() {
         title="AI Engine Capabilities"
         subtitle="On-device inference with zero cloud dependency"
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 content-medium">
         {capabilities.map((cap, i) => (
           <motion.div
             key={i}
@@ -131,41 +109,24 @@ function AICapabilitiesSection() {
             transition={{ delay: i * 0.05 }}
             className="flex items-center gap-4 p-5 bg-white/[0.02] border border-white/5 rounded-xl"
           >
-            <Check size={18} className="text-primary-500 flex-shrink-0" />
+            <Check size={iconSizes.md} className="text-primary-500 flex-shrink-0" />
             <span className="text-dark-300">{cap}</span>
           </motion.div>
         ))}
       </div>
-	  
-	  <div
-			/* TED_AI_EnabledSensor_and_EmitterFusionEngine_v2_Back image - Start */
-		  style={{
-			minHeight: '70vh',
-			display: 'flex',
-			alignItems: 'center',
-			justifyContent: 'center',
-			padding: '2rem',
-			boxSizing: 'border-box',
-			//background: '#0b2e7a1a'
-		  }}
-		>
-		  <motion.img
-			src={TED_AI_EnabledSensor_and_EmitterFusionEngine_v2_Back}
-			alt="Capability Statement"
-			loading="lazy"
-			initial={{ opacity: 0, scale: 0.98 }}
-			animate={{ opacity: 1, scale: 1 }}
-			transition={{ duration: 0.6, ease: 'easeOut' }}
-			style={{
-			  width: '100%',
-			  maxWidth: 1000,
-			  height: 'auto',
-			  borderRadius: 12,
-			  boxShadow: '0 10px 30px rgba(0,0,0,0.25)'
-			}}
-		  />
-		</div>
-	  
+
+      {/* Capability Statement image */}
+      <div className="image-showcase-sm">
+        <motion.img
+          src={TED_AI_EnabledSensor_and_EmitterFusionEngine_v2_Back}
+          alt="Capability Statement"
+          loading="lazy"
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="showcase-image-lg"
+        />
+      </div>
     </section>
   );
 }
@@ -184,21 +145,21 @@ function SensorFusionSection() {
         />
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
           <div className="min-w-[200px]">
-            <h4 className="text-xs font-semibold tracking-wider text-dark-500 uppercase mb-4">Sensors</h4>
+            <h4 className="text-xs font-semibold tracking-wider text-dark-400 uppercase mb-4">Sensors</h4>
             {sensors.map((s, i) => (
-              <div key={i} className="px-5 py-3 bg-white/[0.03] rounded-lg mb-2 text-sm text-dark-300">
+              <div key={i} className="px-5 py-3 bg-white/[0.03] rounded-lg mb-2 text-sm text-dark-200">
                 {s}
               </div>
             ))}
           </div>
-          <div className="flex flex-col items-center gap-2 text-dark-500">
-            <Zap size={32} className="text-accent-amber" />
+          <div className="flex flex-col items-center gap-2 text-dark-400">
+            <Zap size={iconSizes.xl} className="text-accent-amber" />
             <span className="text-xs font-semibold tracking-wider uppercase">FUSION</span>
           </div>
           <div className="min-w-[200px]">
-            <h4 className="text-xs font-semibold tracking-wider text-dark-500 uppercase mb-4">Emitters</h4>
+            <h4 className="text-xs font-semibold tracking-wider text-dark-400 uppercase mb-4">Emitters</h4>
             {emitters.map((e, i) => (
-              <div key={i} className="px-5 py-3 bg-white/[0.03] rounded-lg mb-2 text-sm text-dark-300">
+              <div key={i} className="px-5 py-3 bg-white/[0.03] rounded-lg mb-2 text-sm text-dark-200">
                 {e}
               </div>
             ))}
@@ -223,7 +184,7 @@ function SpecificationsSection() {
         tag="SPECIFICATIONS"
         title="Technical Specifications"
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 content-medium">
         {specs.map((spec, i) => (
           <motion.div
             key={i}
@@ -237,7 +198,7 @@ function SpecificationsSection() {
                 {spec.category}
               </h4>
               {spec.items.map((item, j) => (
-                <p key={j} className="text-sm text-dark-400 py-2 border-b border-white/[0.03] last:border-0">
+                <p key={j} className="text-sm text-dark-300 py-2 border-b border-white/[0.03] last:border-0">
                   {item}
                 </p>
               ))}
@@ -252,16 +213,16 @@ function SpecificationsSection() {
 function IntegrationSection() {
   return (
     <section className="py-20 px-8 bg-gradient-to-br from-primary-500/10 to-primary-500/[0.02]">
-      <div className="max-w-4xl mx-auto text-center">
-        <h3 className="text-2xl md:text-3xl font-bold text-white mb-10">
+      <div className="content-medium text-center">
+        <h3 className="text-display-sm text-white mb-10">
           Integration & Compatibility
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
           <div>
             <h4 className="text-xs font-semibold tracking-wider text-primary-500 uppercase mb-3">
               Training Systems
             </h4>
-            <p className="text-dark-400 leading-relaxed">
+            <p className="text-dark-300 leading-relaxed">
               MILES / IWS (Cubic) • VTESS (Lockheed Martin) • FN America • Phoenix Defense ATAK • Serious Simulations
             </p>
           </div>
@@ -269,7 +230,7 @@ function IntegrationSection() {
             <h4 className="text-xs font-semibold tracking-wider text-primary-500 uppercase mb-3">
               EXCON Systems
             </h4>
-            <p className="text-dark-400 leading-relaxed">
+            <p className="text-dark-300 leading-relaxed">
               TAK Server • STIA (STE Live) • HITS / RCS • XLCC (T&E)
             </p>
           </div>
