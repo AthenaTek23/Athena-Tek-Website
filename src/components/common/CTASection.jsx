@@ -59,9 +59,6 @@ export default function CTASection({
           <Button to="/ContactUsPage" variant="primary" size="lg" icon={<Mail size={18} />} iconPosition="left">
             Contact Us
           </Button>
-          <Button to="/ContactUsPage" variant="secondary" size="lg">
-            Request Demo
-          </Button>
         </motion.div>
 
         <motion.p

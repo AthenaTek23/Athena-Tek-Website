@@ -3,28 +3,22 @@ import { Link } from 'react-router-dom';
 import { Cpu, Smartphone, Monitor, Globe, ChevronRight } from 'lucide-react';
 import { Card } from '../components/ui';
 import { SectionHeader, CTASection } from '../components/common';
+import { PageSectionNav, SectionDots } from '../components/navigation';
 import { useTheme } from '../contexts/ThemeContext';
 import { iconSizes } from '../styles/theme';
+
+const sections = [
+  { id: 'hardware', label: 'Hardware' },
+  { id: 'software', label: 'Software' },
+];
 
 export default function ProductsPage() {
   const { isDark } = useTheme();
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative py-16 px-4 overflow-hidden">
-        <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-dark-900 to-dark-950' : 'bg-gradient-to-b from-light-100 to-white'}`} />
-        <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="relative z-10 container-main text-center">
-          <span className="tag-base tag-primary mb-4 inline-block">ATHENA-TEK PRODUCTS</span>
-          <h1 className={`text-4xl md:text-5xl font-extrabold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
-            Our Product Line
-          </h1>
-          <p className={`text-xl max-w-3xl mx-auto ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-            Engineered for precision, resilience, and real-world readiness
-          </p>
-        </div>
-      </section>
+    <div className="pt-20">
+      <PageSectionNav sections={sections} />
+      <SectionDots sections={sections} />
 
       <HardwareSection isDark={isDark} />
       <SoftwareSection isDark={isDark} />
@@ -37,6 +31,7 @@ export default function ProductsPage() {
 }
 
 function HardwareSection({ isDark }) {
+  const sectionId = 'hardware';
   const products = [
     {
       icon: <Smartphone size={iconSizes.xl} />,
@@ -55,7 +50,7 @@ function HardwareSection({ isDark }) {
   ];
 
   return (
-    <section className="section-padding container-main">
+    <section id={sectionId} className="section-padding container-main scroll-mt-36">
       <SectionHeader
         tag="HARDWARE"
         title="Training Devices & Hardware"
@@ -117,6 +112,7 @@ function HardwareSection({ isDark }) {
 }
 
 function SoftwareSection({ isDark }) {
+  const sectionId = 'software';
   const products = [
     {
       icon: <Monitor size={iconSizes.xl} />,
@@ -135,7 +131,7 @@ function SoftwareSection({ isDark }) {
   ];
 
   return (
-    <section className="section-dark section-padding">
+    <section id={sectionId} className="section-dark section-padding scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="SOFTWARE"

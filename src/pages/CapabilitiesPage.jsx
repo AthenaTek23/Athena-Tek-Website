@@ -3,28 +3,24 @@ import { Link } from 'react-router-dom';
 import { Network, Radio, Target, Shield, Cpu, Wifi, Users, Zap, Globe, Server, ChevronRight, Check } from 'lucide-react';
 import { Card } from '../components/ui';
 import { SectionHeader, CTASection } from '../components/common';
+import { PageSectionNav, SectionDots } from '../components/navigation';
 import { useTheme } from '../contexts/ThemeContext';
 import { iconSizes } from '../styles/theme';
+
+const sections = [
+  { id: 'network', label: 'Network Capabilities' },
+  { id: 'training', label: 'Training Capabilities' },
+  { id: 'te', label: 'T&E Capabilities' },
+  { id: 'ai', label: 'AI Capabilities' },
+];
 
 export default function CapabilitiesPage() {
   const { isDark } = useTheme();
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative py-16 px-4 overflow-hidden">
-        <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-dark-900 to-dark-950' : 'bg-gradient-to-b from-light-100 to-white'}`} />
-        <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="relative z-10 container-main text-center">
-          <span className="tag-base tag-primary mb-4 inline-block">WHAT WE DO</span>
-          <h1 className={`text-4xl md:text-5xl font-extrabold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
-            Our Capabilities
-          </h1>
-          <p className={`text-xl max-w-3xl mx-auto ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-            Comprehensive solutions for military training, network infrastructure, and AI-enabled systems
-          </p>
-        </div>
-      </section>
+    <div className="pt-20">
+      <PageSectionNav sections={sections} />
+      <SectionDots sections={sections} />
 
       <NetworkCapabilitiesSection isDark={isDark} />
       <TrainingCapabilitiesSection isDark={isDark} />
@@ -39,6 +35,7 @@ export default function CapabilitiesPage() {
 }
 
 function NetworkCapabilitiesSection({ isDark }) {
+  const sectionId = 'network';
   const capabilities = [
     { icon: <Radio size={iconSizes.lg} />, title: '5G/LTE Networks', desc: 'Private cellular network design and deployment for secure, high-bandwidth communications' },
     { icon: <Wifi size={iconSizes.lg} />, title: 'Mesh Networks', desc: 'Extended coverage with 802.11ah Wi-Fi HaLow and multi-hop mesh topologies' },
@@ -47,7 +44,7 @@ function NetworkCapabilitiesSection({ isDark }) {
   ];
 
   return (
-    <section className="section-padding container-main">
+    <section id={sectionId} className="section-padding container-main scroll-mt-36">
       <SectionHeader
         tag="NETWORK CAPABILITIES"
         title="Advanced Network Solutions"
@@ -94,6 +91,7 @@ function NetworkCapabilitiesSection({ isDark }) {
 }
 
 function TrainingCapabilitiesSection({ isDark }) {
+  const sectionId = 'training';
   const trainingFeatures = [
     { title: 'Live Training Instrumentation', items: ['MILES integration', 'TSPI tracking', 'Real-time feedback', 'Soldier telemetry'] },
     { title: 'Training Devices', items: ['ARES V soldier device', 'Android TED (A TED)', 'ZigBee integration'] },
@@ -102,7 +100,7 @@ function TrainingCapabilitiesSection({ isDark }) {
   ];
 
   return (
-    <section className="section-dark section-padding">
+    <section id={sectionId} className="section-dark section-padding scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="TRAINING CAPABILITIES"
@@ -154,6 +152,7 @@ function TrainingCapabilitiesSection({ isDark }) {
 }
 
 function TECapabilitiesSection({ isDark }) {
+  const sectionId = 'te';
   const teCapabilities = [
     { icon: <Target size={iconSizes.lg} />, title: 'Test Planning', desc: 'Comprehensive test planning and execution for complex defense systems' },
     { icon: <Server size={iconSizes.lg} />, title: 'Instrumentation', desc: 'Advanced instrumentation design and deployment for accurate data collection' },
@@ -171,7 +170,7 @@ function TECapabilitiesSection({ isDark }) {
   ];
 
   return (
-    <section className="section-padding container-main">
+    <section id={sectionId} className="section-padding container-main scroll-mt-36">
       <SectionHeader
         tag="T&E CAPABILITIES"
         title="Test & Evaluation"
@@ -226,6 +225,7 @@ function TECapabilitiesSection({ isDark }) {
 }
 
 function AICapabilitiesSection({ isDark }) {
+  const sectionId = 'ai';
   const aiCapabilities = [
     { icon: <Cpu size={iconSizes.lg} />, title: 'Edge AI', desc: 'On-device AI processing for real-time decision support without cloud dependency' },
     { icon: <Users size={iconSizes.lg} />, title: 'Sensor Fusion', desc: 'Multi-sensor data integration for enhanced situational awareness' },
@@ -234,7 +234,7 @@ function AICapabilitiesSection({ isDark }) {
   ];
 
   return (
-    <section className="section-dark section-padding">
+    <section id={sectionId} className="section-dark section-padding scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="AI CAPABILITIES"

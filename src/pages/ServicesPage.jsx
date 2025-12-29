@@ -3,28 +3,22 @@ import { Link } from 'react-router-dom';
 import { Settings, Puzzle, BarChart3, Radio, ChevronRight } from 'lucide-react';
 import { Card } from '../components/ui';
 import { SectionHeader, CTASection } from '../components/common';
+import { PageSectionNav, SectionDots } from '../components/navigation';
 import { useTheme } from '../contexts/ThemeContext';
 import { iconSizes } from '../styles/theme';
+
+const sections = [
+  { id: 'engineering', label: 'Engineering' },
+  { id: 'technical', label: 'Technical' },
+];
 
 export default function ServicesPage() {
   const { isDark } = useTheme();
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative py-16 px-4 overflow-hidden">
-        <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-dark-900 to-dark-950' : 'bg-gradient-to-b from-light-100 to-white'}`} />
-        <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="relative z-10 container-main text-center">
-          <span className="tag-base tag-primary mb-4 inline-block">ATHENA-TEK SERVICES</span>
-          <h1 className={`text-4xl md:text-5xl font-extrabold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
-            Our Services
-          </h1>
-          <p className={`text-xl max-w-3xl mx-auto ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-            Comprehensive engineering and technical services for defense and training systems
-          </p>
-        </div>
-      </section>
+    <div className="pt-20">
+      <PageSectionNav sections={sections} />
+      <SectionDots sections={sections} />
 
       <EngineeringSection isDark={isDark} />
       <TechnicalSection isDark={isDark} />
@@ -37,6 +31,7 @@ export default function ServicesPage() {
 }
 
 function EngineeringSection({ isDark }) {
+  const sectionId = 'engineering';
   const services = [
     {
       icon: <Settings size={iconSizes.xl} />,
@@ -55,7 +50,7 @@ function EngineeringSection({ isDark }) {
   ];
 
   return (
-    <section className="section-padding container-main">
+    <section id={sectionId} className="section-padding container-main scroll-mt-36">
       <SectionHeader
         tag="ENGINEERING"
         title="Engineering Services"
@@ -117,6 +112,7 @@ function EngineeringSection({ isDark }) {
 }
 
 function TechnicalSection({ isDark }) {
+  const sectionId = 'technical';
   const services = [
     {
       icon: <BarChart3 size={iconSizes.xl} />,
@@ -135,7 +131,7 @@ function TechnicalSection({ isDark }) {
   ];
 
   return (
-    <section className="section-dark section-padding">
+    <section id={sectionId} className="section-dark section-padding scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="TECHNICAL"

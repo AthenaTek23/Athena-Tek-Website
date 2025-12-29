@@ -1,38 +1,25 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Globe, Layers, Box, MapPin, Eye, Server, Cpu, Database, ChevronRight, Check } from 'lucide-react';
+import { Globe, Layers, Box, MapPin, Eye, Server, Cpu, Database, Check } from 'lucide-react';
 import { Card } from '../../components/ui';
 import { SectionHeader, CTASection } from '../../components/common';
+import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
+
+const sections = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'architecture', label: 'Architecture' },
+  { id: 'technology', label: 'Technology Stack' },
+  { id: 'features', label: 'Features' },
+];
 
 export default function OWTViewerPage() {
   const { isDark } = useTheme();
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative py-16 px-4 overflow-hidden">
-        <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-dark-900 to-dark-950' : 'bg-gradient-to-b from-light-100 to-white'}`} />
-        <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="relative z-10 container-main text-center">
-          <span className="tag-base tag-primary mb-4 inline-block">SOFTWARE PRODUCT</span>
-          <h1 className={`text-4xl md:text-5xl font-extrabold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
-            One World Terrain (OWT)
-          </h1>
-          <p className={`text-xl max-w-3xl mx-auto ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-            3D terrain visualization platform for geospatial analysis and mission planning
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Link to="#features" className="btn-primary">
-              View Features
-            </Link>
-            <Link to="#technology" className="btn-secondary">
-              Technology Stack
-            </Link>
-          </div>
-        </div>
-      </section>
+    <div className="pt-20">
+      <PageSectionNav sections={sections} />
+      <SectionDots sections={sections} />
 
       <OverviewSection isDark={isDark} />
       <ArchitectureSection isDark={isDark} />
@@ -55,7 +42,7 @@ function OverviewSection({ isDark }) {
   ];
 
   return (
-    <section id="features" className="section-padding container-main">
+    <section id="overview" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
       <SectionHeader
         tag="OVERVIEW"
         title="3D Terrain Viewer"
@@ -105,7 +92,7 @@ function ArchitectureSection({ isDark }) {
   ];
 
   return (
-    <section className="section-dark section-padding">
+    <section id="architecture" className="section-dark py-5 md:py-7 lg:py-10 scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="ARCHITECTURE"
@@ -220,7 +207,7 @@ function TechnologySection({ isDark }) {
   ];
 
   return (
-    <section id="technology" className="section-padding container-main">
+    <section id="technology" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
       <SectionHeader
         tag="TECHNOLOGY STACK"
         title="Built on Modern Technologies"
@@ -287,7 +274,7 @@ function FeaturesSection({ isDark }) {
   ];
 
   return (
-    <section className="section-dark section-padding">
+    <section id="features" className="section-dark py-5 md:py-7 lg:py-10 scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="CAPABILITIES"

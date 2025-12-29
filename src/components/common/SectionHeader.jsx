@@ -17,7 +17,7 @@ export default function SectionHeader({
   };
 
   return (
-    <div className={`mb-12 md:mb-16 ${alignClasses[align]} ${className}`}>
+    <div className={`mb-8 md:mb-10 ${alignClasses[align]} ${className}`}>
       {tag && (
         <motion.span
           initial={{ opacity: 0, y: 10 }}
@@ -35,7 +35,7 @@ export default function SectionHeader({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className={`text-3xl md:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}
+        className={`text-2xl md:text-3xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}
       >
         {title}
       </motion.h2>
@@ -46,7 +46,7 @@ export default function SectionHeader({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className={`text-lg max-w-2xl mx-auto ${isDark ? 'text-dark-400' : 'text-light-600'}`}
+          className={`text-base max-w-2xl mx-auto ${isDark ? 'text-dark-400' : 'text-light-600'}`}
         >
           {subtitle}
         </motion.p>

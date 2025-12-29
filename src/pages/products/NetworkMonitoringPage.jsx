@@ -1,38 +1,25 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Activity, Radio, PlayCircle, Network, Users, Clock, MapPin, Layers, ChevronRight, Check } from 'lucide-react';
+import { Activity, Radio, PlayCircle, Network, Users, Clock, MapPin, Layers, Check } from 'lucide-react';
 import { Card } from '../../components/ui';
 import { SectionHeader, CTASection } from '../../components/common';
+import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
+
+const sections = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'modes', label: 'Operating Modes' },
+  { id: 'topology', label: 'Network Topology' },
+  { id: 'capabilities', label: 'Capabilities' },
+];
 
 export default function NetworkMonitoringPage() {
   const { isDark } = useTheme();
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative py-16 px-4 overflow-hidden">
-        <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-dark-900 to-dark-950' : 'bg-gradient-to-b from-light-100 to-white'}`} />
-        <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="relative z-10 container-main text-center">
-          <span className="tag-base tag-primary mb-4 inline-block">SOFTWARE PRODUCT</span>
-          <h1 className={`text-4xl md:text-5xl font-extrabold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
-            Network Monitoring System
-          </h1>
-          <p className={`text-xl max-w-3xl mx-auto ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-            Real-time TAK network monitoring and After Action Review for military training exercises
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Link to="#features" className="btn-primary">
-              View Features
-            </Link>
-            <Link to="#modes" className="btn-secondary">
-              Operating Modes
-            </Link>
-          </div>
-        </div>
-      </section>
+    <div className="pt-20">
+      <PageSectionNav sections={sections} />
+      <SectionDots sections={sections} />
 
       <OverviewSection isDark={isDark} />
       <ModesSection isDark={isDark} />
@@ -55,7 +42,7 @@ function OverviewSection({ isDark }) {
   ];
 
   return (
-    <section id="features" className="section-padding container-main">
+    <section id="overview" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
       <SectionHeader
         tag="OVERVIEW"
         title="AAR Networking Monitor v3.0"
@@ -107,7 +94,7 @@ function ModesSection({ isDark }) {
   ];
 
   return (
-    <section id="modes" className="section-dark section-padding">
+    <section id="modes" className="section-dark py-5 md:py-7 lg:py-10 scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="OPERATING MODES"
@@ -217,7 +204,7 @@ function TopologySection({ isDark }) {
   ];
 
   return (
-    <section className="section-padding container-main">
+    <section id="topology" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
       <SectionHeader
         tag="VISUALIZATION"
         title="Network Topology View"
@@ -342,7 +329,7 @@ function FeaturesSection({ isDark }) {
   ];
 
   return (
-    <section className="section-dark section-padding">
+    <section id="capabilities" className="section-dark py-5 md:py-7 lg:py-10 scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="CAPABILITIES"

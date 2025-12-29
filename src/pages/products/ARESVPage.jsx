@@ -1,38 +1,26 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Cpu, Wifi, Radio, Shield, Zap, MapPin, Brain, Server, ChevronRight, Check } from 'lucide-react';
+import { Cpu, Radio, Shield, Zap, MapPin, Server, Check } from 'lucide-react';
 import { Card } from '../../components/ui';
 import { SectionHeader, CTASection } from '../../components/common';
+import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
+
+const sections = [
+  { id: 'benefits', label: 'Key Benefits' },
+  { id: 'differentiators', label: 'Key Differentiators' },
+  { id: 'hardware', label: 'Core Hardware' },
+  { id: 'specifications', label: 'Complete Specifications' },
+  { id: 'integration', label: 'Integration Capabilities' },
+];
 
 export default function ARESVPage() {
   const { isDark } = useTheme();
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative py-16 px-4 overflow-hidden">
-        <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-dark-900 to-dark-950' : 'bg-gradient-to-b from-light-100 to-white'}`} />
-        <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="relative z-10 container-main text-center">
-          <span className="tag-base tag-primary mb-4 inline-block">HARDWARE PRODUCT</span>
-          <h1 className={`text-4xl md:text-5xl font-extrabold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
-            ARES V
-          </h1>
-          <p className={`text-xl max-w-3xl mx-auto ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-            AI-enabled soldier training device with advanced 5G connectivity and edge computing
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Link to="#benefits" className="btn-primary">
-              View Benefits
-            </Link>
-            <Link to="#specifications" className="btn-secondary">
-              Specifications
-            </Link>
-          </div>
-        </div>
-      </section>
+    <div className="pt-20">
+      <PageSectionNav sections={sections} />
+      <SectionDots sections={sections} />
 
       <BenefitsSection isDark={isDark} />
       <DifferentiatorsSection isDark={isDark} />
@@ -58,7 +46,7 @@ function BenefitsSection({ isDark }) {
   ];
 
   return (
-    <section id="benefits" className="section-padding container-main">
+    <section id="benefits" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
       <SectionHeader
         tag="WHY ARES V"
         title="Key Benefits"
@@ -119,7 +107,7 @@ function DifferentiatorsSection({ isDark }) {
   ];
 
   return (
-    <section className="section-dark section-padding">
+    <section id="differentiators" className="section-dark py-5 md:py-7 lg:py-10 scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="COMPETITIVE ADVANTAGE"
@@ -157,7 +145,7 @@ function HardwareSection({ isDark }) {
   ];
 
   return (
-    <section className="section-padding container-main">
+    <section id="hardware" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
       <SectionHeader
         tag="DEVICE HARDWARE"
         title="Core Hardware Specifications"
@@ -227,7 +215,7 @@ function SpecificationsSection({ isDark }) {
   ];
 
   return (
-    <section id="specifications" className="section-dark section-padding">
+    <section id="specifications" className="section-dark py-5 md:py-7 lg:py-10 scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="TECHNICAL SPECIFICATIONS"
@@ -285,7 +273,7 @@ function IntegrationSection({ isDark }) {
   };
 
   return (
-    <section className="section-padding container-main">
+    <section id="integration" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
       <SectionHeader
         tag="ECOSYSTEM"
         title="Integration Capabilities"

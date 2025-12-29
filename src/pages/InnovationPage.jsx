@@ -2,36 +2,24 @@ import { motion } from 'framer-motion';
 import { Brain, Cpu, Zap, Network, Radio, Target, Shield, Layers, Lightbulb, Rocket, Check } from 'lucide-react';
 import { Card } from '../components/ui';
 import { SectionHeader, CTASection } from '../components/common';
+import { PageSectionNav, SectionDots } from '../components/navigation';
 import { useTheme } from '../contexts/ThemeContext';
 import { iconSizes } from '../styles/theme';
+
+const sections = [
+  { id: 'ai-ecosystem', label: 'AI Ecosystem' },
+  { id: 'edge-computing', label: 'Edge Computing' },
+  { id: 'rd', label: 'R&D' },
+  { id: 'roadmap', label: 'Technology Roadmap' },
+];
 
 export default function InnovationPage() {
   const { isDark } = useTheme();
 
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative py-16 px-4 overflow-hidden">
-        <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-dark-900 to-dark-950' : 'bg-gradient-to-b from-light-100 to-white'}`} />
-        <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="relative z-10 container-main text-center">
-          <span className="tag-base tag-primary mb-4 inline-block">INNOVATION</span>
-          <h1 className={`text-4xl md:text-5xl font-extrabold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
-            Driving the Future
-          </h1>
-          <p className={`text-xl max-w-3xl mx-auto ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-            AI ecosystem development and R&D initiatives shaping next-generation defense solutions
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <a href="#ai-ecosystem" className="btn-primary">
-              AI Ecosystem
-            </a>
-            <a href="#rd" className="btn-secondary">
-              R&D Initiatives
-            </a>
-          </div>
-        </div>
-      </section>
+    <div className="pt-20">
+      <PageSectionNav sections={sections} />
+      <SectionDots sections={sections} />
 
       <AIEcosystemSection isDark={isDark} />
       <EdgeComputingSection isDark={isDark} />
@@ -54,7 +42,7 @@ function AIEcosystemSection({ isDark }) {
   ];
 
   return (
-    <section id="ai-ecosystem" className="section-padding container-main">
+    <section id="ai-ecosystem" className="section-padding container-main scroll-mt-36">
       <SectionHeader
         tag="AI ECOSYSTEM"
         title="Intelligent Edge Solutions"
@@ -154,7 +142,7 @@ function EdgeComputingSection({ isDark }) {
   ];
 
   return (
-    <section className="section-dark section-padding">
+    <section id="edge-computing" className="section-dark section-padding scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="EDGE COMPUTING"
@@ -246,7 +234,7 @@ function RDSection({ isDark }) {
   ];
 
   return (
-    <section id="rd" className="section-padding container-main">
+    <section id="rd" className="section-padding container-main scroll-mt-36">
       <SectionHeader
         tag="R&D INITIATIVES"
         title="Research & Development"
@@ -300,7 +288,7 @@ function RoadmapSection({ isDark }) {
   ];
 
   return (
-    <section className="section-dark section-padding">
+    <section id="roadmap" className="section-dark section-padding scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="TECHNOLOGY ROADMAP"
