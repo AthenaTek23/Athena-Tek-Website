@@ -54,12 +54,10 @@ export default function Header() {
                 to={item.path}
                 className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                   location.pathname === item.path || location.pathname.startsWith(item.path + '/')
-                    ? isDark
-                      ? 'text-teal-400 bg-teal-500/10'
-                      : 'text-teal-600 bg-teal-100'
+                    ? 'bg-primary-navy text-white'
                     : isDark
-                      ? 'text-dark-300 hover:text-white hover:bg-white/5'
-                      : 'text-light-700 hover:text-light-900 hover:bg-light-200'
+                      ? 'text-dark-300 hover:text-white hover:bg-primary-navy/20'
+                      : 'text-light-700 hover:text-light-900 hover:bg-primary-navy/10'
                 }`}
               >
                 {item.label}
@@ -119,12 +117,10 @@ export default function Header() {
                     to={item.path}
                     className={`block px-4 py-3 text-base font-medium rounded-lg transition-all ${
                       location.pathname === item.path || location.pathname.startsWith(item.path + '/')
-                        ? isDark
-                          ? 'text-teal-400 bg-teal-500/10'
-                          : 'text-teal-600 bg-teal-100'
+                        ? 'bg-primary-navy text-white'
                         : isDark
-                          ? 'text-dark-300 hover:text-white hover:bg-white/5'
-                          : 'text-light-700 hover:text-light-900 hover:bg-light-200'
+                          ? 'text-dark-300 hover:text-white hover:bg-primary-navy/20'
+                          : 'text-light-700 hover:text-light-900 hover:bg-primary-navy/10'
                     }`}
                   >
                     {item.label}

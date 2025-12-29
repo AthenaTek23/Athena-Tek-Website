@@ -48,8 +48,8 @@ export default function PageSectionNav({ sections }) {
                 className={`
                   relative px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors
                   ${activeSection === section.id
-                    ? isDark ? 'text-teal-400' : 'text-teal-600'
-                    : isDark ? 'text-dark-400 hover:text-dark-200' : 'text-light-500 hover:text-light-700'
+                    ? 'text-white'
+                    : isDark ? 'text-dark-400 hover:text-white hover:bg-primary-navy/20' : 'text-light-500 hover:text-light-700 hover:bg-primary-navy/10'
                   }
                 `}
               >
@@ -57,7 +57,7 @@ export default function PageSectionNav({ sections }) {
                 {activeSection === section.id && (
                   <motion.div
                     layoutId="activeSection"
-                    className={`absolute inset-0 rounded-lg ${isDark ? 'bg-teal-500/10' : 'bg-teal-100'}`}
+                    className="absolute inset-0 rounded-lg bg-primary-navy"
                     style={{ zIndex: -1 }}
                     transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                   />
