@@ -3,7 +3,7 @@ import { networkViewsConfig, networkSiteConfig } from '../config/monitors';
 
 export default function NetworkPage() {
   return (
-    <div className="pt-20 bg-dark-950 min-h-screen">
+    <div className="pt-2 bg-dark-950 min-h-screen">
       <div className="container-main py-4">
         <MonitorApp
           viewsConfig={networkViewsConfig}
