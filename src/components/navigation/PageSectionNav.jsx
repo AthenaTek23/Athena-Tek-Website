@@ -1,42 +1,24 @@
-import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollSpy, scrollToSection } from '../../hooks/useScrollSpy';
 import { useTheme } from '../../contexts/ThemeContext';
 
 /**
- * Horizontal sticky section navigation bar
+ * Horizontal sticky section navigation bar - always fixed below main header
  * @param {object[]} sections - Array of { id, label } objects
  */
 export default function PageSectionNav({ sections }) {
   const { isDark } = useTheme();
   const activeSection = useScrollSpy(sections.map(s => s.id));
-  const [isSticky, setIsSticky] = useState(false);
-  const navRef = useRef(null);
-  const placeholderRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (placeholderRef.current) {
-        const rect = placeholderRef.current.getBoundingClientRect();
-        setIsSticky(rect.top <= 64);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <>
-      {/* Placeholder to maintain layout when nav becomes fixed */}
-      <div ref={placeholderRef} className={isSticky ? 'h-14' : 'h-0'} />
+      {/* Placeholder to maintain layout space for fixed nav */}
+      <div className="h-14" />
 
       <nav
-        ref={navRef}
         className={`
-          ${isSticky ? 'fixed top-16 left-0 right-0 z-40 shadow-lg' : 'relative'}
+          fixed top-20 left-0 right-0 z-40 shadow-lg
           ${isDark ? 'bg-dark-900/95 backdrop-blur-sm border-b border-white/5' : 'bg-white/95 backdrop-blur-sm border-b border-light-200'}
-          transition-all duration-300
         `}
       >
         <div className="container-main">
