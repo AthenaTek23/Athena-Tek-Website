@@ -68,9 +68,9 @@ function HardwareSection({ isDark }) {
           >
             <Card size="xl" className="h-full flex flex-col">
               <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                isDark ? 'bg-teal-900/30' : 'bg-teal-100'
+                isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
               }`}>
-                <div className={isDark ? 'text-teal-400' : 'text-teal-600'}>
+                <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
                   {product.icon}
                 </div>
               </div>
@@ -97,7 +97,7 @@ function HardwareSection({ isDark }) {
               <Link
                 to={product.path}
                 className={`inline-flex items-center gap-2 text-sm font-medium ${
-                  isDark ? 'text-teal-400 hover:text-teal-300' : 'text-teal-600 hover:text-teal-700'
+                  isDark ? 'text-primary-light hover:text-primary-light/80' : 'text-primary-navy hover:text-primary-navy/80'
                 }`}
               >
                 Learn more
@@ -151,9 +151,9 @@ function SoftwareSection({ isDark }) {
             >
               <Card size="xl" className={`h-full flex flex-col ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
                 <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                  isDark ? 'bg-teal-900/30' : 'bg-teal-100'
+                  isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
                 }`}>
-                  <div className={isDark ? 'text-teal-400' : 'text-teal-600'}>
+                  <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
                     {product.icon}
                   </div>
                 </div>
@@ -180,7 +180,7 @@ function SoftwareSection({ isDark }) {
                 <Link
                   to={product.path}
                   className={`inline-flex items-center gap-2 text-sm font-medium ${
-                    isDark ? 'text-teal-400 hover:text-teal-300' : 'text-teal-600 hover:text-teal-700'
+                    isDark ? 'text-primary-light hover:text-primary-light/80' : 'text-primary-navy hover:text-primary-navy/80'
                   }`}
                 >
                   Learn more

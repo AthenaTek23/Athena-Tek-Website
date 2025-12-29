@@ -37,7 +37,7 @@ export default function SectionDots({ sections }) {
             className={`
               w-3 h-3 rounded-full transition-colors
               ${activeSection === section.id
-                ? isDark ? 'bg-teal-400' : 'bg-teal-500'
+                ? isDark ? 'bg-primary-light' : 'bg-primary-navy'
                 : isDark ? 'bg-dark-600 hover:bg-dark-500' : 'bg-light-300 hover:bg-light-400'
               }
             `}

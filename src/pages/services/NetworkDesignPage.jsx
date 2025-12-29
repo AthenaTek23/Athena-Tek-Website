@@ -102,9 +102,9 @@ function NetworkTypesSection({ isDark }) {
           >
             <Card size="xl" className="h-full">
               <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                isDark ? 'bg-teal-900/30' : 'bg-teal-100'
+                isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
               }`}>
-                <div className={isDark ? 'text-teal-400' : 'text-teal-600'}>
+                <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
                   {type.icon}
                 </div>
               </div>
@@ -117,7 +117,7 @@ function NetworkTypesSection({ isDark }) {
               <ul className="space-y-2">
                 {type.features.map((feature, j) => (
                   <li key={j} className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                    <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                    <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                     {feature}
                   </li>
                 ))}
@@ -162,9 +162,9 @@ function ArchitectureSection({ isDark }) {
               <Card size="lg" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
                 <div className="flex items-start gap-3">
                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                    isDark ? 'bg-teal-900/30' : 'bg-teal-100'
+                    isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
                   }`}>
-                    <span className={`font-bold text-sm ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+                    <span className={`font-bold text-sm ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
                       {i + 1}
                     </span>
                   </div>
@@ -240,7 +240,7 @@ function FeaturesSection({ isDark }) {
         viewport={{ once: true }}
       >
         <Card size="xl">
-          <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+          <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
             Supported Spectrum Bands
           </h4>
           <div className="overflow-x-auto">
@@ -255,7 +255,7 @@ function FeaturesSection({ isDark }) {
               <tbody>
                 {bands.map((band, i) => (
                   <tr key={i} className={`border-b ${isDark ? 'border-white/5' : 'border-light-200'}`}>
-                    <td className={`py-3 px-4 font-medium ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>{band.band}</td>
+                    <td className={`py-3 px-4 font-medium ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>{band.band}</td>
                     <td className={`py-3 px-4 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>{band.spectrum}</td>
                     <td className={`py-3 px-4 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>{band.use}</td>
                   </tr>
@@ -301,7 +301,7 @@ function IntegrationSection({ isDark }) {
                 isDark ? 'bg-white/[0.02] border border-white/5' : 'bg-white border border-light-300'
               }`}
             >
-              <Check size={18} className={`flex-shrink-0 ${isDark ? 'text-teal-400' : 'text-teal-600'}`} />
+              <Check size={18} className={`flex-shrink-0 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`} />
               <span className={`text-sm ${isDark ? 'text-dark-200' : 'text-light-700'}`}>{item}</span>
             </motion.div>
           ))}
@@ -316,9 +316,9 @@ function IntegrationSection({ isDark }) {
         >
           <Card size="lg" variant="featured" className="text-center">
             <div className={`w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center ${
-              isDark ? 'bg-teal-900/30' : 'bg-teal-100'
+              isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
             }`}>
-              <Satellite size={32} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+              <Satellite size={32} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
             </div>
             <h4 className={`text-xl font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
               NTN/Satellite Integration

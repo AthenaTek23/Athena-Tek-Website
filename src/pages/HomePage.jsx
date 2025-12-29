@@ -65,8 +65,8 @@ function HeroSection() {
                   to={pillar.path}
                   className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
                     isDark
-                      ? 'bg-teal-900/30 border border-teal-500/30 text-teal-400 hover:bg-teal-900/50 hover:border-teal-500/50'
-                      : 'bg-teal-100 border border-teal-300 text-teal-700 hover:bg-teal-200 hover:border-teal-400'
+                      ? 'bg-primary-navy/30 border border-primary-light/30 text-primary-light hover:bg-primary-navy/50 hover:border-primary-light/50'
+                      : 'bg-primary-navy/10 border border-primary-navy/30 text-primary-navy hover:bg-primary-navy/20 hover:border-primary-navy/50'
                   }`}
                 >
                   {pillar.icon}
@@ -107,7 +107,7 @@ function HeroSection() {
 // Banner Section - Full width text overlay
 function BannerSection() {
   return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-r from-teal-900 via-teal-800 to-teal-600">
+    <section className="relative py-20 overflow-hidden bg-gradient-to-r from-primary-navy via-primary-navy to-primary-light">
       {/* Background pattern */}
       <div className="absolute inset-0 grid-pattern opacity-20" />
 

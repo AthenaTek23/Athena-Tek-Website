@@ -51,7 +51,7 @@ export default function Footer() {
             </p>
             <a
               href={`mailto:${companyInfo.email}`}
-              className={`text-sm transition-colors ${isDark ? 'text-dark-400 hover:text-primary-500' : 'text-light-600 hover:text-teal-600'}`}
+              className={`text-sm transition-colors ${isDark ? 'text-dark-400 hover:text-primary-500' : 'text-light-600 hover:text-primary-navy'}`}
             >
               {companyInfo.email}
             </a>
@@ -70,7 +70,7 @@ export default function Footer() {
                     className={`text-sm transition-colors ${
                       isDark
                         ? 'text-dark-400 hover:text-primary-500'
-                        : 'text-light-600 hover:text-teal-600'
+                        : 'text-light-600 hover:text-primary-navy'
                     }`}
                   >
                     {link.label}
@@ -93,7 +93,7 @@ export default function Footer() {
                     className={`text-sm transition-colors ${
                       isDark
                         ? 'text-dark-400 hover:text-primary-500'
-                        : 'text-light-600 hover:text-teal-600'
+                        : 'text-light-600 hover:text-primary-navy'
                     }`}
                   >
                     {link.label}
@@ -116,7 +116,7 @@ export default function Footer() {
                     className={`text-sm transition-colors ${
                       isDark
                         ? 'text-dark-400 hover:text-primary-500'
-                        : 'text-light-600 hover:text-teal-600'
+                        : 'text-light-600 hover:text-primary-navy'
                     }`}
                   >
                     {link.label}

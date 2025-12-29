@@ -218,7 +218,7 @@
   }
 
   .light .card-featured {
-    @apply bg-gradient-to-br from-teal-50 to-white border-teal-200;
+    @apply bg-gradient-to-br from-primary-navy/5 to-white border-primary-navy/20;
   }
 
   .tag-base {
@@ -235,11 +235,11 @@
 
   /* Light mode tag overrides */
   .light .tag-primary {
-    @apply bg-teal-100 border border-teal-300 text-teal-700;
+    @apply bg-primary-navy/10 border border-primary-navy/30 text-primary-navy;
   }
 
   .light .tag-light {
-    @apply bg-teal-50 border border-teal-200 text-teal-600;
+    @apply bg-primary-navy/5 border border-primary-navy/20 text-primary-navy;
   }
 
   .btn-base {
@@ -267,7 +267,7 @@
   }
 
   .light .btn-ghost {
-    @apply text-teal-600 hover:text-teal-700;
+    @apply text-primary-navy hover:text-primary-navy/80;
   }
 
   .icon-box {
@@ -281,14 +281,14 @@
 
   /* Light mode icon-box override */
   .light .icon-box {
-    @apply bg-gradient-to-br from-teal-100 to-teal-50 text-teal-600;
+    @apply bg-gradient-to-br from-primary-navy/10 to-primary-navy/5 text-primary-navy;
   }
 
   /* Light mode grid pattern */
   .light .grid-pattern {
     background-image:
-      linear-gradient(rgba(13, 148, 136, 0.08) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(13, 148, 136, 0.08) 1px, transparent 1px);
+      linear-gradient(rgba(1, 33, 105, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(1, 33, 105, 0.08) 1px, transparent 1px);
   }
 }
 

@@ -219,7 +219,7 @@ function TopologySection({ isDark }) {
           viewport={{ once: true }}
         >
           <Card size="lg" className="h-full">
-            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
               Node Types
             </h4>
             <div className="space-y-4">
@@ -248,7 +248,7 @@ function TopologySection({ isDark }) {
           transition={{ delay: 0.1 }}
         >
           <Card size="lg" className="h-full">
-            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
               Status Indicators
             </h4>
             <div className="space-y-4">
@@ -349,7 +349,7 @@ function FeaturesSection({ isDark }) {
                 isDark ? 'bg-white/[0.02] border border-white/5' : 'bg-white border border-light-300'
               }`}
             >
-              <Check size={18} className={`flex-shrink-0 ${isDark ? 'text-teal-400' : 'text-teal-600'}`} />
+              <Check size={18} className={`flex-shrink-0 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`} />
               <span className={`text-sm ${isDark ? 'text-dark-200' : 'text-light-700'}`}>{cap}</span>
             </motion.div>
           ))}

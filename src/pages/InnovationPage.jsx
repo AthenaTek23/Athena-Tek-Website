@@ -91,15 +91,15 @@ function AIEcosystemSection({ isDark }) {
               </p>
               <ul className="space-y-2">
                 <li className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                  <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                  <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                   Rapid model deployment and updates
                 </li>
                 <li className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                  <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                  <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                   Isolated execution environments
                 </li>
                 <li className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                  <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                  <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                   Resource-efficient operation
                 </li>
               </ul>
@@ -113,15 +113,15 @@ function AIEcosystemSection({ isDark }) {
               </p>
               <ul className="space-y-2">
                 <li className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                  <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                  <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                   Gyroscope and accelerometer fusion
                 </li>
                 <li className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                  <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                  <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                   Magnetometer integration
                 </li>
                 <li className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                  <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                  <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                   Trilateration support
                 </li>
               </ul>
@@ -162,9 +162,9 @@ function EdgeComputingSection({ isDark }) {
             >
               <Card size="lg" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center mb-4 ${
-                  isDark ? 'bg-teal-900/30' : 'bg-teal-100'
+                  isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
                 }`}>
-                  <div className={isDark ? 'text-teal-400' : 'text-teal-600'}>
+                  <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
                     {feature.icon}
                   </div>
                 </div>
@@ -189,9 +189,9 @@ function EdgeComputingSection({ isDark }) {
           <Card size="xl" className={isDark ? 'bg-white/[0.02]' : 'bg-white'}>
             <div className="flex flex-col md:flex-row items-center gap-6">
               <div className={`w-20 h-20 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                isDark ? 'bg-teal-900/30' : 'bg-teal-100'
+                isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
               }`}>
-                <Cpu size={40} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                <Cpu size={40} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
               </div>
               <div>
                 <h4 className={`text-xl font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
@@ -252,9 +252,9 @@ function RDSection({ isDark }) {
           >
             <Card size="xl" className="h-full">
               <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                isDark ? 'bg-teal-900/30' : 'bg-teal-100'
+                isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
               }`}>
-                <div className={isDark ? 'text-teal-400' : 'text-teal-600'}>
+                <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
                   {area.icon}
                 </div>
               </div>
@@ -267,7 +267,7 @@ function RDSection({ isDark }) {
               <ul className="space-y-2">
                 {area.initiatives.map((initiative, j) => (
                   <li key={j} className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                    <Lightbulb size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                    <Lightbulb size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                     {initiative}
                   </li>
                 ))}
@@ -309,18 +309,18 @@ function RoadmapSection({ isDark }) {
               <Card size="xl" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
                 <div className="flex items-center gap-3 mb-4">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                    isDark ? 'bg-teal-900/30' : 'bg-teal-100'
+                    isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
                   }`}>
-                    <Rocket size={20} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                    <Rocket size={20} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                   </div>
-                  <h4 className={`text-lg font-bold ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+                  <h4 className={`text-lg font-bold ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
                     {phase.phase}
                   </h4>
                 </div>
                 <ul className="space-y-3">
                   {phase.items.map((item, j) => (
                     <li key={j} className={`flex items-center gap-2 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                      <Check size={16} className={`flex-shrink-0 ${isDark ? 'text-teal-400' : 'text-teal-600'}`} />
+                      <Check size={16} className={`flex-shrink-0 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`} />
                       <span className="text-sm">{item}</span>
                     </li>
                   ))}

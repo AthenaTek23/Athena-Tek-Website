@@ -86,9 +86,9 @@ function LVCSection({ isDark }) {
           >
             <Card size="xl" className="h-full">
               <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                isDark ? 'bg-teal-900/30' : 'bg-teal-100'
+                isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
               }`}>
-                <div className={isDark ? 'text-teal-400' : 'text-teal-600'}>
+                <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
                   {type.icon}
                 </div>
               </div>
@@ -101,7 +101,7 @@ function LVCSection({ isDark }) {
               <ul className="space-y-2">
                 {type.features.map((feature, j) => (
                   <li key={j} className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                    <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                    <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                     {feature}
                   </li>
                 ))}
@@ -158,13 +158,13 @@ function PartnersSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="lg" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <h4 className={`text-lg font-bold mb-3 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+                <h4 className={`text-lg font-bold mb-3 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
                   {partner.name}
                 </h4>
                 <ul className="space-y-2">
                   {partner.integrations.map((integration, j) => (
                     <li key={j} className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                      <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                      <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                       {integration}
                     </li>
                   ))}
@@ -208,7 +208,7 @@ function EXCONSection({ isDark }) {
           viewport={{ once: true }}
         >
           <Card size="xl" className="h-full">
-            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
               Exercise Controllers
             </h4>
             <div className="space-y-4">
@@ -235,7 +235,7 @@ function EXCONSection({ isDark }) {
           viewport={{ once: true }}
         >
           <Card size="xl" className="h-full">
-            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
               Situational Awareness Devices
             </h4>
             <div className="space-y-4">

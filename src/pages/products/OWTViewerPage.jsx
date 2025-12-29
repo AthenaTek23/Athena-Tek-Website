@@ -111,9 +111,9 @@ function ArchitectureSection({ isDark }) {
             <Card size="xl" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
               <div className="flex items-center gap-3 mb-6">
                 <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                  isDark ? 'bg-teal-900/30' : 'bg-teal-100'
+                  isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
                 }`}>
-                  <Globe size={24} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                  <Globe size={24} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                 </div>
                 <div>
                   <h3 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-light-900'}`}>
@@ -127,7 +127,7 @@ function ArchitectureSection({ isDark }) {
               <ul className="space-y-4">
                 {clientComponents.map((comp, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <Check size={18} className={`mt-0.5 flex-shrink-0 ${isDark ? 'text-teal-400' : 'text-teal-600'}`} />
+                    <Check size={18} className={`mt-0.5 flex-shrink-0 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`} />
                     <div>
                       <span className={`font-medium ${isDark ? 'text-white' : 'text-light-900'}`}>
                         {comp.name}
@@ -224,7 +224,7 @@ function TechnologySection({ isDark }) {
             transition={{ delay: techIdx * 0.1 }}
           >
             <Card size="lg" className="h-full">
-              <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+              <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
                 {tech.category}
               </h4>
               <ul className="space-y-4">
@@ -290,7 +290,7 @@ function FeaturesSection({ isDark }) {
             viewport={{ once: true }}
           >
             <Card size="lg" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-              <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+              <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
                 CesiumJS Capabilities
               </h4>
               <div className="space-y-3">
@@ -318,13 +318,13 @@ function FeaturesSection({ isDark }) {
             transition={{ delay: 0.1 }}
           >
             <Card size="lg" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-              <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+              <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
                 Data Layers
               </h4>
               <ul className="space-y-2">
                 {dataLayers.map((layer, i) => (
                   <li key={i} className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                    <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                    <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                     {layer}
                   </li>
                 ))}
@@ -340,7 +340,7 @@ function FeaturesSection({ isDark }) {
             transition={{ delay: 0.2 }}
           >
             <Card size="lg" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-              <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+              <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
                 Performance Optimization
               </h4>
               <div className="space-y-3">

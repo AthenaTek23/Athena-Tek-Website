@@ -75,8 +75,8 @@ function OCFeaturesSection({ isDark }) {
         ))}
       </div>
       <div className="mt-6">
-        <Card size="md" className={isDark ? 'bg-teal-900/20 border-teal-500/20' : 'bg-teal-50 border-teal-200'}>
-          <p className={`text-sm ${isDark ? 'text-teal-400' : 'text-teal-700'}`}>
+        <Card size="md" className={isDark ? 'bg-primary-navy/20 border-primary-light/20' : 'bg-primary-navy/5 border-primary-navy/20'}>
+          <p className={`text-sm ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
             <strong>Additional OC Capability:</strong> Locate Grenades After Training - Track and recover training grenades post-exercise
           </p>
         </Card>
@@ -111,9 +111,9 @@ function SoldierFeaturesSection({ isDark }) {
             >
               <Card size="lg" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
-                  isDark ? 'bg-teal-900/30' : 'bg-teal-100'
+                  isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
                 }`}>
-                  <Smartphone size={24} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                  <Smartphone size={24} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                 </div>
                 <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                   {feature.title}
@@ -154,7 +154,7 @@ function FutureCapabilitiesSection({ isDark }) {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="lg" className={isDark ? 'border-dashed border-white/20' : 'border-dashed border-light-400'}>
-              <span className={`text-xs font-semibold uppercase tracking-wider ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+              <span className={`text-xs font-semibold uppercase tracking-wider ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
                 Coming Soon
               </span>
               <h4 className={`text-lg font-semibold mb-2 mt-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
@@ -219,7 +219,7 @@ function SpecificationsSection({ isDark }) {
                         i % 2 === 0 ? (isDark ? 'bg-white/[0.01]' : 'bg-light-50') : ''
                       }`}
                     >
-                      <td className={`py-3 px-4 font-medium ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+                      <td className={`py-3 px-4 font-medium ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
                         {spec.label}
                       </td>
                       <td className={`py-3 px-4 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>

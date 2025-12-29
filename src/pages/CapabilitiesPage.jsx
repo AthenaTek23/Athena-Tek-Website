@@ -79,7 +79,7 @@ function NetworkCapabilitiesSection({ isDark }) {
         <Link
           to="/services/network-design"
           className={`inline-flex items-center gap-2 text-sm font-medium ${
-            isDark ? 'text-teal-400 hover:text-teal-300' : 'text-teal-600 hover:text-teal-700'
+            isDark ? 'text-primary-light hover:text-primary-light/80' : 'text-primary-navy hover:text-primary-navy/80'
           }`}
         >
           Learn more about Network Design
@@ -119,13 +119,13 @@ function TrainingCapabilitiesSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="lg" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+                <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
                   {feature.title}
                 </h4>
                 <ul className="space-y-2">
                   {feature.items.map((item, j) => (
                     <li key={j} className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                      <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                      <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                       {item}
                     </li>
                   ))}
@@ -139,7 +139,7 @@ function TrainingCapabilitiesSection({ isDark }) {
           <Link
             to="/products/ares-v"
             className={`inline-flex items-center gap-2 text-sm font-medium ${
-              isDark ? 'text-teal-400 hover:text-teal-300' : 'text-teal-600 hover:text-teal-700'
+              isDark ? 'text-primary-light hover:text-primary-light/80' : 'text-primary-navy hover:text-primary-navy/80'
             }`}
           >
             Explore ARES V Training Device
@@ -213,7 +213,7 @@ function TECapabilitiesSection({ isDark }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {teServices.map((service, i) => (
               <div key={i} className={`flex items-center gap-3 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                <Check size={18} className={`flex-shrink-0 ${isDark ? 'text-teal-400' : 'text-teal-600'}`} />
+                <Check size={18} className={`flex-shrink-0 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`} />
                 <span className="text-sm">{service}</span>
               </div>
             ))}
@@ -271,7 +271,7 @@ function AICapabilitiesSection({ isDark }) {
           <Link
             to="/innovation"
             className={`inline-flex items-center gap-2 text-sm font-medium ${
-              isDark ? 'text-teal-400 hover:text-teal-300' : 'text-teal-600 hover:text-teal-700'
+              isDark ? 'text-primary-light hover:text-primary-light/80' : 'text-primary-navy hover:text-primary-navy/80'
             }`}
           >
             Explore our Innovation efforts

@@ -127,7 +127,7 @@ function DifferentiatorsSection({ isDark }) {
                 isDark ? 'bg-white/[0.02] border border-white/5' : 'bg-white border border-light-300'
               }`}
             >
-              <Check size={18} className={isDark ? 'text-teal-400 mt-0.5 flex-shrink-0' : 'text-teal-600 mt-0.5 flex-shrink-0'} />
+              <Check size={18} className={isDark ? 'text-primary-light mt-0.5 flex-shrink-0' : 'text-primary-navy mt-0.5 flex-shrink-0'} />
               <span className={`text-sm ${isDark ? 'text-dark-200' : 'text-light-700'}`}>{diff}</span>
             </motion.div>
           ))}
@@ -162,9 +162,9 @@ function HardwareSection({ isDark }) {
           >
             <Card size="lg" className="text-center h-full">
               <div className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center ${
-                isDark ? 'bg-teal-900/30' : 'bg-teal-100'
+                isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
               }`}>
-                <Cpu size={28} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                <Cpu size={28} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
               </div>
               <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                 {item.label}
@@ -233,7 +233,7 @@ function SpecificationsSection({ isDark }) {
               transition={{ delay: sectionIdx * 0.1 }}
             >
               <Card size="lg" className={isDark ? 'bg-white/[0.02]' : 'bg-white'}>
-                <h3 className={`text-lg font-bold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+                <h3 className={`text-lg font-bold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
                   {section.category}
                 </h3>
                 <div className="space-y-3">
@@ -287,13 +287,13 @@ function IntegrationSection({ isDark }) {
           viewport={{ once: true }}
         >
           <Card size="lg" className="h-full">
-            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
               Situational Awareness
             </h4>
             <ul className="space-y-2">
               {integrations.situationalAwareness.map((item, i) => (
                 <li key={i} className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                  <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                  <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                   {item}
                 </li>
               ))}
@@ -308,13 +308,13 @@ function IntegrationSection({ isDark }) {
           transition={{ delay: 0.1 }}
         >
           <Card size="lg" className="h-full">
-            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
               Exercise Controllers
             </h4>
             <ul className="space-y-2">
               {integrations.exerciseControllers.map((item, i) => (
                 <li key={i} className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                  <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                  <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                   {item}
                 </li>
               ))}
@@ -329,13 +329,13 @@ function IntegrationSection({ isDark }) {
           transition={{ delay: 0.2 }}
         >
           <Card size="lg" className="h-full">
-            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
               Next Generation Training
             </h4>
             <ul className="space-y-2">
               {integrations.nextGenTraining.map((item, i) => (
                 <li key={i} className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                  <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                  <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                   {item}
                 </li>
               ))}

@@ -102,19 +102,19 @@ function RFModelingSection({ isDark }) {
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className={`p-4 rounded-lg ${isDark ? 'bg-white/5' : 'bg-light-100'}`}>
-              <span className={`font-medium ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>Coverage Maps</span>
+              <span className={`font-medium ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>Coverage Maps</span>
               <p className={`text-sm mt-1 ${isDark ? 'text-dark-400' : 'text-light-600'}`}>
                 Signal strength and coverage area visualization
               </p>
             </div>
             <div className={`p-4 rounded-lg ${isDark ? 'bg-white/5' : 'bg-light-100'}`}>
-              <span className={`font-medium ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>Link Budget Analysis</span>
+              <span className={`font-medium ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>Link Budget Analysis</span>
               <p className={`text-sm mt-1 ${isDark ? 'text-dark-400' : 'text-light-600'}`}>
                 End-to-end link performance calculations
               </p>
             </div>
             <div className={`p-4 rounded-lg ${isDark ? 'bg-white/5' : 'bg-light-100'}`}>
-              <span className={`font-medium ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>Optimization Reports</span>
+              <span className={`font-medium ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>Optimization Reports</span>
               <p className={`text-sm mt-1 ${isDark ? 'text-dark-400' : 'text-light-600'}`}>
                 Recommendations for improved coverage
               </p>
@@ -158,9 +158,9 @@ function NetworkModelingSection({ isDark }) {
               <Card size="lg" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
                 <div className="flex items-start gap-3">
                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                    isDark ? 'bg-teal-900/30' : 'bg-teal-100'
+                    isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
                   }`}>
-                    <Activity size={18} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                    <Activity size={18} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                   </div>
                   <div>
                     <h4 className={`font-semibold mb-1 ${isDark ? 'text-white' : 'text-light-900'}`}>
@@ -213,7 +213,7 @@ function ToolsSection({ isDark }) {
           viewport={{ once: true }}
         >
           <Card size="xl" className="h-full">
-            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
               Modeling Techniques
             </h4>
             <div className="space-y-4">
@@ -240,13 +240,13 @@ function ToolsSection({ isDark }) {
           viewport={{ once: true }}
         >
           <Card size="xl" className="h-full">
-            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
               Applications
             </h4>
             <ul className="space-y-3">
               {applications.map((app, i) => (
                 <li key={i} className={`flex items-center gap-3 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                  <Check size={18} className={`flex-shrink-0 ${isDark ? 'text-teal-400' : 'text-teal-600'}`} />
+                  <Check size={18} className={`flex-shrink-0 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`} />
                   <span>{app}</span>
                 </li>
               ))}

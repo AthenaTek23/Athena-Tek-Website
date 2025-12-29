@@ -112,7 +112,7 @@ function LifecycleSection({ isDark }) {
         <div className="relative">
           {/* Timeline line */}
           <div className={`hidden lg:block absolute top-1/2 left-0 right-0 h-1 ${
-            isDark ? 'bg-teal-500/20' : 'bg-teal-200'
+            isDark ? 'bg-primary-light/20' : 'bg-primary-navy/20'
           }`} />
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
@@ -127,19 +127,19 @@ function LifecycleSection({ isDark }) {
               >
                 {/* Timeline dot */}
                 <div className={`hidden lg:flex absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full items-center justify-center ${
-                  isDark ? 'bg-teal-500' : 'bg-teal-600'
+                  isDark ? 'bg-primary-light' : 'bg-primary-navy'
                 }`}>
                   <span className="text-white text-xs font-bold">{i + 1}</span>
                 </div>
 
                 <Card size="lg" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'} lg:mt-8`}>
-                  <h4 className={`text-lg font-semibold mb-3 ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+                  <h4 className={`text-lg font-semibold mb-3 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
                     {item.phase}
                   </h4>
                   <ul className="space-y-2">
                     {item.activities.map((activity, j) => (
                       <li key={j} className={`flex items-center gap-2 text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                        <Check size={14} className={isDark ? 'text-teal-400' : 'text-teal-600'} />
+                        <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                         {activity}
                       </li>
                     ))}
@@ -186,7 +186,7 @@ function ExpertiseSection({ isDark }) {
               isDark ? 'bg-white/[0.02] border border-white/5' : 'bg-light-100 border border-light-300'
             }`}
           >
-            <Check size={18} className={`flex-shrink-0 ${isDark ? 'text-teal-400' : 'text-teal-600'}`} />
+            <Check size={18} className={`flex-shrink-0 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`} />
             <span className={`text-sm ${isDark ? 'text-dark-200' : 'text-light-700'}`}>{item}</span>
           </motion.div>
         ))}

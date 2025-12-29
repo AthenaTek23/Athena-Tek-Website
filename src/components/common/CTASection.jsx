@@ -16,15 +16,15 @@ export default function CTASection({
       <div className={`absolute inset-0 ${
         isDark
           ? 'bg-gradient-to-br from-dark-900 via-dark-800/50 to-dark-900'
-          : 'bg-gradient-to-br from-teal-50 via-white to-teal-50'
+          : 'bg-gradient-to-br from-primary-navy/5 via-white to-primary-navy/5'
       }`} />
 
       {/* Decorative elements */}
       <div className={`absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl ${
-        isDark ? 'bg-primary-500/5' : 'bg-teal-500/10'
+        isDark ? 'bg-primary-500/5' : 'bg-primary-navy/10'
       }`} />
       <div className={`absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl ${
-        isDark ? 'bg-primary-500/5' : 'bg-teal-500/10'
+        isDark ? 'bg-primary-500/5' : 'bg-primary-navy/10'
       }`} />
 
       {/* Content */}
@@ -66,7 +66,7 @@ export default function CTASection({
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className={`font-mono ${isDark ? 'text-primary-500' : 'text-teal-600'}`}
+          className={`font-mono ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}
         >
           {companyInfo.email}
         </motion.p>
