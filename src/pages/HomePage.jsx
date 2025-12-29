@@ -10,7 +10,6 @@ export default function HomePage() {
   return (
     <div>
       <HeroSection />
-      <BannerSection />
     </div>
   );
 }
@@ -63,10 +62,10 @@ function HeroSection() {
                 <Link
                   key={i}
                   to={pillar.path}
-                  className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 ${
+                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide transition-all duration-200 ${
                     isDark
-                      ? 'bg-primary-navy/30 border border-primary-light/30 text-primary-light hover:bg-primary-navy/50 hover:border-primary-light/50'
-                      : 'bg-primary-navy/10 border border-primary-navy/30 text-primary-navy hover:bg-primary-navy/20 hover:border-primary-navy/50'
+                      ? 'bg-white/90 border border-white text-primary-navy hover:bg-white hover:shadow-lg'
+                      : 'bg-white border border-light-300 text-primary-navy hover:bg-white hover:shadow-lg hover:border-primary-navy/30'
                   }`}
                 >
                   {pillar.icon}
@@ -104,26 +103,3 @@ function HeroSection() {
   );
 }
 
-// Banner Section - Full width text overlay
-function BannerSection() {
-  return (
-    <section className="relative py-20 overflow-hidden bg-gradient-to-r from-primary-navy via-primary-navy to-primary-light">
-      {/* Background pattern */}
-      <div className="absolute inset-0 grid-pattern opacity-20" />
-
-      {/* Mountain/terrain gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-dark-950/50 to-transparent" />
-
-      <div className="relative z-10 container-main text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white"
-        >
-          AI-Driven Soldier Insight at the Point of Need
-        </motion.h2>
-      </div>
-    </section>
-  );
-}
