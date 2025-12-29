@@ -12,8 +12,8 @@ export default function PageSectionNav({ sections }) {
 
   return (
     <>
-      {/* Placeholder to maintain layout space for fixed nav */}
-      <div className="h-14" />
+      {/* Minimal placeholder - scroll-mt on sections handles scroll positioning */}
+      <div className="h-2" />
 
       <nav
         className={`
