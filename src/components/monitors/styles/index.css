@@ -1,0 +1,5 @@
+/* Monitor Styles - Import all themes */
+@import './monitor-base.css';
+@import './network-theme.css';
+@import './ted-theme.css';
+@import './applications-theme.css';

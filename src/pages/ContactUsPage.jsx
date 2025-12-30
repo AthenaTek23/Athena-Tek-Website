@@ -6,7 +6,7 @@ import { PageHero, SectionHeader, CTASection } from '../components/common';
 
 export default function ContactUsPage() {
 	
-	const EMAIL_TO = 'info@athena-tek.com'; //RichNote: Replace with acture email or serverside email mail server.
+	const EMAIL_TO = 'info@athena-tek.com';
 	
   const [formData, setFormData] = useState({
     name: '',

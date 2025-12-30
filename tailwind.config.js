@@ -4,41 +4,88 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
         primary: {
-          50: '#ecfdf5', //RichNote: Grey
-          100: '#d1fae5',//RichNote: Light green
-          200: '#a7f3d0',//RichNote: Light green
-          300: '#6ee7b7',//RichNote: Medium green
-          400: '#012169',//RichNote: Duke Navy Blue #012169 || Old Medium green #34d399
-		  401: '#729ecc',//RichNote: Light Blue #729ecc || Old Medium green #34d399
-          500: '#729ecc',//RichNote: Added to fix the website text and graphics color. Old green #059669 || Light Blue #729ecc
-		  501: '#012169',//RichNote: Added to fix the banner logo color. Old green #059669 || Duke Navy Blue #012169
-          600: '#729ecc',//RichNote: Added to fix the website text and graphics color. Old green #059669 || Light Blue #729ecc
-		  601: '#012169',//RichNote: Added to fix the banner logo color. Old green #059669 || Duke Navy Blue #012169
-          700: '#047857',//RichNote: Dark green
-          800: '#065f46',//RichNote: Dark green
-          900: '#064e3b',//RichNote: Very dark green
+          50: '#ecfdf5',
+          100: '#d1fae5',
+          200: '#a7f3d0',
+          300: '#6ee7b7',
+          400: '#012169',
+          500: '#729ecc',
+          600: '#729ecc',
+          700: '#047857',
+          800: '#065f46',
+          900: '#064e3b',
+          navy: '#012169',
+          light: '#729ecc',
         },
         dark: {
-          50: '#f8fafc',//RichNote: Light grey
-          100: '#f1f5f9',//RichNote: Light grey
-          200: '#e2e8f0',//RichNote: Light grey
-          300: '#cbd5e1',//RichNote: Medium grey
-          400: '#94a3b8',//RichNote: Off blue
-          500: '#64748b',//RichNote: Dark off blue
-          600: '#475569',//RichNote: Darker off blue
-          700: '#334155',//RichNote: Dark off blue
-          800: '#1e293b',//RichNote: Very dark off blue
-          900: '#0f172a',//RichNote: Very dark off blue
-          950: '#0a0f1a',//RichNote: Very dark off blue, almost black.
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',
+          950: '#0a0f1a',
         },
         accent: {
           amber: '#f59e0b',
           indigo: '#6366f1',
           red: '#ef4444',
+          teal: '#14b8a6',
+        },
+        teal: {
+          50: '#f0fdfa',
+          100: '#ccfbf1',
+          200: '#99f6e4',
+          300: '#5eead4',
+          400: '#2dd4bf',
+          500: '#14b8a6',
+          600: '#0d9488',
+          700: '#0f766e',
+          800: '#115e59',
+          900: '#134e4a',
+          950: '#042f2e',
+        },
+        // Semantic color tokens
+        semantic: {
+          success: '#10b981',
+          warning: '#f59e0b',
+          error: '#ef4444',
+          info: '#3b82f6',
+        },
+        // Text-specific tokens for improved contrast
+        text: {
+          primary: '#ffffff',
+          secondary: '#e2e8f0',
+          tertiary: '#94a3b8',
+          muted: '#64748b',
+        },
+        // Surface/background tokens
+        surface: {
+          base: '#0a0f1a',
+          elevated: '#0f172a',
+          overlay: 'rgba(255, 255, 255, 0.02)',
+        },
+        // Light mode colors
+        light: {
+          50: '#ffffff',
+          100: '#f8fafc',
+          200: '#f1f5f9',
+          300: '#e2e8f0',
+          400: '#cbd5e1',
+          500: '#94a3b8',
+          600: '#64748b',
+          700: '#475569',
+          800: '#334155',
+          900: '#1e293b',
         },
       },
       fontFamily: {

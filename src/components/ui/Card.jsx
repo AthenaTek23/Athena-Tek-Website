@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { motion } from 'framer-motion';
 
 const variants = {
@@ -14,7 +15,7 @@ const sizes = {
   xl: 'p-10',
 };
 
-export default function Card({
+const Card = memo(function Card({
   children,
   variant = 'default',
   size = 'md',
@@ -25,7 +26,7 @@ export default function Card({
   ...props
 }) {
   const Component = motion[as] || motion.div;
-  
+
   const baseClasses = 'border rounded-2xl transition-all duration-300';
   const hoverClasses = hover ? 'hover:bg-white/[0.04] hover:border-white/[0.08]' : '';
   const clickableClasses = onClick ? 'cursor-pointer' : '';
@@ -42,7 +43,7 @@ export default function Card({
       {children}
     </Component>
   );
-}
+});
 
 // Subcomponents for structured card layouts
 Card.Header = function CardHeader({ children, className = '' }) {
@@ -64,3 +65,5 @@ Card.Content = function CardContent({ children, className = '' }) {
 Card.Footer = function CardFooter({ children, className = '' }) {
   return <div className={`mt-4 pt-4 border-t border-white/5 ${className}`}>{children}</div>;
 };
+
+export default Card;

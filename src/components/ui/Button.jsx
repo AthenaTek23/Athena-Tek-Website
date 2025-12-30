@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -14,7 +15,7 @@ const sizes = {
   lg: 'px-8 py-4 text-lg',
 };
 
-export default function Button({
+const Button = memo(function Button({
   children,
   variant = 'primary',
   size = 'md',
@@ -90,4 +91,6 @@ export default function Button({
       {content}
     </motion.button>
   );
-}
+});
+
+export default Button;

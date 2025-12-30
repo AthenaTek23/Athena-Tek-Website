@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Shield } from 'lucide-react';
 import { companyInfo } from '../../styles/theme';
+import logoImg from '../../assets/Logo.png';
 
 const footerLinks = {
   solutions: [
@@ -26,13 +26,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center text-white">
-                <Shield size={20} />
-              </div>
-              <span className="text-lg font-bold tracking-wider text-white">
-                {companyInfo.name.toUpperCase()}
-              </span>
+            <Link to="/" className="flex items-center mb-4">
+              <img
+                src={logoImg}
+                alt={companyInfo.name}
+                className="h-10 w-auto"
+                loading="lazy"
+              />
             </Link>
             <p className="text-sm text-dark-400 leading-relaxed">
               {companyInfo.tagline}

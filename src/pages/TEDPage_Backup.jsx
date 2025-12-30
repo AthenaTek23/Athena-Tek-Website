@@ -2,21 +2,102 @@ import { motion } from 'framer-motion';
 import { Check, Zap } from 'lucide-react';
 import { Card } from '../components/ui';
 import { PageHero, SectionHeader, CTASection } from '../components/common';
+import { MonitorApp } from '../components/monitors';
+import { tedViewsConfig, tedSiteConfig } from '../config/monitors';
+
+// Banner image - import
+import bannerImg from '../assets/TED_AI-EnabledSensor_and_EmitterFusionEngine_v2/TED_AI-EnabledSensor_and_EmitterFusionEngine_v2.jpg';
+// TED image - import
+import TEDImg from '../assets/ARES_IV.jpg';
+
+import TED_AI_EnabledSensor_and_EmitterFusionEngine_v2_Back from '../assets/TED_AI-EnabledSensor_and_EmitterFusionEngine_v2/TED_AI-EnabledSensor_and_EmitterFusionEngine_v2_Back.jpg';
 
 export default function TEDPage() {
   return (
     <div>
-      <PageHero
-        tag="TRAINING EDGE DEVICE"
-        title="TED — The AI-Enabled Soldier Engine"
-        subtitle="Real-Time Intelligence at the Edge"
-        description="A rugged, smartphone-sized device that fuses sensors, emitters, networks, and AI inference into the most advanced soldier state engine ever developed."
-      />
+      {/* Custom compact hero section */}
+      <section className="relative py-2 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-dark-900 to-dark-950" />
+        <div className="absolute inset-0 grid-pattern opacity-50" />
+        <div className="relative z-10 max-w-sm mx-auto text-center">
+          <span className="tag-base tag-primary mb-1 inline-block text-xs">TRAINING EDGE DEVICE</span>
+          <h1 className="text-xl md:text-2xl font-extrabold text-white mb-1 whitespace-nowrap">
+            TED — The AI-Enabled Soldier Engine
+          </h1>
+          <h2 className="text-base md:text-lg font-semibold text-primary-500 mb-1">
+            Real-Time Intelligence at the Edge
+          </h2>
+          <p className="text-xs text-dark-400 leading-relaxed">
+            A rugged, smartphone-sized device that fuses sensors, emitters, networks, and AI inference into the most advanced soldier state engine ever developed.
+          </p>
+        </div>
+      </section>
+	  
+		<div
+			/* Banner image - Start */
+		  style={{ width: '100%', overflow: 'hidden' }}>
+		  <img
+			src={bannerImg}
+			alt="Athena-Tek TED overview"
+			loading="lazy"
+			style={{ display: 'block', width: '100%', height: 'auto' }}
+			/* Banner image - End */
+		  />
+		</div>
+
+      {/* Integrated TED Monitor Application */}
+      <section className="w-full bg-dark-950">
+        <div className="container-main py-4">
+          <SectionHeader
+            tag="INTERACTIVE DEMO"
+            title="TED Technology Explorer"
+          />
+        </div>
+        <div className="container-main pb-8">
+          <MonitorApp
+            viewsConfig={tedViewsConfig}
+            siteConfig={tedSiteConfig}
+            theme="ted"
+            basePath="/Athena-Tek-Website/monitors/TED"
+          />
+        </div>
+      </section>
+
+		<div
+			/* TED image - Start */
+		  style={{
+			minHeight: '100vh',
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'center',
+			padding: '2rem',
+			boxSizing: 'border-box',
+			//background: '#0b2e7a1a'
+		  }}
+		>
+		  <motion.img
+			src={TEDImg}
+			alt="Athena-Tek ARES IV device"
+			loading="lazy"
+			initial={{ opacity: 0, scale: 0.98 }}
+			animate={{ opacity: 1, scale: 1 }}
+			transition={{ duration: 0.6, ease: 'easeOut' }}
+			style={{
+			  width: '100%',
+			  maxWidth: 480,
+			  height: 'auto',
+			  borderRadius: 12,
+			  boxShadow: '0 10px 30px rgba(0,0,0,0.25)'
+			}}
+		  />
+		</div>
+
       <AICapabilitiesSection />
       <SensorFusionSection />
       <SpecificationsSection />
       <IntegrationSection />
       <CTASection />
+	  
     </div>
   );
 }
@@ -55,6 +136,36 @@ function AICapabilitiesSection() {
           </motion.div>
         ))}
       </div>
+	  
+	  <div
+			/* TED_AI_EnabledSensor_and_EmitterFusionEngine_v2_Back image - Start */
+		  style={{
+			minHeight: '70vh',
+			display: 'flex',
+			alignItems: 'center',
+			justifyContent: 'center',
+			padding: '2rem',
+			boxSizing: 'border-box',
+			//background: '#0b2e7a1a'
+		  }}
+		>
+		  <motion.img
+			src={TED_AI_EnabledSensor_and_EmitterFusionEngine_v2_Back}
+			alt="Capability Statement"
+			loading="lazy"
+			initial={{ opacity: 0, scale: 0.98 }}
+			animate={{ opacity: 1, scale: 1 }}
+			transition={{ duration: 0.6, ease: 'easeOut' }}
+			style={{
+			  width: '100%',
+			  maxWidth: 1000,
+			  height: 'auto',
+			  borderRadius: 12,
+			  boxShadow: '0 10px 30px rgba(0,0,0,0.25)'
+			}}
+		  />
+		</div>
+	  
     </section>
   );
 }

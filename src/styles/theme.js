@@ -68,25 +68,49 @@ export const transitions = {
   slow: 'transition-all duration-300',
 };
 
+// Standardized icon sizes
+export const iconSizes = {
+  xs: 14,
+  sm: 16,
+  md: 20,
+  lg: 24,
+  xl: 32,
+};
+
+// Standardized grid gaps
+export const gridGaps = {
+  tight: 'gap-4',   // 16px - tight grids
+  default: 'gap-6', // 24px - default
+  spacious: 'gap-8', // 32px - spacious layouts
+};
+
 // Navigation items
 export const navItems = [
-  { path: '/', label: 'Home' },
+  { path: '/about', label: 'About Us' },
+  { path: '/capabilities', label: 'Capabilities' },
+  { path: '/products', label: 'Products' },
+  { path: '/services', label: 'Services' },
+  { path: '/innovation', label: 'Innovation' },
+  { path: '/news', label: 'Newsroom' },
+  { path: '/contact', label: 'Contact Us' },
+];
+
+// Legacy navigation items (for internal routing, not shown in main nav)
+export const legacyNavItems = [
   { path: '/network', label: 'Network' },
   { path: '/ted', label: 'TED' },
   { path: '/training', label: 'Live Training' },
   { path: '/te', label: 'T&E' },
   { path: '/ai', label: 'AI Ecosystem' },
   { path: '/partners', label: 'Partners' },
-  { path: '/about', label: 'About' },
-  { path: '/news', label: 'Newsroom' },
 ];
 
 // Company information
 export const companyInfo = {
   name: 'Athena-Tek',
-  tagline: 'AI-Driven Soldier Insight at the Point of Need',
+  tagline: 'Network Focused. Solution Driven.',
   email: 'info@athena-tek.com',
-  pressEmail: 'press@athena-tek.com',
+  //pressEmail: 'press@athena-tek.com',
   location: 'Orlando, FL',
   founded: '2010',
 };
@@ -96,6 +120,9 @@ export default {
   spacing,
   typography,
   transitions,
+  iconSizes,
+  gridGaps,
   navItems,
+  legacyNavItems,
   companyInfo,
 };

@@ -1,3 +1,6 @@
+/* Monitor component styles - must be imported before Tailwind */
+@import '../components/monitors/styles/index.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,6 +17,7 @@
     scroll-behavior: smooth;
   }
 
+  /* Dark mode (default) */
   body {
     @apply bg-dark-950 text-dark-200 font-sans antialiased;
     line-height: 1.6;
@@ -23,10 +27,29 @@
     @apply font-bold text-white;
   }
 
+  /* Light mode overrides */
+  .light body {
+    @apply bg-light-100 text-light-700;
+  }
+
+  .light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+    @apply text-light-900;
+  }
+
+  /* Brand mode overrides (Army Desert Colors) */
+  .brand body {
+    background-color: #f5f0e1;
+    color: #3d2914;
+  }
+
+  .brand h1, .brand h2, .brand h3, .brand h4, .brand h5, .brand h6 {
+    color: #2d1f0f;
+  }
+
   a {
     @apply text-inherit no-underline;
   }
-  
+
   input {
 	  color: black;
   }
@@ -61,6 +84,32 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-dark-600;
   }
+
+  /* Light mode scrollbar */
+  .light ::-webkit-scrollbar-track {
+    @apply bg-light-200;
+  }
+
+  .light ::-webkit-scrollbar-thumb {
+    @apply bg-light-400;
+  }
+
+  .light ::-webkit-scrollbar-thumb:hover {
+    @apply bg-light-500;
+  }
+
+  /* Brand mode scrollbar (Desert) */
+  .brand ::-webkit-scrollbar-track {
+    background-color: #e8e0cc;
+  }
+
+  .brand ::-webkit-scrollbar-thumb {
+    background-color: #a08050;
+  }
+
+  .brand ::-webkit-scrollbar-thumb:hover {
+    background-color: #5a5030;
+  }
 }
 
 /* Component styles */
@@ -70,15 +119,109 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-24 lg:py-32;
+    @apply py-3 md:py-5 lg:py-6;
   }
 
   .section-dark {
     @apply bg-gradient-to-b from-dark-900 to-dark-950;
   }
 
+  /* Light mode section */
+  .light .section-dark {
+    @apply bg-gradient-to-b from-light-200 to-light-100;
+  }
+
+  /* Brand mode section (Desert) */
+  .brand .section-dark {
+    background: linear-gradient(to bottom, #5a5030, #3d3520);
+  }
+
   .text-gradient {
     @apply bg-gradient-to-r from-primary-500 to-primary-400 bg-clip-text text-transparent;
+  }
+
+  /* Typography utility classes */
+  .text-display-xl {
+    @apply text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight;
+  }
+
+  .text-display-lg {
+    @apply text-4xl md:text-5xl font-bold leading-tight;
+  }
+
+  .text-display-md {
+    @apply text-3xl md:text-4xl font-bold leading-tight;
+  }
+
+  .text-display-sm {
+    @apply text-2xl md:text-3xl font-bold leading-snug;
+  }
+
+  .text-body-lg {
+    @apply text-lg text-dark-300 leading-relaxed;
+  }
+
+  .text-body-md {
+    @apply text-base text-dark-300 leading-relaxed;
+  }
+
+  .text-body-sm {
+    @apply text-sm text-dark-400 leading-relaxed;
+  }
+
+  .text-caption {
+    @apply text-xs text-dark-500 leading-normal;
+  }
+
+  /* Content width utility classes */
+  .content-narrow {
+    @apply max-w-3xl mx-auto;
+  }
+
+  .content-medium {
+    @apply max-w-5xl mx-auto;
+  }
+
+  .content-wide {
+    @apply max-w-6xl mx-auto;
+  }
+
+  .content-full {
+    @apply max-w-7xl mx-auto;
+  }
+
+  /* Banner/Image container utilities */
+  .banner-container {
+    @apply w-full overflow-hidden relative;
+  }
+
+  .banner-image {
+    @apply w-full h-auto block object-cover;
+  }
+
+  .banner-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-dark-950/80 to-transparent;
+  }
+
+  .banner-overlay-subtle {
+    @apply absolute inset-0 bg-gradient-to-t from-dark-950/40 to-transparent;
+  }
+
+  /* Centered image container */
+  .image-showcase {
+    @apply min-h-screen flex items-center justify-center p-8;
+  }
+
+  .image-showcase-sm {
+    @apply min-h-[70vh] flex items-center justify-center p-8;
+  }
+
+  .showcase-image {
+    @apply w-full max-w-lg h-auto rounded-xl shadow-2xl;
+  }
+
+  .showcase-image-lg {
+    @apply w-full max-w-4xl h-auto rounded-xl shadow-2xl;
   }
 
   .card-base {
@@ -93,6 +236,37 @@
     @apply bg-gradient-to-br from-primary-500/10 to-primary-500/[0.02] border-primary-500/20;
   }
 
+  /* Light mode card overrides */
+  .light .card-base {
+    @apply bg-white border border-light-300 shadow-sm;
+  }
+
+  .light .card-hover {
+    @apply hover:bg-light-50 hover:border-light-400 hover:shadow-md;
+  }
+
+  .light .card-featured {
+    @apply bg-gradient-to-br from-primary-navy/5 to-white border-primary-navy/20;
+  }
+
+  /* Brand mode card overrides (Desert) */
+  .brand .card-base {
+    background-color: rgba(196, 163, 90, 0.15);
+    border: 1px solid rgba(90, 80, 48, 0.25);
+    box-shadow: 0 1px 2px rgba(61, 41, 20, 0.08);
+  }
+
+  .brand .card-hover:hover {
+    background-color: rgba(196, 163, 90, 0.25);
+    border-color: rgba(90, 80, 48, 0.4);
+    box-shadow: 0 4px 6px rgba(61, 41, 20, 0.12);
+  }
+
+  .brand .card-featured {
+    background: linear-gradient(to bottom right, rgba(196, 163, 90, 0.2), rgba(90, 80, 48, 0.1));
+    border-color: rgba(90, 80, 48, 0.35);
+  }
+
   .tag-base {
     @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider;
   }
@@ -100,49 +274,79 @@
   .tag-primary {
     @apply bg-primary-500/10 border border-primary-500/20 text-primary-500;
   }
-  
-	/*RichNote: Changed the SectionHeader > tag element color - Start*/
-	
-  /*.tag-light {
-    @apply bg-primary-500/15 border border-primary-500/30 text-primary-400;
-  }*/
-  
+
   .tag-light {
-    @apply bg-primary-500/15 border border-primary-500/30 text-primary-401;
+    @apply bg-primary-500/15 border border-primary-500/30 text-primary-light;
   }
-  
-  /*RichNote: Changed the SectionHeader > tag element color - End*/
+
+  /* Light mode tag overrides */
+  .light .tag-primary {
+    @apply bg-primary-navy/10 border border-primary-navy/30 text-primary-navy;
+  }
+
+  .light .tag-light {
+    @apply bg-primary-navy/5 border border-primary-navy/20 text-primary-navy;
+  }
+
+  /* Brand mode tag overrides (Desert) */
+  .brand .tag-primary {
+    background-color: rgba(90, 80, 48, 0.2);
+    border: 1px solid rgba(90, 80, 48, 0.4);
+    color: #3d2914;
+  }
+
+  .brand .tag-light {
+    background-color: rgba(196, 163, 90, 0.3);
+    border: 1px solid rgba(196, 163, 90, 0.5);
+    color: #2d1f0f;
+  }
 
   .btn-base {
     @apply inline-flex items-center justify-center gap-2 font-semibold rounded-lg transition-all duration-200;
   }
 
-	/*RichNote: Changed the header logo color, Contact Us button color - Start*/
-	
-	/*.btn-primary {
-		@apply btn-base bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3;
-		@apply hover:from-primary-400 hover:to-primary-500 hover:shadow-lg hover:shadow-primary-500/25;
-	}
+  .btn-primary {
+    @apply btn-base bg-gradient-to-r from-primary-navy to-primary-navy text-white px-6 py-3;
+    @apply hover:from-primary-400 hover:to-primary-500 hover:shadow-lg hover:shadow-primary-500/25;
+  }
 
-	.btn-secondary {
-		@apply btn-base bg-white/5 border border-white/10 text-white px-6 py-3;
-		@apply hover:bg-white/10 hover:border-white/20;
-	}*/
-
-	.btn-primary {
-		@apply btn-base bg-gradient-to-r from-primary-501 to-primary-601 text-white px-6 py-3;
-		@apply hover:from-primary-400 hover:to-primary-500 hover:shadow-lg hover:shadow-primary-500/25;
-	}
-
-	.btn-secondary {
-		@apply btn-base bg-white/5 border border-white/10 text-white px-6 py-3;
-		@apply hover:bg-white/10 hover:border-white/20;
-	}
-
-  /*RichNote: Changed the header logo color, Contact Us button color - End*/
+  .btn-secondary {
+    @apply btn-base bg-white/5 border border-white/10 text-white px-6 py-3;
+    @apply hover:bg-white/10 hover:border-white/20;
+  }
 
   .btn-ghost {
     @apply btn-base text-primary-500 hover:text-primary-400;
+  }
+
+  /* Light mode button overrides */
+  .light .btn-secondary {
+    @apply bg-light-100 border border-light-300 text-light-800;
+    @apply hover:bg-light-200 hover:border-light-400;
+  }
+
+  .light .btn-ghost {
+    @apply text-primary-navy hover:text-primary-navy/80;
+  }
+
+  /* Brand mode button overrides (Desert) */
+  .brand .btn-secondary {
+    background-color: rgba(196, 163, 90, 0.25);
+    border: 1px solid rgba(90, 80, 48, 0.4);
+    color: #3d2914;
+  }
+
+  .brand .btn-secondary:hover {
+    background-color: rgba(196, 163, 90, 0.4);
+    border-color: rgba(90, 80, 48, 0.6);
+  }
+
+  .brand .btn-ghost {
+    color: #5a5030;
+  }
+
+  .brand .btn-ghost:hover {
+    color: #a08050;
   }
 
   .icon-box {
@@ -153,10 +357,44 @@
     @apply bg-grid-pattern bg-grid;
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
   }
+
+  /* Light mode icon-box override */
+  .light .icon-box {
+    @apply bg-gradient-to-br from-primary-navy/10 to-primary-navy/5 text-primary-navy;
+  }
+
+  /* Light mode grid pattern */
+  .light .grid-pattern {
+    background-image:
+      linear-gradient(rgba(1, 33, 105, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(1, 33, 105, 0.08) 1px, transparent 1px);
+  }
+
+  /* Brand mode icon-box override (Desert) */
+  .brand .icon-box {
+    background: linear-gradient(to bottom right, rgba(196, 163, 90, 0.35), rgba(90, 80, 48, 0.15));
+    color: #5a5030;
+  }
+
+  /* Brand mode grid pattern (Desert) */
+  .brand .grid-pattern {
+    background-image:
+      linear-gradient(rgba(90, 80, 48, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(90, 80, 48, 0.1) 1px, transparent 1px);
+  }
 }
 
 /* Utility styles */
 @layer utilities {
+  /* Hide scrollbar but keep scroll functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   .animate-delay-100 {
     animation-delay: 100ms;
   }

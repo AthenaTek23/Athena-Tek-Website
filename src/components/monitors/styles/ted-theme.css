@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Monitor Theme: TED
+   Cyan/Teal Theme
+   ========================================================================== */
+
+.monitor-theme-ted {
+  --monitor-bg: radial-gradient(circle at top, #182033 0%, #05060a 60%);
+  --monitor-accent: #46e0ff;
+  --monitor-accent-soft: rgba(70, 224, 255, 0.12);
+  --monitor-accent-glow: rgba(70, 224, 255, 0.35);
+  --monitor-text: #e9f3ff;
+  --monitor-text-muted: #a0b1c6;
+  --monitor-border: #22293b;
+  --monitor-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+
+  --monitor-sidebar-bg: linear-gradient(180deg, #05060a 0%, #090b16 40%, #05060a 100%);
+  --monitor-content-bg: radial-gradient(circle at top left, #192032 0%, #05060a 55%);
+  --monitor-content-border: rgba(72, 134, 222, 0.4);
+
+  --monitor-view-bg:
+    radial-gradient(circle at top right, rgba(70, 224, 255, 0.12) 0%, transparent 55%),
+    radial-gradient(circle at bottom left, rgba(0, 255, 184, 0.16) 0%, transparent 55%);
+
+  --monitor-pill-bg: rgba(4, 10, 24, 0.9);
+  --monitor-panel-bg: #05060a;
+  --monitor-panel-border: rgba(80, 120, 200, 0.6);
+  --monitor-text-panel-bg: rgba(5, 8, 20, 0.96);
+  --monitor-text-panel-border: rgba(70, 110, 190, 0.9);
+
+  background: var(--monitor-bg);
+  color: var(--monitor-text);
+}

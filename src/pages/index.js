@@ -7,3 +7,4 @@ export { default as AIPage } from './AIPage';
 export { default as PartnersPage } from './PartnersPage';
 export { default as AboutPage } from './AboutPage';
 export { default as NewsPage } from './NewsPage';
+export { default as ContactUsPage } from './ContactUsPage';

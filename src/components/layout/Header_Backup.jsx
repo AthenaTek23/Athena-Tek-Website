@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Shield } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '../ui';
 import { navItems, companyInfo } from '../../styles/theme';
+import logoImg from '../../assets/Logo.png';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,16 +30,16 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <nav className="container-main">
+      <nav className="px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-11 h-11 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center text-white transition-transform group-hover:scale-105">
-              <Shield size={24} />
-            </div>
-            <span className="text-xl font-bold tracking-wider text-white">
-              {companyInfo.name.toUpperCase()}
-            </span>
+          <Link to="/" className="flex items-center group flex-shrink-0 -ml-2">
+            <img
+              src={logoImg}
+              alt={companyInfo.name}
+              className="h-10 w-auto flex-shrink-0 transition-transform group-hover:scale-105"
+              loading="lazy"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -60,7 +61,7 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Button variant="primary" size="sm">
+            <Button to="/ContactUsPage" variant="primary" size="sm">
               Contact Us
             </Button>
           </div>
