@@ -28,6 +28,14 @@ const ModelingSimulationPage = lazy(() => import('./pages/services/ModelingSimul
 const NetworkDesignPage = lazy(() => import('./pages/services/NetworkDesignPage'));
 const RFEngineeringPage = lazy(() => import('./pages/services/RFEngineeringPage'));
 
+// Capability pages
+const TacticalNetworkingPage = lazy(() => import('./pages/capabilities/TacticalNetworkingPage'));
+const TEDEcosystemPage = lazy(() => import('./pages/capabilities/TEDEcosystemPage'));
+const AISafetyPage = lazy(() => import('./pages/capabilities/AISafetyPage'));
+const LVCIntegrationPage = lazy(() => import('./pages/capabilities/LVCIntegrationPage'));
+const TENMPage = lazy(() => import('./pages/capabilities/TENMPage'));
+const SoftwareAARPage = lazy(() => import('./pages/capabilities/SoftwareAARPage'));
+
 // Legacy pages (kept for internal reference)
 const NetworkPage = lazy(() => import('./pages/NetworkPage'));
 const TEDPage = lazy(() => import('./pages/TEDPage'));
@@ -78,6 +86,14 @@ function App() {
             <Route path="/services/modeling-simulation" element={<ModelingSimulationPage />} />
             <Route path="/services/network-design" element={<NetworkDesignPage />} />
             <Route path="/services/rf-engineering" element={<RFEngineeringPage />} />
+
+            {/* Capabilities routes */}
+            <Route path="/capabilities/tactical-networking" element={<TacticalNetworkingPage />} />
+            <Route path="/capabilities/ted-ecosystem" element={<TEDEcosystemPage />} />
+            <Route path="/capabilities/ai-safety" element={<AISafetyPage />} />
+            <Route path="/capabilities/lvc-integration" element={<LVCIntegrationPage />} />
+            <Route path="/capabilities/tenm" element={<TENMPage />} />
+            <Route path="/capabilities/software-aar" element={<SoftwareAARPage />} />
 
             {/* Legacy routes (internal reference) */}
             <Route path="/network" element={<NetworkPage />} />
