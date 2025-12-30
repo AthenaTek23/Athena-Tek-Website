@@ -36,6 +36,16 @@
     @apply text-light-900;
   }
 
+  /* Brand mode overrides (Army Desert Colors) */
+  .brand body {
+    background-color: #f5f0e1;
+    color: #3d2914;
+  }
+
+  .brand h1, .brand h2, .brand h3, .brand h4, .brand h5, .brand h6 {
+    color: #2d1f0f;
+  }
+
   a {
     @apply text-inherit no-underline;
   }
@@ -87,6 +97,19 @@
   .light ::-webkit-scrollbar-thumb:hover {
     @apply bg-light-500;
   }
+
+  /* Brand mode scrollbar (Desert) */
+  .brand ::-webkit-scrollbar-track {
+    background-color: #e8e0cc;
+  }
+
+  .brand ::-webkit-scrollbar-thumb {
+    background-color: #a08050;
+  }
+
+  .brand ::-webkit-scrollbar-thumb:hover {
+    background-color: #5a5030;
+  }
 }
 
 /* Component styles */
@@ -106,6 +129,11 @@
   /* Light mode section */
   .light .section-dark {
     @apply bg-gradient-to-b from-light-200 to-light-100;
+  }
+
+  /* Brand mode section (Desert) */
+  .brand .section-dark {
+    background: linear-gradient(to bottom, #5a5030, #3d3520);
   }
 
   .text-gradient {
@@ -221,6 +249,24 @@
     @apply bg-gradient-to-br from-primary-navy/5 to-white border-primary-navy/20;
   }
 
+  /* Brand mode card overrides (Desert) */
+  .brand .card-base {
+    background-color: rgba(196, 163, 90, 0.15);
+    border: 1px solid rgba(90, 80, 48, 0.25);
+    box-shadow: 0 1px 2px rgba(61, 41, 20, 0.08);
+  }
+
+  .brand .card-hover:hover {
+    background-color: rgba(196, 163, 90, 0.25);
+    border-color: rgba(90, 80, 48, 0.4);
+    box-shadow: 0 4px 6px rgba(61, 41, 20, 0.12);
+  }
+
+  .brand .card-featured {
+    background: linear-gradient(to bottom right, rgba(196, 163, 90, 0.2), rgba(90, 80, 48, 0.1));
+    border-color: rgba(90, 80, 48, 0.35);
+  }
+
   .tag-base {
     @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider;
   }
@@ -240,6 +286,19 @@
 
   .light .tag-light {
     @apply bg-primary-navy/5 border border-primary-navy/20 text-primary-navy;
+  }
+
+  /* Brand mode tag overrides (Desert) */
+  .brand .tag-primary {
+    background-color: rgba(90, 80, 48, 0.2);
+    border: 1px solid rgba(90, 80, 48, 0.4);
+    color: #3d2914;
+  }
+
+  .brand .tag-light {
+    background-color: rgba(196, 163, 90, 0.3);
+    border: 1px solid rgba(196, 163, 90, 0.5);
+    color: #2d1f0f;
   }
 
   .btn-base {
@@ -270,6 +329,26 @@
     @apply text-primary-navy hover:text-primary-navy/80;
   }
 
+  /* Brand mode button overrides (Desert) */
+  .brand .btn-secondary {
+    background-color: rgba(196, 163, 90, 0.25);
+    border: 1px solid rgba(90, 80, 48, 0.4);
+    color: #3d2914;
+  }
+
+  .brand .btn-secondary:hover {
+    background-color: rgba(196, 163, 90, 0.4);
+    border-color: rgba(90, 80, 48, 0.6);
+  }
+
+  .brand .btn-ghost {
+    color: #5a5030;
+  }
+
+  .brand .btn-ghost:hover {
+    color: #a08050;
+  }
+
   .icon-box {
     @apply flex items-center justify-center rounded-xl bg-gradient-to-br from-primary-500/20 to-primary-500/5 text-primary-500;
   }
@@ -289,6 +368,19 @@
     background-image:
       linear-gradient(rgba(1, 33, 105, 0.08) 1px, transparent 1px),
       linear-gradient(90deg, rgba(1, 33, 105, 0.08) 1px, transparent 1px);
+  }
+
+  /* Brand mode icon-box override (Desert) */
+  .brand .icon-box {
+    background: linear-gradient(to bottom right, rgba(196, 163, 90, 0.35), rgba(90, 80, 48, 0.15));
+    color: #5a5030;
+  }
+
+  /* Brand mode grid pattern (Desert) */
+  .brand .grid-pattern {
+    background-image:
+      linear-gradient(rgba(90, 80, 48, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(90, 80, 48, 0.1) 1px, transparent 1px);
   }
 }
 

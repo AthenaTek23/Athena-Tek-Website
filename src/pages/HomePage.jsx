@@ -32,16 +32,6 @@ function HeroSection() {
           alt="Athena-Tek background"
           className="w-full h-full object-cover"
         />
-        <div className={`absolute inset-0 bg-gradient-to-r ${
-          isDark
-            ? 'from-dark-950/80 via-dark-950/50 to-transparent'
-            : 'from-light-100/90 via-light-100/60 to-transparent'
-        }`} />
-        <div className={`absolute inset-0 bg-gradient-to-t ${
-          isDark
-            ? 'from-dark-950/90 via-transparent to-transparent'
-            : 'from-light-100/90 via-transparent to-transparent'
-        }`} />
       </div>
 
       {/* Grid pattern overlay */}

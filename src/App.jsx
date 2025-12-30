@@ -18,12 +18,15 @@ const AndroidTEDPage = lazy(() => import('./pages/products/AndroidTEDPage'));
 const ARESVPage = lazy(() => import('./pages/products/ARESVPage'));
 const NetworkMonitoringPage = lazy(() => import('./pages/products/NetworkMonitoringPage'));
 const OWTViewerPage = lazy(() => import('./pages/products/OWTViewerPage'));
+const WiFiHalowPage = lazy(() => import('./pages/products/WiFiHalowPage'));
+const ZeusPage = lazy(() => import('./pages/products/ZeusPage'));
 
 // Service pages
 const SystemEngineeringPage = lazy(() => import('./pages/services/SystemEngineeringPage'));
 const SystemIntegrationPage = lazy(() => import('./pages/services/SystemIntegrationPage'));
 const ModelingSimulationPage = lazy(() => import('./pages/services/ModelingSimulationPage'));
 const NetworkDesignPage = lazy(() => import('./pages/services/NetworkDesignPage'));
+const RFEngineeringPage = lazy(() => import('./pages/services/RFEngineeringPage'));
 
 // Legacy pages (kept for internal reference)
 const NetworkPage = lazy(() => import('./pages/NetworkPage'));
@@ -43,10 +46,10 @@ function PageLoader() {
 }
 
 function App() {
-  const { isDark } = useTheme();
+  const { isDark, isSepia } = useTheme();
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-dark-950' : 'bg-gray-50'}`}>
+    <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-dark-950' : isSepia ? 'bg-[#f5f0e1]' : 'bg-gray-50'}`}>
       <Header />
       <main className="pt-20">
         <Suspense fallback={<PageLoader />}>
@@ -65,6 +68,8 @@ function App() {
             <Route path="/products/ares-v" element={<ARESVPage />} />
             <Route path="/products/network-monitoring" element={<NetworkMonitoringPage />} />
             <Route path="/products/owt-viewer" element={<OWTViewerPage />} />
+            <Route path="/products/Wi-Fi-Halow" element={<WiFiHalowPage />} />
+            <Route path="/products/Zeus" element={<ZeusPage />} />
 
             {/* Services routes */}
             <Route path="/services" element={<ServicesPage />} />
@@ -72,6 +77,7 @@ function App() {
             <Route path="/services/system-integration" element={<SystemIntegrationPage />} />
             <Route path="/services/modeling-simulation" element={<ModelingSimulationPage />} />
             <Route path="/services/network-design" element={<NetworkDesignPage />} />
+            <Route path="/services/rf-engineering" element={<RFEngineeringPage />} />
 
             {/* Legacy routes (internal reference) */}
             <Route path="/network" element={<NetworkPage />} />

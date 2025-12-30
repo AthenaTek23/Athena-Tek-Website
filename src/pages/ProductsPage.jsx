@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Cpu, Smartphone, Monitor, Globe, ChevronRight } from 'lucide-react';
+import { Cpu, Smartphone, Monitor, Globe, ChevronRight, Phone, SmartphoneIcon, RadioTower, Wifi } from 'lucide-react';
 import { Card } from '../components/ui';
 import { SectionHeader, CTASection } from '../components/common';
 import { PageSectionNav, SectionDots } from '../components/navigation';
@@ -34,6 +34,13 @@ function HardwareSection({ isDark }) {
   const sectionId = 'hardware';
   const products = [
     {
+      icon: <SmartphoneIcon size={iconSizes.xl} />,
+      name: 'ARES V',
+      description: 'AI-enabled soldier training device with advanced 5G connectivity and edge computing capabilities.',
+      path: '/products/ares-v',
+      features: ['5G/4G Cellular', 'Mesh Networking', 'Edge AI', 'Sensor Fusion'],
+    },
+    {
       icon: <Smartphone size={iconSizes.xl} />,
       name: 'Android TED (A TED)',
       description: 'OC tool based on modified COTS 5G phone with IR capabilities for exercise control and management.',
@@ -41,11 +48,18 @@ function HardwareSection({ isDark }) {
       features: ['ATAK Base EXCON', 'Exercise Management', 'PTT Voice Comms', 'IR Emitter'],
     },
     {
-      icon: <Cpu size={iconSizes.xl} />,
-      name: 'ARES V',
-      description: 'AI-enabled soldier training device with advanced 5G connectivity and edge computing capabilities.',
-      path: '/products/ares-v',
-      features: ['5G/4G Cellular', 'Mesh Networking', 'Edge AI', 'Sensor Fusion'],
+      icon: <Wifi size={iconSizes.xl} />,
+      name: 'Wi-Fi Halow',
+      description: 'long-range, low-power IoT applications. Remote monitoring of distributed infrastructure',
+      path: '/products/Wi-Fi-Halow',
+      features: ['IEEE 802.11 AH', 'Mesh Networking', 'Sub-1 GHz', 'Adaptive Power', 'Adaptive Modulation'],
+    },
+        {
+      icon: <RadioTower size={iconSizes.xl} />,
+      name: '5G Zeus',
+      description: 'Dedicated cellular network deployed and operated for the exclusive use of a single organization',
+      path: '/products/Zeus',
+      features: ['Radio Access Network (RAN) with 5G base stations', 'Spectrum: licensed, shared such as CBRS, or unlicensed'],
     },
   ];
 

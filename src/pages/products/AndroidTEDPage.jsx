@@ -7,6 +7,7 @@ import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
 
 const sections = [
+  { id: 'hero', label: 'Overview' },
   { id: 'oc-features', label: 'OC Features' },
   { id: 'soldier-features', label: 'Soldier Features' },
   { id: 'future-capabilities', label: 'Future Capabilities' },
@@ -21,6 +22,7 @@ export default function AndroidTEDPage() {
       <PageSectionNav sections={sections} />
       <SectionDots sections={sections} />
 
+      <HeroSection isDark={isDark} />
       <OCFeaturesSection isDark={isDark} />
       <SoldierFeaturesSection isDark={isDark} />
       <FutureCapabilitiesSection isDark={isDark} />
@@ -30,6 +32,35 @@ export default function AndroidTEDPage() {
         subtitle="Contact our team for detailed specifications and integration options."
       />
     </div>
+  );
+}
+
+function HeroSection({ isDark }) {
+  return (
+    <section id="hero" className="py-8 md:py-12 lg:py-16 container-main scroll-mt-36">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center"
+      >
+        <div className={`w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center ${
+          isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+        }`}>
+          <Smartphone size={48} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+        </div>
+        <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
+          Android TED
+        </h1>
+        <p className={`text-xl md:text-2xl mb-6 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
+          Android Training Edge Device (A TED)
+        </p>
+        <p className={`text-base md:text-lg max-w-3xl mx-auto ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+          OC tool based on modified COTS 5G phone with IR capabilities for exercise control and management.
+          Full ATAK integration with PTT voice communications and video observation.
+        </p>
+      </motion.div>
+    </section>
   );
 }
 

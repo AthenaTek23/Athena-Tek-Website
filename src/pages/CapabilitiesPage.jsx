@@ -94,7 +94,7 @@ function TrainingCapabilitiesSection({ isDark }) {
   const sectionId = 'training';
   const trainingFeatures = [
     { title: 'Live Training Instrumentation', items: ['MILES integration', 'TSPI tracking', 'Real-time feedback', 'Soldier telemetry'] },
-    { title: 'Training Devices', items: ['ARES V soldier device', 'Android TED (A TED)', 'ZigBee integration'] },
+    { title: 'Training Devices', items: ['ARES V soldier device', 'ARES M', 'Android TED (A TED)', '5 watt 802.11 AH MPCIE Modem'] },
     { title: 'After Action Review', items: ['Network monitoring', 'Timeline playback', 'Performance analysis', 'Casualty tracking'] },
     { title: 'Exercise Control', items: ['STIA integration', 'HITS support', 'TAK connectivity', 'XLCC compatibility'] },
   ];

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Cpu, Radio, Shield, Zap, MapPin, Server, Check } from 'lucide-react';
+import { Cpu, Radio, Shield, Zap, MapPin, Server, Check, Smartphone } from 'lucide-react';
 import { Card } from '../../components/ui';
 import { SectionHeader, CTASection } from '../../components/common';
 import { PageSectionNav, SectionDots } from '../../components/navigation';
@@ -7,6 +7,7 @@ import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
 
 const sections = [
+  { id: 'hero', label: 'Overview' },
   { id: 'benefits', label: 'Key Benefits' },
   { id: 'differentiators', label: 'Key Differentiators' },
   { id: 'hardware', label: 'Core Hardware' },
@@ -22,6 +23,7 @@ export default function ARESVPage() {
       <PageSectionNav sections={sections} />
       <SectionDots sections={sections} />
 
+      <HeroSection isDark={isDark} />
       <BenefitsSection isDark={isDark} />
       <DifferentiatorsSection isDark={isDark} />
       <HardwareSection isDark={isDark} />
@@ -32,6 +34,35 @@ export default function ARESVPage() {
         subtitle="Contact our team for integration support and deployment options."
       />
     </div>
+  );
+}
+
+function HeroSection({ isDark }) {
+  return (
+    <section id="hero" className="py-8 md:py-12 lg:py-16 container-main scroll-mt-36">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center"
+      >
+        <div className={`w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center ${
+          isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+        }`}>
+          <Smartphone size={48} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+        </div>
+        <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
+          ARES V
+        </h1>
+        <p className={`text-xl md:text-2xl mb-6 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
+          AI-Enabled Soldier Training Device
+        </p>
+        <p className={`text-base md:text-lg max-w-3xl mx-auto ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+          Advanced 5G connectivity and edge computing capabilities for next-generation military training.
+          A single device platform supporting multiple use cases for training and testing.
+        </p>
+      </motion.div>
+    </section>
   );
 }
 
