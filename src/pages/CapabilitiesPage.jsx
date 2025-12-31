@@ -2,17 +2,26 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Network, Cpu, Shield, Layers, Wrench, Database, ChevronRight } from 'lucide-react';
 import { Card } from '../components/ui';
-import { CTASection } from '../components/common';
+import { SectionHeader, CTASection } from '../components/common';
+import { PageSectionNav, SectionDots } from '../components/navigation';
 import { useTheme } from '../contexts/ThemeContext';
 import { iconSizes } from '../styles/theme';
+
+const sections = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'capabilities', label: 'Core Capabilities' },
+];
 
 export default function CapabilitiesPage() {
   const { isDark } = useTheme();
 
   return (
     <div className="pt-20">
-      <HeroSection isDark={isDark} />
+      <PageSectionNav sections={sections} />
+      <SectionDots sections={sections} />
+
       <OverviewSection isDark={isDark} />
+      <CapabilitiesSection isDark={isDark} />
       <CTASection
         title="Ready to Get Started?"
         subtitle="Contact our team to discuss how our capabilities can support your mission."
@@ -21,25 +30,21 @@ export default function CapabilitiesPage() {
   );
 }
 
-function HeroSection({ isDark }) {
+function OverviewSection({ isDark }) {
   return (
-    <section className="py-8 md:py-12 lg:py-16 container-main">
+    <section id="overview" className="section-padding container-main scroll-mt-36">
+      <SectionHeader
+        tag="CAPABILITIES"
+        title="Network-Focused. Solution-Driven."
+        subtitle="Built for Training and Test & Evaluation."
+      />
+
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
         className="text-center max-w-4xl mx-auto"
       >
-        <span className={`inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full mb-4 ${
-          isDark ? 'bg-primary-navy/30 text-primary-light' : 'bg-primary-navy/10 text-primary-navy'
-        }`}>
-          CAPABILITIES
-        </span>
-        <h1 className={`text-4xl md:text-5xl font-bold mb-6 ${isDark ? 'text-white' : 'text-light-900'}`}>
-          Network-Focused. Solution-Driven.
-        </h1>
-        <p className={`text-xl md:text-2xl font-medium mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
-          Built for Training and Test & Evaluation.
-        </p>
         <p className={`text-lg ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
           Athena-Tek delivers next-generation capabilities for the Department of Defense and mission partners by bridging resilient communications networks to real-world outcomes. We specialize in multi-modal tactical networking, edge devices, and AI-enabled sensor fusion—enabling safer, more realistic, and more measurable training and operational test environments.
         </p>
@@ -48,7 +53,7 @@ function HeroSection({ isDark }) {
   );
 }
 
-function OverviewSection({ isDark }) {
+function CapabilitiesSection({ isDark }) {
   const coreCapabilities = [
     {
       icon: <Network size={iconSizes.xl} />,
@@ -89,28 +94,16 @@ function OverviewSection({ isDark }) {
   ];
 
   return (
-    <section className="section-dark py-12 md:py-16 lg:py-20">
+    <section id="capabilities" className="section-dark section-padding scroll-mt-36">
       <div className="container-main">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <span className={`inline-block px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-full mb-4 ${
-            isDark ? 'bg-primary-navy/30 text-primary-light' : 'bg-primary-navy/10 text-primary-navy'
-          }`}>
-            CORE CAPABILITY AREAS
-          </span>
-          <h2 className={`text-3xl md:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
-            What We Deliver
-          </h2>
-          <p className={`text-lg max-w-3xl mx-auto ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-            At the center of our approach is the Training Edge Device (TED), a one-of-a-kind platform that brings AI to the point of need for both Training and T&E.
-          </p>
-        </motion.div>
+        <SectionHeader
+          tag="CORE CAPABILITY AREAS"
+          title="What We Deliver"
+          subtitle="At the center of our approach is the Training Edge Device (TED), a one-of-a-kind platform that brings AI to the point of need for both Training and T&E."
+          light
+        />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {coreCapabilities.map((cap, i) => (
             <motion.div
               key={i}

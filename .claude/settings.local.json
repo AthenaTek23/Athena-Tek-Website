@@ -16,7 +16,12 @@
       "Bash(npm run dev:*)",
       "Bash(del \"C:\\\\Users\\\\william.sanchez\\\\Development\\\\Tools\\\\Athena_Tek_Website\\\\athena-tek-monitor-integration\\\\src\\\\pages\\\\products\\\\ARESIVPage.jsx\")",
       "Bash(del \"C:\\\\Users\\\\william.sanchez\\\\Development\\\\Tools\\\\Athena_Tek_Website\\\\athena-tek-monitor-integration\\\\src\\\\pages\\\\products\\\\ARESMPage.jsx\")",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(powershell -Command \"$word = New-Object -ComObject Word.Application; $word.Visible = $false; $doc = $word.Documents.Open\\(\\(Get-Location\\).Path + ''\\\\Athena-Tek_Capabilities_Hero_Tiles_and_Subpages.docx''\\); $doc.Content.Text; $doc.Close\\(\\); $word.Quit\\(\\)\")",
+      "Bash(unzip:*)",
+      "Bash(git commit:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)"
     ]
   }
 }
