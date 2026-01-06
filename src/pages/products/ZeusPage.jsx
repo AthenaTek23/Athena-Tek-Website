@@ -145,10 +145,16 @@ function WhyZeusSection({ isDark }) {
                 <div className="icon-box w-12 h-12 mb-4">
                   {benefit.icon}
                 </div>
-                <h4 className={`text-lg font-semibold mb-3 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                <h4
+                  className="text-lg font-semibold mb-3"
+                  style={{ color: isDark ? 'white' : '#111827' }}
+                >
                   {benefit.title}
                 </h4>
-                <p className={`text-sm leading-relaxed ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                >
                   {benefit.desc}
                 </p>
               </Card>

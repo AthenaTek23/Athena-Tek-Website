@@ -21,6 +21,11 @@ import extendCoverageImg from '../../assets/ExtendCoverage.png';
 import situationalAwarenessImg from '../../assets/SituationalAwareness.png';
 import omImg from '../../assets/O&M.png';
 
+// Hardware Specification images
+import processorImg from '../../assets/Processor.png';
+import ramImg from '../../assets/RAM.png';
+import storageImg from '../../assets/Storage.png';
+
 const sections = [
   { id: 'hero', label: 'Overview' },
   { id: 'benefits', label: 'Key Benefits' },
@@ -197,9 +202,9 @@ function DifferentiatorsSection({ isDark }) {
 
 function HardwareSection({ isDark }) {
   const hardware = [
-    { label: 'Processor', value: 'NXP i.MX 8M Quad Core ARM Cortex-A53' },
-    { label: 'Memory', value: '4GB LPDDR4-2133 SDRAM' },
-    { label: 'Storage', value: '128GB eMMC Flash' },
+    { image: processorImg, label: 'Processor', value: 'NXP i.MX 8M Quad Core ARM Cortex-A53' },
+    { image: ramImg, label: 'Memory', value: '4GB LPDDR4-2133 SDRAM' },
+    { image: storageImg, label: 'Storage', value: '128GB eMMC Flash' },
   ];
 
   return (
@@ -219,10 +224,10 @@ function HardwareSection({ isDark }) {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="lg" className="text-center h-full">
-              <div className={`w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center ${
-                isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+              <div className={`w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden ${
+                isDark ? 'bg-primary-navy/20' : 'bg-light-100'
               }`}>
-                <Cpu size={28} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+                <img src={item.image} alt={item.label} className="w-full h-full object-contain" />
               </div>
               <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                 {item.label}

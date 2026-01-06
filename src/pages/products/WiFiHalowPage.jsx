@@ -9,6 +9,12 @@ import { iconSizes } from '../../styles/theme';
 // Product image
 import wifiHalowImg from '../../assets/products/wifi-halow.webp';
 
+// Features icons
+import longRangeImg from '../../assets/LongRange.png';
+import meshImg from '../../assets/Mesh.png';
+import wpa3Img from '../../assets/WPA3.png';
+import lowPowerImg from '../../assets/LowPower.png';
+
 const sections = [
   { id: 'hero', label: 'Overview' },
   { id: 'features', label: 'Features' },
@@ -65,10 +71,10 @@ function HeroSection({ isDark }) {
 
 function FeaturesSection({ isDark }) {
   const features = [
-    { icon: <Radio size={iconSizes.lg} />, title: 'Long Range', desc: 'Extended coverage with Sub-1 GHz frequency for IoT applications' },
-    { icon: <Wifi size={iconSizes.lg} />, title: 'Mesh Networking', desc: '802.11s mesh support for distributed infrastructure monitoring' },
-    { icon: <Shield size={iconSizes.lg} />, title: 'WPA3 Security', desc: 'Latest wireless security standard for protected communications' },
-    { icon: <Cpu size={iconSizes.lg} />, title: 'Low Power', desc: 'Adaptive power and modulation for efficient operation' },
+    { image: longRangeImg, title: 'Long Range', desc: 'Extended coverage with Sub-1 GHz frequency for IoT applications' },
+    { image: meshImg, title: 'Mesh Networking', desc: '802.11s mesh support for distributed infrastructure monitoring' },
+    { image: wpa3Img, title: 'WPA3 Security', desc: 'Latest wireless security standard for protected communications' },
+    { image: lowPowerImg, title: 'Low Power', desc: 'Adaptive power and modulation for efficient operation' },
   ];
 
   return (
@@ -89,8 +95,8 @@ function FeaturesSection({ isDark }) {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="lg" className="h-full">
-              <div className="icon-box w-12 h-12 mb-4">
-                {feature.icon}
+              <div className={`w-12 h-12 rounded-xl overflow-hidden mb-4 ${isDark ? 'bg-primary-navy/20' : 'bg-light-100'}`}>
+                <img src={feature.image} alt={feature.title} className="w-full h-full object-contain" />
               </div>
               <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                 {feature.title}

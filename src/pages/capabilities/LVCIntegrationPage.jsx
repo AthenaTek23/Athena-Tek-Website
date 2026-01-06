@@ -14,6 +14,11 @@ import liveDomainImg from '../../assets/LiveDomain.png';
 import integrationHubImg from '../../assets/IntegrationHub.png';
 import interoperabilityWorkImg from '../../assets/InteroperabilityWork.png';
 
+// Outcomes icons
+import strongIntImg from '../../assets/strongInt.png';
+import greRealImg from '../../assets/GreReal.png';
+import lowIntImg from '../../assets/LowInt.png';
+
 const sections = [
   { id: 'hero', label: 'Overview' },
   { id: 'differentiators', label: 'Key Differentiators' },
@@ -227,9 +232,9 @@ function CapabilitiesSection({ isDark }) {
 
 function OutcomesSection({ isDark }) {
   const outcomes = [
-    { icon: <Network size={iconSizes.lg} />, title: 'Stronger Interoperability', desc: 'Seamless data flow between live, virtual, and constructive domains' },
-    { icon: <Monitor size={iconSizes.lg} />, title: 'Greater Realism', desc: 'Live instrumentation data enhances virtual and constructive fidelity' },
-    { icon: <Shield size={iconSizes.lg} />, title: 'Lower Integration Risk', desc: 'Proven practices reduce deployment complexity and timeline' },
+    { image: strongIntImg, title: 'Stronger Interoperability', desc: 'Seamless data flow between live, virtual, and constructive domains' },
+    { image: greRealImg, title: 'Greater Realism', desc: 'Live instrumentation data enhances virtual and constructive fidelity' },
+    { image: lowIntImg, title: 'Lower Integration Risk', desc: 'Proven practices reduce deployment complexity and timeline' },
   ];
 
   return (
@@ -252,13 +257,19 @@ function OutcomesSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="lg" className={`h-full text-center ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <div className="icon-box w-14 h-14 mx-auto mb-4">
-                  {outcome.icon}
+                <div className={`w-14 h-14 rounded-xl overflow-hidden mx-auto mb-4 ${isDark ? 'bg-primary-navy/20' : 'bg-light-100'}`}>
+                  <img src={outcome.image} alt={outcome.title} className="w-full h-full object-contain" />
                 </div>
-                <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                <h4
+                  className="text-lg font-semibold mb-2"
+                  style={{ color: isDark ? 'white' : '#111827' }}
+                >
                   {outcome.title}
                 </h4>
-                <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <p
+                  className="text-sm"
+                  style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                >
                   {outcome.desc}
                 </p>
               </Card>

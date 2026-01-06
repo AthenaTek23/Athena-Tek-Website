@@ -11,6 +11,8 @@ import aiEnabledImg from '../../assets/AI-Enabled.png';
 
 // AI Capabilities images
 import sensorFusionImg from '../../assets/sensorFusion.png';
+import edgeImg from '../../assets/Edge.png';
+import centralAnaImg from '../../assets/CentralAna.png';
 import anomalyImg from '../../assets/Anomaly.png';
 import adaptiveSampleImg from '../../assets/adaptiveSample.png';
 import safetyAlertImg from '../../assets/SafetyAlert.png';
@@ -231,10 +233,10 @@ function ApproachSection({ isDark }) {
             viewport={{ once: true }}
           >
             <Card size="xl" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-              <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${
-                isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+              <div className={`w-14 h-14 rounded-xl overflow-hidden mb-4 ${
+                isDark ? 'bg-primary-navy/20' : 'bg-light-100'
               }`}>
-                <Cpu size={28} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+                <img src={edgeImg} alt="At the Edge" className="w-full h-full object-contain" />
               </div>
               <h4
                 className="text-xl font-bold mb-4"
@@ -271,10 +273,10 @@ function ApproachSection({ isDark }) {
             transition={{ delay: 0.1 }}
           >
             <Card size="xl" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-              <div className={`w-14 h-14 rounded-xl flex items-center justify-center mb-4 ${
-                isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+              <div className={`w-14 h-14 rounded-xl overflow-hidden mb-4 ${
+                isDark ? 'bg-primary-navy/20' : 'bg-light-100'
               }`}>
-                <Users size={28} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+                <img src={centralAnaImg} alt="Central Analytics" className="w-full h-full object-contain" />
               </div>
               <h4
                 className="text-xl font-bold mb-4"

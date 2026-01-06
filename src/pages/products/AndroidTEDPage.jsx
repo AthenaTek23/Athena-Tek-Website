@@ -9,6 +9,18 @@ import { iconSizes } from '../../styles/theme';
 // Product image
 import androidTedImg from '../../assets/products/android-ted.webp';
 
+// OC Features icons
+import atakImg from '../../assets/ATAK.png';
+import exconManImg from '../../assets/ExconMan.png';
+import aarImg from '../../assets/AAR.png';
+import paringImg from '../../assets/Paring.png';
+import videoImg from '../../assets/Video.png';
+import pttImg from '../../assets/PTT.png';
+
+// Soldier Features icons
+import mortarImg from '../../assets/mortar.png';
+import stingerImg from '../../assets/Stinger.png';
+
 const sections = [
   { id: 'hero', label: 'Overview' },
   { id: 'oc-features', label: 'OC Features' },
@@ -69,12 +81,12 @@ function HeroSection({ isDark }) {
 
 function OCFeaturesSection({ isDark }) {
   const ocFeatures = [
-    { icon: <Radio size={iconSizes.lg} />, title: 'ATAK Base EXCON', desc: 'Full ATAK integration for exercise control' },
-    { icon: <Users size={iconSizes.lg} />, title: 'Exercise Management', desc: 'Comprehensive training management tools' },
-    { icon: <Target size={iconSizes.lg} />, title: 'After Action Review', desc: 'Detailed AAR capabilities' },
-    { icon: <Zap size={iconSizes.lg} />, title: 'Soldier PAN Pairing', desc: 'ZigBee-based Personal Area Network' },
-    { icon: <Video size={iconSizes.lg} />, title: 'Video Observation', desc: 'Real-time video capture capabilities' },
-    { icon: <Mic size={iconSizes.lg} />, title: 'PTT Voice Comms', desc: 'Push-to-talk voice communications' },
+    { image: atakImg, title: 'ATAK Base EXCON', desc: 'Full ATAK integration for exercise control' },
+    { image: exconManImg, title: 'Exercise Management', desc: 'Comprehensive training management tools' },
+    { image: aarImg, title: 'After Action Review', desc: 'Detailed AAR capabilities' },
+    { image: paringImg, title: 'Soldier PAN Pairing', desc: 'ZigBee-based Personal Area Network' },
+    { image: videoImg, title: 'Video Observation', desc: 'Real-time video capture capabilities' },
+    { image: pttImg, title: 'PTT Voice Comms', desc: 'Push-to-talk voice communications' },
   ];
 
   return (
@@ -95,8 +107,8 @@ function OCFeaturesSection({ isDark }) {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="lg" className="h-full">
-              <div className="icon-box w-12 h-12 mb-4">
-                {feature.icon}
+              <div className={`w-12 h-12 rounded-xl overflow-hidden mb-4 ${isDark ? 'bg-primary-navy/20' : 'bg-light-100'}`}>
+                <img src={feature.image} alt={feature.title} className="w-full h-full object-contain" />
               </div>
               <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                 {feature.title}
@@ -121,8 +133,8 @@ function OCFeaturesSection({ isDark }) {
 
 function SoldierFeaturesSection({ isDark }) {
   const soldierFeatures = [
-    { title: 'Mortar Programming', desc: 'Direct mortar system programming interface' },
-    { title: 'Stinger Programming', desc: 'Stinger missile system programming' },
+    { image: mortarImg, title: 'Mortar Programming', desc: 'Direct mortar system programming interface' },
+    { image: stingerImg, title: 'Stinger Programming', desc: 'Stinger missile system programming' },
   ];
 
   return (
@@ -144,15 +156,21 @@ function SoldierFeaturesSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="lg" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
-                  isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+                <div className={`w-12 h-12 rounded-xl overflow-hidden mb-4 ${
+                  isDark ? 'bg-primary-navy/20' : 'bg-light-100'
                 }`}>
-                  <Smartphone size={24} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+                  <img src={feature.image} alt={feature.title} className="w-full h-full object-contain" />
                 </div>
-                <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                <h4
+                  className="text-lg font-semibold mb-2"
+                  style={{ color: isDark ? 'white' : '#111827' }}
+                >
                   {feature.title}
                 </h4>
-                <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <p
+                  className="text-sm"
+                  style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                >
                   {feature.desc}
                 </p>
               </Card>

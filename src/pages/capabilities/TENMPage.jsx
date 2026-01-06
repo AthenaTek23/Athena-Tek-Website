@@ -15,6 +15,11 @@ import expediArchImg from '../../assets/ExpediArch.png';
 import enteInteImg from '../../assets/EnteInte.png';
 import instModerImg from '../../assets/InstModer.png';
 
+// Outcomes icons
+import reduceCompImg from '../../assets/ReduceComp.png';
+import dataQuaImg from '../../assets/DataQua.png';
+import opeReleImg from '../../assets/OpeRele.png';
+
 const sections = [
   { id: 'hero', label: 'Overview' },
   { id: 'capabilities', label: 'Capabilities' },
@@ -203,9 +208,9 @@ function ApproachSection({ isDark }) {
 
 function OutcomesSection({ isDark }) {
   const outcomes = [
-    { icon: <Zap size={iconSizes.lg} />, title: 'Reduced Deployment Complexity', desc: 'Streamlined deployment processes that get you operational faster' },
-    { icon: <Activity size={iconSizes.lg} />, title: 'Improved Data Quality', desc: 'Higher fidelity data capture for better test outcomes' },
-    { icon: <Shield size={iconSizes.lg} />, title: 'Expanded Operational Relevance', desc: 'Test infrastructure aligned with operational requirements' },
+    { image: reduceCompImg, title: 'Reduced Deployment Complexity', desc: 'Streamlined deployment processes that get you operational faster' },
+    { image: dataQuaImg, title: 'Improved Data Quality', desc: 'Higher fidelity data capture for better test outcomes' },
+    { image: opeReleImg, title: 'Expanded Operational Relevance', desc: 'Test infrastructure aligned with operational requirements' },
   ];
 
   const additionalOutcomes = [
@@ -234,13 +239,19 @@ function OutcomesSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="lg" className={`h-full text-center ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <div className="icon-box w-14 h-14 mx-auto mb-4">
-                  {outcome.icon}
+                <div className={`w-14 h-14 rounded-xl overflow-hidden mx-auto mb-4 ${isDark ? 'bg-primary-navy/20' : 'bg-light-100'}`}>
+                  <img src={outcome.image} alt={outcome.title} className="w-full h-full object-contain" />
                 </div>
-                <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                <h4
+                  className="text-lg font-semibold mb-2"
+                  style={{ color: isDark ? 'white' : '#111827' }}
+                >
                   {outcome.title}
                 </h4>
-                <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <p
+                  className="text-sm"
+                  style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                >
                   {outcome.desc}
                 </p>
               </Card>
@@ -254,17 +265,28 @@ function OutcomesSection({ isDark }) {
           viewport={{ once: true }}
         >
           <Card size="xl" className={isDark ? 'bg-white/[0.02]' : 'bg-white'}>
-            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
+            <h4
+              className="text-lg font-semibold mb-4"
+              style={{ color: isDark ? '#93c5fd' : '#111827' }}
+            >
               Additional Capabilities
             </h4>
-            <p className={`text-sm mb-4 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+            <p
+              className="text-sm mb-4"
+              style={{ color: isDark ? '#d1d5db' : '#374151' }}
+            >
               We help test organizations move faster—reducing deployment complexity, improving data quality, and expanding operational relevance. Our solutions support:
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {additionalOutcomes.map((outcome, i) => (
-                <div key={i} className={`flex items-center gap-3 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <div key={i} className="flex items-center gap-3">
                   <Check size={18} className={`flex-shrink-0 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`} />
-                  <span className="text-sm">{outcome}</span>
+                  <span
+                    className="text-sm"
+                    style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                  >
+                    {outcome}
+                  </span>
                 </div>
               ))}
             </div>

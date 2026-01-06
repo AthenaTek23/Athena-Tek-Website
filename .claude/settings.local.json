@@ -28,7 +28,10 @@
       "Bash(node compress-further.cjs:*)",
       "Bash(sort:*)",
       "Bash(node optimize-monitors.cjs)",
-      "Bash(copy:*)"
+      "Bash(copy:*)",
+      "Bash(git rm:*)",
+      "Bash(cat:*)",
+      "Bash(powershell -Command \"Remove-Item -Path ''\\\\?\\\\C:\\\\Users\\\\william.sanchez\\\\Development\\\\Tools\\\\Athena_Tek_Website\\\\athena-tek-monitor-integration\\\\nul'' -Force -ErrorAction SilentlyContinue\")"
     ]
   }
 }

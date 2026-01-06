@@ -9,6 +9,22 @@ import { iconSizes } from '../../styles/theme';
 // Hero image
 import softwareImg from '../../assets/Software.png';
 
+// Capabilities icons
+import embSwImg from '../../assets/EmbSw.png';
+import dataSerImg from '../../assets/DataSer.png';
+import visAARImg from '../../assets/VisAAR.png';
+
+// Data Services icons
+import edgeImg from '../../assets/Edge.png';
+import dataPipeImg from '../../assets/DataPipe.png';
+import analyticsImg from '../../assets/Analytics.png';
+import visualImg from '../../assets/Visual.png';
+
+// Outcomes icons
+import fastDesImg from '../../assets/FastDes.png';
+import smartAnaImg from '../../assets/SmartAna.png';
+import bettAARImg from '../../assets/BettAAR.png';
+
 const sections = [
   { id: 'hero', label: 'Overview' },
   { id: 'capabilities', label: 'Capabilities' },
@@ -70,19 +86,19 @@ function HeroSection({ isDark }) {
 function CapabilitiesSection({ isDark }) {
   const capabilities = [
     {
-      icon: <Cpu size={iconSizes.xl} />,
+      image: embSwImg,
       title: 'Embedded Software',
       description: 'Our embedded software capabilities enable real-time capture, buffering, and synchronization of critical instrumentation data, ensuring mission continuity in DDIL environments. Edge software runs directly on TED devices, providing local processing and data management.',
       features: ['Real-time capture', 'Data buffering', 'DDIL synchronization', 'Edge processing', 'Local data management'],
     },
     {
-      icon: <Database size={iconSizes.xl} />,
+      image: dataSerImg,
       title: 'Data Services',
       description: 'We support scalable data services that connect edge devices and networks to enterprise analytics platforms, enabling both immediate operational awareness and post-event assessment. Our data pipelines ensure reliable data flow from the field to decision-makers.',
       features: ['Data pipelines', 'Enterprise integration', 'Analytics platforms', 'Scalable architecture', 'Reliable data flow'],
     },
     {
-      icon: <MonitorPlay size={iconSizes.xl} />,
+      image: visAARImg,
       title: 'Visualization & AAR',
       description: 'Athena-Tek develops visualization and monitoring tools that support exercise control, formation and movement tracking, and playback-based AAR. Our tools provide rich context for evaluation and continuous improvement.',
       features: ['Exercise control', 'Movement tracking', 'Playback AAR', 'Performance metrics', 'Continuous improvement'],
@@ -111,12 +127,10 @@ function CapabilitiesSection({ isDark }) {
               <Card size="xl" className={`${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
                 <div className="flex flex-col lg:flex-row gap-6">
                   <div className="flex-shrink-0">
-                    <div className={`w-20 h-20 rounded-xl flex items-center justify-center ${
-                      isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+                    <div className={`w-20 h-20 rounded-xl overflow-hidden ${
+                      isDark ? 'bg-primary-navy/20' : 'bg-light-100'
                     }`}>
-                      <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
-                        {cap.icon}
-                      </div>
+                      <img src={cap.image} alt={cap.title} className="w-full h-full object-contain" />
                     </div>
                   </div>
                   <div className="flex-grow">
@@ -157,10 +171,10 @@ function CapabilitiesSection({ isDark }) {
 
 function DataServicesSection({ isDark }) {
   const dataFlowSteps = [
-    { icon: <Cpu size={iconSizes.lg} />, title: 'Edge Capture', desc: 'Real-time data capture at the edge with local buffering' },
-    { icon: <Server size={iconSizes.lg} />, title: 'Data Pipeline', desc: 'Secure, scalable pipelines for data transport' },
-    { icon: <Activity size={iconSizes.lg} />, title: 'Analytics', desc: 'Enterprise analytics for deep assessment' },
-    { icon: <MonitorPlay size={iconSizes.lg} />, title: 'Visualization', desc: 'Interactive dashboards and AAR playback' },
+    { image: edgeImg, title: 'Edge Capture', desc: 'Real-time data capture at the edge with local buffering' },
+    { image: dataPipeImg, title: 'Data Pipeline', desc: 'Secure, scalable pipelines for data transport' },
+    { image: analyticsImg, title: 'Analytics', desc: 'Enterprise analytics for deep assessment' },
+    { image: visualImg, title: 'Visualization', desc: 'Interactive dashboards and AAR playback' },
   ];
 
   const integrationCapabilities = [
@@ -190,13 +204,19 @@ function DataServicesSection({ isDark }) {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="lg" className="h-full text-center">
-              <div className="icon-box w-14 h-14 mx-auto mb-4">
-                {step.icon}
+              <div className={`w-14 h-14 rounded-xl overflow-hidden mx-auto mb-4 ${isDark ? 'bg-primary-navy/20' : 'bg-light-100'}`}>
+                <img src={step.image} alt={step.title} className="w-full h-full object-contain" />
               </div>
-              <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
+              <h4
+                className="text-lg font-semibold mb-2"
+                style={{ color: isDark ? 'white' : '#111827' }}
+              >
                 {step.title}
               </h4>
-              <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+              <p
+                className="text-sm"
+                style={{ color: isDark ? '#d1d5db' : '#374151' }}
+              >
                 {step.desc}
               </p>
             </Card>
@@ -232,9 +252,9 @@ function DataServicesSection({ isDark }) {
 
 function OutcomesSection({ isDark }) {
   const outcomes = [
-    { icon: <Zap size={iconSizes.lg} />, title: 'Faster Decisions', desc: 'Real-time insight enables immediate response and adaptation' },
-    { icon: <Activity size={iconSizes.lg} />, title: 'Smarter Analysis', desc: 'Integrated data provides comprehensive assessment' },
-    { icon: <MonitorPlay size={iconSizes.lg} />, title: 'Better AAR', desc: 'Playback-based review with rich contextual data' },
+    { image: fastDesImg, title: 'Faster Decisions', desc: 'Real-time insight enables immediate response and adaptation' },
+    { image: smartAnaImg, title: 'Smarter Analysis', desc: 'Integrated data provides comprehensive assessment' },
+    { image: bettAARImg, title: 'Better AAR', desc: 'Playback-based review with rich contextual data' },
   ];
 
   return (
@@ -257,8 +277,8 @@ function OutcomesSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="lg" className={`h-full text-center ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <div className="icon-box w-14 h-14 mx-auto mb-4">
-                  {outcome.icon}
+                <div className={`w-14 h-14 rounded-xl overflow-hidden mx-auto mb-4 ${isDark ? 'bg-primary-navy/20' : 'bg-light-100'}`}>
+                  <img src={outcome.image} alt={outcome.title} className="w-full h-full object-contain" />
                 </div>
                 <h4
                   className="text-lg font-semibold mb-2"
@@ -283,10 +303,16 @@ function OutcomesSection({ isDark }) {
           viewport={{ once: true }}
         >
           <Card size="xl" variant="featured" className={isDark ? 'bg-white/[0.02]' : 'bg-white'}>
-            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
+            <h4
+              className="text-lg font-semibold mb-4"
+              style={{ color: isDark ? '#93c5fd' : '#111827' }}
+            >
               End-to-End Data Solutions
             </h4>
-            <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+            <p
+              className="text-sm"
+              style={{ color: isDark ? '#d1d5db' : '#374151' }}
+            >
               From edge software to enterprise integration, Athena-Tek delivers end-to-end data solutions that convert instrumentation into insight—helping stakeholders make faster, smarter decisions. Our software foundations ensure that data becomes actionable intelligence, supporting training effectiveness assessment and continuous improvement across your organization.
             </p>
           </Card>
