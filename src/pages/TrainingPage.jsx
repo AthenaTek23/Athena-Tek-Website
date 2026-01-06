@@ -11,7 +11,7 @@ export default function TrainingPage() {
           viewsConfig={applicationsViewsConfig}
           siteConfig={applicationsSiteConfig}
           theme="applications"
-          basePath="/Athena-Tek-Website/monitors/Applications"
+          basePath="/monitors/Applications"
         />
       </div>
     </div>

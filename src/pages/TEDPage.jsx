@@ -11,7 +11,7 @@ export default function TEDPage() {
           viewsConfig={tedViewsConfig}
           siteConfig={tedSiteConfig}
           theme="ted"
-          basePath="/Athena-Tek-Website/monitors/TED"
+          basePath="/monitors/TED"
         />
       </div>
     </div>

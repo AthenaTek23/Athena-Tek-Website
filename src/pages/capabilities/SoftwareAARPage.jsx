@@ -6,6 +6,9 @@ import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
 
+// Hero image
+import softwareImg from '../../assets/Software.png';
+
 const sections = [
   { id: 'hero', label: 'Overview' },
   { id: 'capabilities', label: 'Capabilities' },
@@ -40,13 +43,16 @@ function HeroSection({ isDark }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center"
+        className="text-center max-w-4xl mx-auto"
       >
-        <div className={`w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center ${
-          isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-        }`}>
-          <Database size={48} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+        <div className="mb-8">
+          <img
+            src={softwareImg}
+            alt="Embedded Software, Data Services & AAR"
+            className="w-full max-w-[384px] mx-auto rounded-2xl shadow-lg"
+          />
         </div>
+        <span className="tag-base tag-primary mb-4 inline-block">SOFTWARE & AAR</span>
         <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
           Embedded Software, Data Services & AAR
         </h1>
@@ -114,10 +120,16 @@ function CapabilitiesSection({ isDark }) {
                     </div>
                   </div>
                   <div className="flex-grow">
-                    <h3 className={`text-2xl font-bold mb-3 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                    <h3
+                      className="text-2xl font-bold mb-3"
+                      style={{ color: isDark ? 'white' : '#111827' }}
+                    >
                       {cap.title}
                     </h3>
-                    <p className={`text-sm mb-4 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                    <p
+                      className="text-sm mb-4"
+                      style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                    >
                       {cap.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -248,10 +260,16 @@ function OutcomesSection({ isDark }) {
                 <div className="icon-box w-14 h-14 mx-auto mb-4">
                   {outcome.icon}
                 </div>
-                <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                <h4
+                  className="text-lg font-semibold mb-2"
+                  style={{ color: isDark ? 'white' : '#111827' }}
+                >
                   {outcome.title}
                 </h4>
-                <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <p
+                  className="text-sm"
+                  style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                >
                   {outcome.desc}
                 </p>
               </Card>

@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Users } from 'lucide-react';
 import { Card } from '../components/ui';
-import { PageHero, SectionHeader, CTASection } from '../components/common';
+import { SectionHeader, CTASection } from '../components/common';
+import { PageSectionNav, SectionDots } from '../components/navigation';
+
+const sections = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'contact-form', label: 'Contact Form' },
+];
 
 export default function ContactUsPage() {
-	
-	const EMAIL_TO = 'info@athena-tek.com';
-	
+  const EMAIL_TO = 'info@athena-tek.com';
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,36 +24,50 @@ export default function ContactUsPage() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  
-	const handleSubmit = (e) => {
-			e.preventDefault();
-			setStatus({ type: 'loading', message: 'Opening your mail app…' });
 
-			const { name, email, phone, company } = formData;
-			const subject = encodeURIComponent(`New contact from ${name}`);
-			const body = encodeURIComponent(
-			`Name: ${name}\nEmail: ${email}\nPhone: ${phone || '—'}\nCompany: ${company || '—'}`
-		);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus({ type: 'loading', message: 'Opening your mail app…' });
 
+    const { name, email, phone, company } = formData;
+    const subject = encodeURIComponent(`New contact from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nPhone: ${phone || '—'}\nCompany: ${company || '—'}`
+    );
 
-		// Open default mail client
-		window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
-		setStatus({ type: 'success', message: 'Mail app opened. If it did not open, please email us directly.' });
-
-	};
-
+    // Open default mail client
+    window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+    setStatus({ type: 'success', message: 'Mail app opened. If it did not open, please email us directly.' });
+  };
 
   return (
-    <div className="contact-page">
-      <PageHero
-        tag="Contact ATHENA-TEK"
-        title="Contact Us"
-        subtitle="Start the conversation with our experts"
-        description="Looking to learn more about our technologies, capabilities, or deployment options? Our team is ready to provide detailed information and address your mission requirements. Contact us to start the conversation."
-        icon={<Users />}
-      />
+    <div className="pt-20">
+      <PageSectionNav sections={sections} />
+      <SectionDots sections={sections} />
 
-      <section aria-labelledby="contact-form-title" className="container mx-auto px-4 py-8">
+      {/* Hero Section */}
+      <section id="overview" className="section-padding container-main scroll-mt-36">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-4xl mx-auto"
+        >
+          <span className="tag-base tag-primary mb-4 inline-block">CONTACT ATHENA-TEK</span>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-light-900 mb-4">
+            Contact Us
+          </h1>
+          <p className="text-xl text-primary-navy font-semibold mb-4">
+            Start the conversation with our experts
+          </p>
+          <p className="text-lg text-light-600 leading-relaxed">
+            Looking to learn more about our technologies, capabilities, or deployment options? Our team is ready to provide detailed information and address your mission requirements. Contact us to start the conversation.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section id="contact-form" aria-labelledby="contact-form-title" className="section-padding container-main scroll-mt-36">
         <SectionHeader
           id="contact-form-title"
           title="Get in touch"
@@ -67,7 +85,7 @@ export default function ContactUsPage() {
             aria-describedby="form-status"
           >
             <div>
-              <label htmlFor="name" className="block text-sm font-medium">Name</label>
+              <label htmlFor="name" className="block text-sm font-medium text-light-900">Name</label>
               <input
                 type="text"
                 id="name"
@@ -77,12 +95,12 @@ export default function ContactUsPage() {
                 required
                 autoComplete="name"
                 placeholder="Jane Doe"
-                className="mt-1 w-full rounded border px-3 py-2"
+                className="mt-1 w-full rounded border border-light-300 px-3 py-2 text-light-900 focus:border-primary-navy focus:outline-none focus:ring-1 focus:ring-primary-navy"
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium">Email</label>
+              <label htmlFor="email" className="block text-sm font-medium text-light-900">Email</label>
               <input
                 type="email"
                 id="email"
@@ -92,12 +110,12 @@ export default function ContactUsPage() {
                 required
                 autoComplete="email"
                 placeholder="jane@example.com"
-                className="mt-1 w-full rounded border px-3 py-2"
+                className="mt-1 w-full rounded border border-light-300 px-3 py-2 text-light-900 focus:border-primary-navy focus:outline-none focus:ring-1 focus:ring-primary-navy"
               />
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium">Phone Number</label>
+              <label htmlFor="phone" className="block text-sm font-medium text-light-900">Phone Number</label>
               <input
                 type="tel"
                 id="phone"
@@ -107,12 +125,12 @@ export default function ContactUsPage() {
                 inputMode="tel"
                 autoComplete="tel"
                 placeholder="(555) 123-4567"
-                className="mt-1 w-full rounded border px-3 py-2"
+                className="mt-1 w-full rounded border border-light-300 px-3 py-2 text-light-900 focus:border-primary-navy focus:outline-none focus:ring-1 focus:ring-primary-navy"
               />
             </div>
 
             <div>
-              <label htmlFor="company" className="block text-sm font-medium">Company Name</label>
+              <label htmlFor="company" className="block text-sm font-medium text-light-900">Company Name</label>
               <input
                 type="text"
                 id="company"
@@ -121,21 +139,21 @@ export default function ContactUsPage() {
                 onChange={handleChange}
                 autoComplete="organization"
                 placeholder="Acme Corp"
-                className="mt-1 w-full rounded border px-3 py-2"
+                className="mt-1 w-full rounded border border-light-300 px-3 py-2 text-light-900 focus:border-primary-navy focus:outline-none focus:ring-1 focus:ring-primary-navy"
               />
             </div>
 
             <div className="pt-2">
               <button
                 type="submit"
-                className="inline-flex items-center rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-50"
+                className="inline-flex items-center rounded bg-primary-navy px-6 py-3 text-white font-medium hover:bg-primary-navy/90 disabled:opacity-50 transition-colors"
                 disabled={status.type === 'loading'}
               >
                 {status.type === 'loading' ? 'Sending…' : 'Submit'}
               </button>
             </div>
 
-            <p id="form-status" role="status" aria-live="polite" className="text-sm">
+            <p id="form-status" role="status" aria-live="polite" className="text-sm text-light-600">
               {status.message}
             </p>
           </motion.form>
@@ -144,7 +162,7 @@ export default function ContactUsPage() {
 
       <CTASection
         title="Prefer email or phone?"
-        description="Reach us through your favorite channel and we'll respond promptly."
+        subtitle="Reach us through your favorite channel and we'll respond promptly."
       />
     </div>
   );

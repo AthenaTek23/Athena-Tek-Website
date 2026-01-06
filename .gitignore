@@ -27,3 +27,4 @@ yarn-error.log*
 
 # Vite cache
 .vite/
+dist.zip

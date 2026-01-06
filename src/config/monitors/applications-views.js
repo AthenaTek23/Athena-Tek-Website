@@ -9,7 +9,7 @@ export const viewsConfig = {
     pillText: 'TRAINING EFFECTS',
     layout: 'full',  // Full-width graphic, no text panel
     image: {
-      src: 'Images/Solutions.jpg',
+      src: 'Images/Solutions.webp',
       alt: 'Solution Driven overview artwork'
     },
     isHome: true
@@ -23,7 +23,7 @@ export const viewsConfig = {
     tag: 'Legacy + NGSW',
     pillText: 'DIRECT FIRE',
     image: {
-      src: 'Images/SD-SA.png',
+      src: 'Images/SD-SA.webp',
       alt: 'Small arms eBullet visual'
     },
     panel: {
@@ -48,7 +48,7 @@ export const viewsConfig = {
     tag: 'Area Weapons',
     pillText: '3D RTCA',
     image: {
-      src: 'Images/SD-IF.png',
+      src: 'Images/SD-IF.webp',
       alt: 'Indirect fire RTCA in MOUT'
     },
     panel: {
@@ -74,7 +74,7 @@ export const viewsConfig = {
     tag: 'Insights',
     pillText: 'LLM ANALYTICS',
     image: {
-      src: 'Images/SD-AAR.png',
+      src: 'Images/SD-AAR.webp',
       alt: 'AI-driven After Action Review dashboard'
     },
     panel: {
@@ -99,7 +99,7 @@ export const viewsConfig = {
     tag: 'Future Ready',
     pillText: 'STE-LTS',
     image: {
-      src: 'Images/SD-STE.png',
+      src: 'Images/SD-STE.webp',
       alt: 'TED alignment with STE, OWT, TAK and LTEC'
     },
     panel: {
@@ -125,7 +125,7 @@ export const viewsConfig = {
     pillText: 'VIDEO',
     video: {
       src: 'videos/SensorFusion.mp4',
-      poster: 'Images/Solutions.jpg'
+      poster: 'Images/Solutions.webp'
     },
     panel: {
       title: '',

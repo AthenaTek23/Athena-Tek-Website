@@ -6,6 +6,9 @@ import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
 
+// Product image
+import androidTedImg from '../../assets/products/android-ted.webp';
+
 const sections = [
   { id: 'hero', label: 'Overview' },
   { id: 'oc-features', label: 'OC Features' },
@@ -37,17 +40,17 @@ export default function AndroidTEDPage() {
 
 function HeroSection({ isDark }) {
   return (
-    <section id="hero" className="py-8 md:py-12 lg:py-16 container-main scroll-mt-36">
+    <section id="hero" className="py-8 md:py-12 lg:py-16 container-main scroll-mt-28 md:scroll-mt-36">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="text-center"
       >
-        <div className={`w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center ${
-          isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+        <div className={`w-48 h-48 md:w-64 md:h-64 mx-auto mb-6 rounded-2xl flex items-center justify-center overflow-hidden ${
+          isDark ? 'bg-primary-navy/20' : 'bg-light-100'
         }`}>
-          <Smartphone size={48} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+          <img src={androidTedImg} alt="Android TED" className="w-full h-full object-contain" />
         </div>
         <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
           Android TED
@@ -75,7 +78,7 @@ function OCFeaturesSection({ isDark }) {
   ];
 
   return (
-    <section id="oc-features" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
+    <section id="oc-features" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-28 md:scroll-mt-36">
       <SectionHeader
         tag="OBSERVER CONTROLLER"
         title="OC Features"
@@ -123,7 +126,7 @@ function SoldierFeaturesSection({ isDark }) {
   ];
 
   return (
-    <section id="soldier-features" className="section-dark py-5 md:py-7 lg:py-10 scroll-mt-36">
+    <section id="soldier-features" className="section-dark py-5 md:py-7 lg:py-10 scroll-mt-28 md:scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="SOLDIER CAPABILITIES"
@@ -168,7 +171,7 @@ function FutureCapabilitiesSection({ isDark }) {
   ];
 
   return (
-    <section id="future-capabilities" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
+    <section id="future-capabilities" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-28 md:scroll-mt-36">
       <SectionHeader
         tag="COMING SOON"
         title="Future Capabilities"
@@ -220,7 +223,7 @@ function SpecificationsSection({ isDark }) {
   ];
 
   return (
-    <section id="specifications" className="section-dark py-5 md:py-7 lg:py-10 scroll-mt-36">
+    <section id="specifications" className="section-dark py-5 md:py-7 lg:py-10 scroll-mt-28 md:scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="TECHNICAL DETAILS"

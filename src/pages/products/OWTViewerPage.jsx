@@ -6,6 +6,9 @@ import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
 
+// Hero image
+import terrainImg from '../../assets/3D-Terrain.png';
+
 const sections = [
   { id: 'overview', label: 'Overview' },
   { id: 'architecture', label: 'Architecture' },
@@ -43,6 +46,14 @@ function OverviewSection({ isDark }) {
 
   return (
     <section id="overview" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
+      {/* Hero Image */}
+      <div className="mb-8 text-center">
+        <img
+          src={terrainImg}
+          alt="3D Terrain Viewer"
+          className="w-full max-w-[384px] mx-auto rounded-2xl shadow-lg"
+        />
+      </div>
       <SectionHeader
         tag="OVERVIEW"
         title="3D Terrain Viewer"

@@ -2,10 +2,10 @@ import { memo } from 'react';
 import { motion } from 'framer-motion';
 
 const variants = {
-  default: 'bg-white/[0.02] border-white/[0.05]',
-  featured: 'bg-gradient-to-br from-primary-500/10 to-primary-500/[0.02] border-primary-500/20',
-  dark: 'bg-gradient-to-br from-primary-500 to-primary-600 border-transparent',
-  glass: 'bg-white/[0.03] backdrop-blur-sm border-white/[0.08]',
+  default: 'bg-white border-light-300 shadow-sm',
+  featured: 'bg-gradient-to-br from-primary-navy/5 to-white border-primary-navy/20 shadow-sm',
+  dark: 'bg-gradient-to-br from-primary-navy to-primary-navy/90 border-transparent text-white',
+  glass: 'bg-white/90 backdrop-blur-sm border-light-300 shadow-sm',
 };
 
 const sizes = {
@@ -28,7 +28,7 @@ const Card = memo(function Card({
   const Component = motion[as] || motion.div;
 
   const baseClasses = 'border rounded-2xl transition-all duration-300';
-  const hoverClasses = hover ? 'hover:bg-white/[0.04] hover:border-white/[0.08]' : '';
+  const hoverClasses = hover ? 'hover:shadow-md hover:border-light-400' : '';
   const clickableClasses = onClick ? 'cursor-pointer' : '';
   const classes = `${baseClasses} ${variants[variant]} ${sizes[size]} ${hoverClasses} ${clickableClasses} ${className}`;
 
@@ -51,11 +51,11 @@ Card.Header = function CardHeader({ children, className = '' }) {
 };
 
 Card.Title = function CardTitle({ children, className = '' }) {
-  return <h3 className={`text-xl font-bold text-white ${className}`}>{children}</h3>;
+  return <h3 className={`text-xl font-bold text-light-900 ${className}`}>{children}</h3>;
 };
 
 Card.Description = function CardDescription({ children, className = '' }) {
-  return <p className={`text-sm text-dark-400 ${className}`}>{children}</p>;
+  return <p className={`text-sm text-light-600 ${className}`}>{children}</p>;
 };
 
 Card.Content = function CardContent({ children, className = '' }) {
@@ -63,7 +63,7 @@ Card.Content = function CardContent({ children, className = '' }) {
 };
 
 Card.Footer = function CardFooter({ children, className = '' }) {
-  return <div className={`mt-4 pt-4 border-t border-white/5 ${className}`}>{children}</div>;
+  return <div className={`mt-4 pt-4 border-t border-light-200 ${className}`}>{children}</div>;
 };
 
 export default Card;

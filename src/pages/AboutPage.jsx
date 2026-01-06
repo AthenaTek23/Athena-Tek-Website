@@ -1,50 +1,89 @@
 import { motion } from 'framer-motion';
-import { Users, Shield, GraduationCap } from 'lucide-react';
+import { Users, Shield, GraduationCap, Check, Download } from 'lucide-react';
 import { Card } from '../components/ui';
-import { PageHero, SectionHeader, CTASection } from '../components/common';
-import { useTheme } from '../contexts/ThemeContext';
+import { SectionHeader, CTASection } from '../components/common';
+import { PageSectionNav, SectionDots } from '../components/navigation';
 import { iconSizes } from '../styles/theme';
+
+// Capability Statement PDF
+import capabilityStatementPdf from '../assets/ATHENA Capability Statement.pdf';
+
+// Hero image
+import aiSoldierImg from '../assets/AI-Soldier.png';
+
+const sections = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'mission-vision', label: 'Mission & Vision' },
+  { id: 'what-we-deliver', label: 'What We Deliver' },
+  { id: 'past-performance', label: 'Past Performance' },
+  { id: 'leadership', label: 'Leadership' },
+];
 
 export default function AboutPage() {
   return (
-    <div>
-      {/* Custom compact hero section */}
-      <section className="relative py-2 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-dark-900 to-dark-950" />
-        <div className="absolute inset-0 grid-pattern opacity-50" />
-        <div className="relative z-10 max-w-sm mx-auto text-center">
-          <span className="tag-base tag-primary mb-1 inline-block text-xs">ABOUT ATHENA-TEK</span>
-          <h1 className="text-xl md:text-2xl font-extrabold text-white mb-1 whitespace-nowrap">
-            Pioneering the Future
-          </h1>
-          <h2 className="text-base md:text-lg font-semibold text-primary-500 mb-1">
-            Of Soldier Training & Test Evaluation
-          </h2>
-          <p className="text-xs text-dark-300 leading-relaxed">
-            Orlando-based technology company specializing in global networks, AI-enabled soldier systems, Live Training modernization, and T&E integration for over 15 years.
-          </p>
-        </div>
-      </section>
+    <div className="pt-20">
+      <PageSectionNav sections={sections} />
+      <SectionDots sections={sections} />
+
+      <HeroSection />
       <MissionVisionSection />
-      <ExperienceSection />
+      <WhatWeDeliverSection />
+      <PastPerformanceSection />
       <LeadershipSection />
       <CTASection />
     </div>
   );
 }
 
+function HeroSection() {
+  return (
+    <section id="overview" className="section-padding container-main scroll-mt-36">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center max-w-4xl mx-auto"
+      >
+        {/* Hero Image */}
+        <div className="mb-8">
+          <img
+            src={aiSoldierImg}
+            alt="AI Soldier"
+            className="w-full max-w-2xl mx-auto rounded-2xl shadow-lg"
+          />
+        </div>
+        <span className="tag-base tag-primary mb-4 inline-block">ABOUT ATHENA-TEK</span>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-light-900 mb-4">
+          Pioneering the Future of Soldier Training and Test & Evaluation
+        </h1>
+        <p className="text-lg text-light-600 leading-relaxed mb-6">
+          Orlando-based technology company specializing in global networks, AI-enabled soldier systems, Live Training modernization, and T&E integration for over 15 years.
+        </p>
+        <a
+          href={capabilityStatementPdf}
+          download="ATHENA-Tek-Capability-Statement.pdf"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary-navy text-white font-semibold rounded-lg hover:bg-primary-navy/90 transition-colors"
+        >
+          <Download size={20} />
+          Download Capability Statement
+        </a>
+      </motion.div>
+    </section>
+  );
+}
+
 function MissionVisionSection() {
   return (
-    <section className="section-padding container-main">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 content-medium">
+    <section id="mission-vision" className="section-padding container-main scroll-mt-36">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <Card variant="featured" size="xl">
-            <h3 className="text-2xl font-bold text-white mb-4">Our Mission</h3>
-            <p className="text-dark-300 leading-relaxed">
+          <Card variant="featured" size="xl" className="h-full">
+            <h3 className="text-2xl font-bold text-light-900 mb-4">Our Mission</h3>
+            <p className="text-light-600 leading-relaxed">
               Equip warfighters and test organizations with the most accurate, most connected, and most intelligent technology in the world.
             </p>
           </Card>
@@ -55,9 +94,9 @@ function MissionVisionSection() {
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
         >
-          <Card size="xl">
-            <h3 className="text-2xl font-bold text-white mb-4">Our Vision</h3>
-            <p className="text-dark-300 leading-relaxed">
+          <Card size="xl" className="h-full">
+            <h3 className="text-2xl font-bold text-light-900 mb-4">Our Vision</h3>
+            <p className="text-light-600 leading-relaxed">
               A future where every soldier, platform, and instrumented system produces real-time, AI-powered insight—anywhere in the world.
             </p>
           </Card>
@@ -67,47 +106,106 @@ function MissionVisionSection() {
   );
 }
 
-function ExperienceSection() {
-  const experience = [
-    { label: 'PM TRADE', desc: 'CTC Enterprise + Home Station' },
-    { label: 'PM CT2', desc: 'Soldier & weapon systems' },
-    { label: 'ATEC & DOT&E', desc: 'Operational & Developmental test' },
-    { label: 'CTCs', desc: 'NTC, JRTC, JMRC, JPMRC' },
-    { label: 'STE-LTS & STIA', desc: 'Early integration' },
-    { label: 'International', desc: 'Global training partnerships' },
+function WhatWeDeliverSection() {
+  const capabilities = [
+    'Resilient multi-modal networks: 5G/4G (FR1/CBRS), mesh/MANET, Wi-Fi, BLE, Zigbee, and hybrid backhaul including SATCOM options.',
+    'Edge-first architecture: distributed intelligence that stays operational in denied, degraded, intermittent, or limited connectivity environments.',
+    'Field-proven integration: interoperable with TAK, CTIA, and LVC architectures aligned to modern instrumentation needs.',
+    'AI-enabled sensor fusion: real-time safety alerts and performance analytics using integrated sensors and wearable data.',
   ];
 
   return (
-    <section className="section-dark section-padding">
-      <div className="container-main">
+    <section id="what-we-deliver" className="section-padding container-main scroll-mt-36">
         <SectionHeader
-          tag="EXPERIENCE"
-          title="15+ Years of Excellence"
-          light
+          tag="WHAT WE DELIVER"
+          title="Network-Focused. Solution-Driven."
         />
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 content-medium">
-          {experience.map((exp, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="p-5 bg-white/[0.03] rounded-xl text-center"
-            >
-              <h4 className="text-base font-semibold text-white mb-1">{exp.label}</h4>
-              <p className="text-xs text-dark-400">{exp.desc}</p>
-            </motion.div>
-          ))}
-        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto"
+        >
+          <Card size="xl" className="bg-white">
+            <p className="text-light-700 leading-relaxed mb-6">
+              Athena-Tek is a network-focused, solution-driven technology enterprise delivering advanced communications, Training, and Test & Evaluation (T&E) solutions to the Department of Defense and mission partners. We bridge resilient multi-modal networking with one-of-a-kind edge computing and AI to enable safer, higher-fidelity training and operationally relevant test environments.
+            </p>
+
+            <div className="space-y-4">
+              {capabilities.map((cap, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <Check size={20} className="text-primary-navy mt-0.5 flex-shrink-0" />
+                  <p className="text-light-600 leading-relaxed">{cap}</p>
+                </motion.div>
+              ))}
+            </div>
+          </Card>
+        </motion.div>
+    </section>
+  );
+}
+
+function PastPerformanceSection() {
+  const performances = [
+    {
+      title: 'PEO STRI – STAAR Test Bed',
+      description: 'Delivered 60 Training Edge Devices (TEDs) with integrated 5G/mesh networking, sub-meter GPS, AES-256 encryption, and LT2 interoperability. These were validated through multiple Soldier Touch Points, ensuring technology was tested in realistic training environments. Our experience integrating TED into Army exercises directly supports the rapid deployment of TED devices, guaranteeing interoperability with existing MILES IWS equipment.',
+    },
+    {
+      title: 'ACC Orlando – STE LTS (TReX-II)',
+      description: 'Designed and fielded the TED-Mesh (TED-M) for small-unit training, supporting 100 participants with MILES, biometrics, video/voice streaming, and point-of-need After-Action Review (AAR).',
+    },
+    {
+      title: 'OUSD R&E – 5G AR/VR Network Enhancements',
+      description: 'Advanced battalion-scale training networks through 5G slicing, edge computing, and AR/VR integration. Demonstrated reliable networking for high-bandwidth, low-latency applications. Our expertise in AR/VR and high-fidelity training applies directly to future-proofing Army networks, ensuring that today\'s MILES integration can grow into tomorrow\'s AR/VR-enabled training ranges. The TED is already integrating with Next Generation systems.',
+    },
+    {
+      title: 'PEO STRI / General Dynamics – XLCC Integration',
+      description: 'Provided engineering and integration support for the Expeditionary LVC Test Command Center (XLCC), maintaining LT2 compliance across live, virtual, and constructive domains. This shows our ability to integrate with existing Army command and control architectures, a critical skill for ensuring the Army\'s training data can tie into RTCA and higher-level systems.',
+    },
+  ];
+
+  return (
+    <section id="past-performance" className="section-padding container-main scroll-mt-36">
+      <SectionHeader
+        tag="PAST PERFORMANCE"
+        title="Past Performance"
+        subtitle="Athena-Tek has a proven record of delivering advanced training networks and live simulation solutions for the U.S. Army and allied partners."
+      />
+
+      <div className="space-y-6 max-w-4xl mx-auto">
+        {performances.map((perf, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+          >
+            <Card size="xl">
+              <h4 className="text-lg font-bold text-light-900 mb-3">
+                {perf.title}
+              </h4>
+              <p className="text-light-600 leading-relaxed">
+                {perf.description}
+              </p>
+            </Card>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
 }
 
 function LeadershipSection() {
-  const { isDark } = useTheme();
-
   const leadership = [
     {
       name: 'Janio Sanchez',
@@ -147,76 +245,72 @@ function LeadershipSection() {
   ];
 
   return (
-    <section className="section-padding container-main">
-      <SectionHeader
-        tag="LEADERSHIP"
-        title="Leadership Team"
-      />
+    <section id="leadership" className="section-padding container-main scroll-mt-36">
+        <SectionHeader
+          tag="LEADERSHIP"
+          title="Leadership Team"
+        />
 
-      {/* Intro paragraph */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="max-w-4xl mx-auto text-center mb-12"
-      >
-        <p className={`text-lg leading-relaxed ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-          Athena-Tek's leadership team combines decades of defense, telecom, engineering, and enterprise execution experience with a strong heritage of service. Three members of our leadership team served in the United States Marine Corps, bringing firsthand understanding of warfighter requirements and the operational realities of training and testing.
-        </p>
-      </motion.div>
+        {/* Intro paragraph */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto text-center mb-12"
+        >
+          <p className="text-lg leading-relaxed text-light-600">
+            Athena-Tek's leadership team combines decades of defense, telecom, engineering, and enterprise execution experience with a strong heritage of service. Three members of our leadership team served in the United States Marine Corps, bringing firsthand understanding of warfighter requirements and the operational realities of training and testing.
+          </p>
+        </motion.div>
 
-      {/* Leadership cards */}
-      <div className="space-y-8">
-        {leadership.map((leader, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-          >
-            <Card size="xl" className={`${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-              <div className="flex flex-col md:flex-row gap-6">
-                {/* Avatar and basic info */}
-                <div className="flex flex-col items-center md:items-start md:w-64 shrink-0">
-                  <div className={`w-24 h-24 mb-4 rounded-full flex items-center justify-center ${
-                    isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-                  }`}>
-                    <Users size={40} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
-                  </div>
-                  <h4 className={`text-xl font-bold mb-1 text-center md:text-left ${isDark ? 'text-white' : 'text-light-900'}`}>
-                    {leader.name}
-                  </h4>
-                  <p className={`text-sm font-medium mb-2 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
-                    {leader.title}
-                  </p>
-                  {leader.isVeteran && (
-                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold ${
-                      isDark ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-700'
-                    }`}>
-                      <Shield size={14} />
-                      USMC Veteran
-                    </span>
-                  )}
-                </div>
-
-                {/* Bio and education */}
-                <div className="flex-1">
-                  <p className={`text-sm leading-relaxed mb-4 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                    {leader.bio}
-                  </p>
-                  <div className={`flex items-start gap-2 pt-4 border-t ${isDark ? 'border-white/10' : 'border-light-200'}`}>
-                    <GraduationCap size={18} className={`shrink-0 mt-0.5 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`} />
-                    <p className={`text-xs leading-relaxed ${isDark ? 'text-dark-400' : 'text-light-500'}`}>
-                      <span className="font-semibold">Education:</span> {leader.education}
+        {/* Leadership cards */}
+        <div className="space-y-8">
+          {leadership.map((leader, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <Card size="xl" className="bg-white">
+                <div className="flex flex-col md:flex-row gap-6">
+                  {/* Avatar and basic info */}
+                  <div className="flex flex-col items-center md:items-start md:w-64 shrink-0">
+                    <div className="w-24 h-24 mb-4 rounded-full flex items-center justify-center bg-primary-navy/10">
+                      <Users size={40} className="text-primary-navy" />
+                    </div>
+                    <h4 className="text-xl font-bold mb-1 text-center md:text-left text-light-900">
+                      {leader.name}
+                    </h4>
+                    <p className="text-sm font-medium mb-2 text-primary-navy">
+                      {leader.title}
                     </p>
+                    {leader.isVeteran && (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700">
+                        <Shield size={14} />
+                        USMC Veteran
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Bio and education */}
+                  <div className="flex-1">
+                    <p className="text-sm leading-relaxed mb-4 text-light-600">
+                      {leader.bio}
+                    </p>
+                    <div className="flex items-start gap-2 pt-4 border-t border-light-200">
+                      <GraduationCap size={18} className="shrink-0 mt-0.5 text-primary-navy" />
+                      <p className="text-xs leading-relaxed text-light-500">
+                        <span className="font-semibold">Education:</span> {leader.education}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
     </section>
   );
 }

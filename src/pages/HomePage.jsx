@@ -4,7 +4,7 @@ import { useTheme } from '../contexts/ThemeContext';
 import { Globe, Cpu, Target } from 'lucide-react';
 
 /* Banner image - import */
-import BannerImg from '../assets/BannerImg.png';
+import BannerImg from '../assets/BannerImg.webp';
 
 export default function HomePage() {
   return (
@@ -69,12 +69,11 @@ function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className={`text-lg max-w-xl leading-relaxed ${
-                isDark ? 'text-dark-300' : 'text-light-700'
-              }`}
+              className="text-lg max-w-xl leading-relaxed text-white drop-shadow-lg"
             >
-              Revolutionary platform for training, test & evaluation, and
-              distributed intelligence at the edge.
+              At Athena-Tek, networks are not the end state—they are the foundation. Our mission is to transform connectivity into capability, and data into decisions, at the point where it matters most.
+              {' '}
+              Athena-Tek delivers AI-enabled training and test solutions—at the edge, at scale, and in service of the warfighter.
             </motion.p>
           </div>
 

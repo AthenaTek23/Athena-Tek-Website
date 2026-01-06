@@ -6,6 +6,20 @@ import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
 
+// Hero image
+import tedEcosystemImg from '../../assets/TED-EcoSystem.png';
+
+// Device images
+import tedImg from '../../assets/TED.png';
+import tedMImg from '../../assets/TED-M.png';
+import atedImg from '../../assets/ATED.png';
+
+// Capabilities images
+import multiNetworkImg from '../../assets/multiNetwork.png';
+import secureEdgeImg from '../../assets/secureEdge.png';
+import integratedSensImg from '../../assets/integratedSens.png';
+import aiWorkflowsImg from '../../assets/AI-WorkFlows.png';
+
 const sections = [
   { id: 'hero', label: 'Overview' },
   { id: 'devices', label: 'Device Family' },
@@ -40,13 +54,16 @@ function HeroSection({ isDark }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center"
+        className="text-center max-w-4xl mx-auto"
       >
-        <div className={`w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center ${
-          isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-        }`}>
-          <Cpu size={48} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+        <div className="mb-8">
+          <img
+            src={tedEcosystemImg}
+            alt="TED Ecosystem"
+            className="w-full max-w-[384px] mx-auto rounded-2xl shadow-lg"
+          />
         </div>
+        <span className="tag-base tag-primary mb-4 inline-block">TED ECOSYSTEM</span>
         <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
           TED Ecosystem
         </h1>
@@ -64,21 +81,21 @@ function HeroSection({ isDark }) {
 function DevicesSection({ isDark }) {
   const devices = [
     {
-      icon: <Cpu size={iconSizes.xl} />,
+      image: tedImg,
       name: 'TED',
       subtitle: 'Training Edge Device',
       description: 'TED combines multi-modal communications, secure edge computing, and integrated sensing to support real-time data capture, local processing, and synchronization across range systems and enterprise analytics. It is engineered to function in DDIL conditions and maintain operational continuity when connectivity is limited, buffering critical data and synchronizing when communications return.',
       features: ['Multi-modal communications', 'Secure edge computing', 'Integrated sensing', 'DDIL operation', 'Data buffering & sync'],
     },
     {
-      icon: <Wifi size={iconSizes.xl} />,
+      image: tedMImg,
       name: 'TED-M',
       subtitle: 'MANET Variant',
       description: 'TED-M is a MANET-focused variant optimized for infrastructure-less environments. It provides mesh networking capabilities for operations where traditional connectivity is unavailable, extending coverage and maintaining communications in challenging terrain.',
       features: ['Infrastructure-less operation', 'Mesh networking', 'Extended range', 'Self-healing topology', 'Optimized for field ops'],
     },
     {
-      icon: <MonitorPlay size={iconSizes.xl} />,
+      image: atedImg,
       name: 'A-TED',
       subtitle: 'ATAK-Integrated Controller',
       description: 'A-TED is an ATAK-integrated operational controller device that supports pairing, exercise management, and field operations for OC/EXCON roles. It provides a flexible interface for managing training exercises and coordinating field operations.',
@@ -108,31 +125,27 @@ function DevicesSection({ isDark }) {
               <Card size="xl" className={`${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
                 <div className="flex flex-col lg:flex-row gap-6">
                   <div className="flex-shrink-0">
-                    <div className={`w-20 h-20 rounded-xl flex items-center justify-center ${
-                      isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+                    <div className={`w-20 h-20 rounded-xl overflow-hidden ${
+                      isDark ? 'bg-primary-navy/20' : 'bg-light-100'
                     }`}>
-                      <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
-                        {device.icon}
-                      </div>
+                      <img src={device.image} alt={device.name} className="w-full h-full object-contain" />
                     </div>
                   </div>
                   <div className="flex-grow">
-                    <h3 className={`text-2xl font-bold mb-1 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                    <h3 className="text-2xl font-bold mb-1 !text-black">
                       {device.name}
                     </h3>
-                    <p className={`text-sm font-medium mb-3 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
+                    <p className="text-sm font-medium mb-3 !text-black">
                       {device.subtitle}
                     </p>
-                    <p className={`text-sm mb-4 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                    <p className="text-sm mb-4 !text-black">
                       {device.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {device.features.map((feature, j) => (
                         <span
                           key={j}
-                          className={`text-xs px-3 py-1 rounded-full ${
-                            isDark ? 'bg-white/5 text-dark-300' : 'bg-light-200 text-light-700'
-                          }`}
+                          className="text-xs px-3 py-1 rounded-full bg-light-200 !text-black"
                         >
                           {feature}
                         </span>
@@ -151,10 +164,10 @@ function DevicesSection({ isDark }) {
 
 function CapabilitiesSection({ isDark }) {
   const capabilities = [
-    { icon: <Radio size={iconSizes.lg} />, title: 'Multi-Network Communications', desc: 'Support for 5G/4G, mesh/MANET, and hybrid connectivity modes' },
-    { icon: <Cpu size={iconSizes.lg} />, title: 'Secure Edge Computing', desc: 'On-device processing for real-time decision support' },
-    { icon: <Shield size={iconSizes.lg} />, title: 'Integrated Sensing', desc: 'Built-in sensors for position, orientation, and environmental data' },
-    { icon: <Zap size={iconSizes.lg} />, title: 'AI-Enabled Workflows', desc: 'Edge AI capabilities for inference and data processing' },
+    { image: multiNetworkImg, title: 'Multi-Network Communications', desc: 'Support for 5G/4G, mesh/MANET, and hybrid connectivity modes' },
+    { image: secureEdgeImg, title: 'Secure Edge Computing', desc: 'On-device processing for real-time decision support' },
+    { image: integratedSensImg, title: 'Integrated Sensing', desc: 'Built-in sensors for position, orientation, and environmental data' },
+    { image: aiWorkflowsImg, title: 'AI-Enabled Workflows', desc: 'Edge AI capabilities for inference and data processing' },
   ];
 
   return (
@@ -175,8 +188,8 @@ function CapabilitiesSection({ isDark }) {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="lg" className="h-full text-center">
-              <div className="icon-box w-14 h-14 mx-auto mb-4">
-                {cap.icon}
+              <div className={`w-14 h-14 rounded-xl overflow-hidden mx-auto mb-4 ${isDark ? 'bg-primary-navy/20' : 'bg-light-100'}`}>
+                <img src={cap.image} alt={cap.title} className="w-full h-full object-contain" />
               </div>
               <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                 {cap.title}

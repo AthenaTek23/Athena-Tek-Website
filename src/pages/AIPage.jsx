@@ -44,7 +44,7 @@ export default function AIPage() {
             viewsConfig={applicationsViewsConfig}
             siteConfig={applicationsSiteConfig}
             theme="applications"
-            basePath="/Athena-Tek-Website/monitors/Applications"
+            basePath="/monitors/Applications"
           />
         </div>
       </section>

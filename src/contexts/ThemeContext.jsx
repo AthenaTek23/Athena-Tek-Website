@@ -1,46 +1,26 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useEffect } from 'react';
 
 const ThemeContext = createContext(undefined);
 
-const THEMES = ['dark', 'light', 'brand'];
-
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(() => {
-    // Check localStorage first, then system preference, default to dark
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('athena-theme');
-      if (stored && THEMES.includes(stored)) return stored;
-      if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-        return 'light';
-      }
-    }
-    return 'dark';
-  });
+  // Force light mode only - no theme switching
+  const theme = 'light';
 
   useEffect(() => {
-    // Update document class and localStorage
+    // Set light mode on document
     const root = document.documentElement;
     root.classList.remove('light', 'dark', 'brand');
-    root.classList.add(theme);
-    localStorage.setItem('athena-theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((prev) => {
-      const currentIndex = THEMES.indexOf(prev);
-      const nextIndex = (currentIndex + 1) % THEMES.length;
-      return THEMES[nextIndex];
-    });
-  };
+    root.classList.add('light');
+  }, []);
 
   const value = {
     theme,
-    setTheme,
-    toggleTheme,
-    isDark: theme === 'dark',
-    isLight: theme === 'light',
-    isBrand: theme === 'brand',
-    isSepia: theme === 'brand', // Keep for backward compatibility
+    setTheme: () => {}, // No-op since we only support light mode
+    toggleTheme: () => {}, // No-op since we only support light mode
+    isDark: false,
+    isLight: true,
+    isBrand: false,
+    isSepia: false,
   };
 
   return (

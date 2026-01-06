@@ -36,6 +36,12 @@
     @apply text-light-900;
   }
 
+  /* Headings inside section-dark should be white */
+  .light .section-dark h1, .light .section-dark h2, .light .section-dark h3,
+  .light .section-dark h4, .light .section-dark h5, .light .section-dark h6 {
+    @apply text-white;
+  }
+
   /* Brand mode overrides (Army Desert Colors) */
   .brand body {
     background-color: #f5f0e1;
@@ -123,12 +129,12 @@
   }
 
   .section-dark {
-    @apply bg-gradient-to-b from-dark-900 to-dark-950;
+    @apply bg-primary-navy;
   }
 
   /* Light mode section */
   .light .section-dark {
-    @apply bg-gradient-to-b from-light-200 to-light-100;
+    @apply bg-primary-navy;
   }
 
   /* Brand mode section (Desert) */
@@ -276,7 +282,7 @@
   }
 
   .tag-light {
-    @apply bg-primary-500/15 border border-primary-500/30 text-primary-light;
+    @apply bg-white/20 border border-white/30 text-white;
   }
 
   /* Light mode tag overrides */
@@ -285,7 +291,7 @@
   }
 
   .light .tag-light {
-    @apply bg-primary-navy/5 border border-primary-navy/20 text-primary-navy;
+    @apply bg-white/20 border border-white/30 text-white;
   }
 
   /* Brand mode tag overrides (Desert) */
@@ -413,5 +419,69 @@
 
   .animate-delay-500 {
     animation-delay: 500ms;
+  }
+}
+
+/* Small screen handling (< 320px) */
+@media (max-width: 319px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container-main {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+  h2 {
+    font-size: 1.25rem !important;
+  }
+
+  /* Ensure buttons still meet touch targets on tiny screens */
+  button, a[role="button"], .btn-base {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Tighter padding for cards on tiny screens */
+  .card-base {
+    padding: 0.75rem;
+  }
+
+  /* Smaller image showcases on tiny screens */
+  .image-showcase, .image-showcase-sm {
+    padding: 1rem;
+  }
+}
+
+/* Accessibility: Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger tap targets on touch devices */
+  a, button {
+    min-height: 44px;
+  }
+
+  /* Remove hover effects that can cause sticky states on touch */
+  .card-hover:hover {
+    background-color: inherit;
+    border-color: inherit;
   }
 }

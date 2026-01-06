@@ -6,6 +6,15 @@ import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
 
+// Hero image
+import aiEnabledImg from '../../assets/AI-Enabled.png';
+
+// AI Capabilities images
+import sensorFusionImg from '../../assets/sensorFusion.png';
+import anomalyImg from '../../assets/Anomaly.png';
+import adaptiveSampleImg from '../../assets/adaptiveSample.png';
+import safetyAlertImg from '../../assets/SafetyAlert.png';
+
 const sections = [
   { id: 'hero', label: 'Overview' },
   { id: 'capabilities', label: 'AI Capabilities' },
@@ -40,13 +49,16 @@ function HeroSection({ isDark }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center"
+        className="text-center max-w-4xl mx-auto"
       >
-        <div className={`w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center ${
-          isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-        }`}>
-          <Shield size={48} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+        <div className="mb-8">
+          <img
+            src={aiEnabledImg}
+            alt="AI-Enabled Training & Soldier Safety"
+            className="w-full max-w-[384px] mx-auto rounded-2xl shadow-lg"
+          />
         </div>
+        <span className="tag-base tag-primary mb-4 inline-block">AI-ENABLED</span>
         <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
           AI-Enabled Training & Soldier Safety
         </h1>
@@ -64,22 +76,22 @@ function HeroSection({ isDark }) {
 function CapabilitiesSection({ isDark }) {
   const capabilities = [
     {
-      icon: <Activity size={iconSizes.xl} />,
+      image: sensorFusionImg,
       title: 'Sensor Fusion',
       desc: 'Device-based sensing, position data, and wearable inputs combined to provide actionable insight in real time, even when bandwidth is constrained.'
     },
     {
-      icon: <Zap size={iconSizes.xl} />,
+      image: anomalyImg,
       title: 'Anomaly Detection',
       desc: 'Lightweight inference workflows at the edge for real-time detection of unusual patterns and immediate alerting.'
     },
     {
-      icon: <Target size={iconSizes.xl} />,
+      image: adaptiveSampleImg,
       title: 'Adaptive Sampling',
       desc: 'Intelligent data collection that adjusts sampling rates based on context, optimizing bandwidth usage while capturing critical data.'
     },
     {
-      icon: <AlertTriangle size={iconSizes.xl} />,
+      image: safetyAlertImg,
       title: 'Safety Alerts',
       desc: 'Real-time safety monitoring with immediate alerts for heat stress, fatigue, injury detection, and geofence violations.'
     },
@@ -105,17 +117,21 @@ function CapabilitiesSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="xl" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                  isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+                <div className={`w-16 h-16 rounded-xl overflow-hidden mb-4 ${
+                  isDark ? 'bg-primary-navy/20' : 'bg-light-100'
                 }`}>
-                  <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
-                    {cap.icon}
-                  </div>
+                  <img src={cap.image} alt={cap.title} className="w-full h-full object-contain" />
                 </div>
-                <h3 className={`text-xl font-bold mb-3 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                <h3
+                  className="text-xl font-bold mb-3"
+                  style={{ color: isDark ? 'white' : '#111827' }}
+                >
                   {cap.title}
                 </h3>
-                <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <p
+                  className="text-sm"
+                  style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                >
                   {cap.desc}
                 </p>
               </Card>
@@ -220,17 +236,28 @@ function ApproachSection({ isDark }) {
               }`}>
                 <Cpu size={28} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
               </div>
-              <h4 className={`text-xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
+              <h4
+                className="text-xl font-bold mb-4"
+                style={{ color: isDark ? 'white' : '#111827' }}
+              >
                 At the Edge (TED)
               </h4>
-              <p className={`text-sm mb-4 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+              <p
+                className="text-sm mb-4"
+                style={{ color: isDark ? '#d1d5db' : '#374151' }}
+              >
                 TED supports lightweight inference workflows that operate directly on the device, ensuring immediate response even without connectivity.
               </p>
               <div className="space-y-2">
                 {edgeCapabilities.map((cap, i) => (
-                  <div key={i} className={`flex items-center gap-3 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                  <div key={i} className="flex items-center gap-3">
                     <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
-                    <span className="text-sm">{cap}</span>
+                    <span
+                      className="text-sm"
+                      style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                    >
+                      {cap}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -249,17 +276,28 @@ function ApproachSection({ isDark }) {
               }`}>
                 <Users size={28} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
               </div>
-              <h4 className={`text-xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
+              <h4
+                className="text-xl font-bold mb-4"
+                style={{ color: isDark ? 'white' : '#111827' }}
+              >
                 Central Analytics
               </h4>
-              <p className={`text-sm mb-4 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+              <p
+                className="text-sm mb-4"
+                style={{ color: isDark ? '#d1d5db' : '#374151' }}
+              >
                 Integrated analytics provide deeper assessment for commanders, range operators, and evaluators.
               </p>
               <div className="space-y-2">
                 {centralCapabilities.map((cap, i) => (
-                  <div key={i} className={`flex items-center gap-3 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                  <div key={i} className="flex items-center gap-3">
                     <Check size={14} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
-                    <span className="text-sm">{cap}</span>
+                    <span
+                      className="text-sm"
+                      style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                    >
+                      {cap}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -273,10 +311,16 @@ function ApproachSection({ isDark }) {
           viewport={{ once: true }}
         >
           <Card size="xl" variant="featured" className={isDark ? 'bg-white/[0.02]' : 'bg-white'}>
-            <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
+            <h4
+              className="text-lg font-semibold mb-4"
+              style={{ color: isDark ? '#93c5fd' : '#111827' }}
+            >
               Data Becomes Decisions
             </h4>
-            <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+            <p
+              className="text-sm"
+              style={{ color: isDark ? '#d1d5db' : '#374151' }}
+            >
               This hybrid approach ensures timely response during incidents while enabling scalable decision support and after-action review. The result is a training and test ecosystem where data becomes decisions—delivered with speed, relevance, and operational trust.
             </p>
           </Card>

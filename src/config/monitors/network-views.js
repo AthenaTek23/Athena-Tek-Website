@@ -9,7 +9,7 @@ export const viewsConfig = {
     pillText: 'LIVE TRAINING NETWORK',
     video: {
       src: 'videos/NF-V.mp4',
-      poster: 'Images/NF-1G.jpg'
+      poster: 'Images/NF-1G.webp'
     },
     panel: {
       title: "GLOBAL NETWORKS. NON-TERRESTRIAL READY. EXPEDITIONARY BY DESIGN",
@@ -32,7 +32,7 @@ export const viewsConfig = {
     tag: 'Terrain & LOS',
     pillText: 'TERRAIN OCCLUSION',
     image: {
-      src: 'Images/NF-TAC.png',
+      src: 'Images/NF-TAC.webp',
       alt: 'Terrain occlusion and line-of-sight challenges'
     },
     panel: {
@@ -57,7 +57,7 @@ export const viewsConfig = {
     tag: 'Hybrid Fabric',
     pillText: '5G / LTE / 900 MHz',
     image: {
-      src: 'Images/NF-Ex.png',
+      src: 'Images/NF-Ex.webp',
       alt: 'Expeditionary 5G and mesh network diagram'
     },
     panel: {
@@ -83,7 +83,7 @@ export const viewsConfig = {
     tag: 'Reachback',
     pillText: 'TAK / LTEC / STE',
     image: {
-      src: 'Images/NF-Star.png',
+      src: 'Images/NF-Star.webp',
       alt: 'Starlink backhaul to TAK/LTEC server'
     },
     panel: {

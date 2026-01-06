@@ -6,6 +6,20 @@ import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
 
+// Hero image
+import multiModalImg from '../../assets/MultiModal.png';
+
+// Network type images
+import private5GImg from '../../assets/private5G.png';
+import topologyImg from '../../assets/Topology.png';
+import satComImg from '../../assets/SatCom.png';
+import ddilImg from '../../assets/DDIL.png';
+
+// Outcomes images
+import conectivityImg from '../../assets/Conectivity.png';
+import fieldReadyImg from '../../assets/FieldReady.png';
+import missionAlignedImg from '../../assets/MissionAligned.png';
+
 const sections = [
   { id: 'hero', label: 'Overview' },
   { id: 'network-types', label: 'Network Types' },
@@ -40,13 +54,16 @@ function HeroSection({ isDark }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center"
+        className="text-center max-w-4xl mx-auto"
       >
-        <div className={`w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center ${
-          isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-        }`}>
-          <Network size={48} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+        <div className="mb-8">
+          <img
+            src={multiModalImg}
+            alt="Multi-Modal Tactical Networking"
+            className="w-full max-w-[384px] mx-auto rounded-2xl shadow-lg"
+          />
         </div>
+        <span className="tag-base tag-primary mb-4 inline-block">TACTICAL NETWORKING</span>
         <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
           Multi-Modal Tactical Networking
         </h1>
@@ -64,22 +81,22 @@ function HeroSection({ isDark }) {
 function NetworkTypesSection({ isDark }) {
   const networkTypes = [
     {
-      icon: <Radio size={iconSizes.xl} />,
+      image: private5GImg,
       title: '5G/4G Networks',
       desc: 'Private and hybrid 5G/4G networks including FR1 and CBRS use cases for high-bandwidth, low-latency communications.'
     },
     {
-      icon: <Wifi size={iconSizes.xl} />,
+      image: topologyImg,
       title: 'MANET/Mesh',
       desc: 'Infrastructure-less MANET/mesh capability for operations where traditional network infrastructure is unavailable.'
     },
     {
-      icon: <Globe size={iconSizes.xl} />,
+      image: satComImg,
       title: 'SATCOM Backhaul',
       desc: 'Optional SATCOM-enabled backhaul for global connectivity and resilient communications in remote locations.'
     },
     {
-      icon: <Shield size={iconSizes.xl} />,
+      image: ddilImg,
       title: 'DDIL Resilient',
       desc: 'Designed for denied, degraded, intermittent, and limited connectivity environments with automatic failover.'
     },
@@ -105,17 +122,15 @@ function NetworkTypesSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="xl" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                  isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+                <div className={`w-16 h-16 rounded-xl overflow-hidden mb-4 ${
+                  isDark ? 'bg-primary-navy/20' : 'bg-light-100'
                 }`}>
-                  <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
-                    {type.icon}
-                  </div>
+                  <img src={type.image} alt={type.title} className="w-full h-full object-contain" />
                 </div>
-                <h3 className={`text-xl font-bold mb-3 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                <h3 className="text-xl font-bold mb-3 !text-black">
                   {type.title}
                 </h3>
-                <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <p className="text-sm !text-black">
                   {type.desc}
                 </p>
               </Card>
@@ -193,9 +208,9 @@ function CapabilitiesSection({ isDark }) {
 
 function OutcomesSection({ isDark }) {
   const outcomes = [
-    { icon: <Server size={iconSizes.lg} />, title: 'Connectivity to Capability', desc: 'Networks that turn connectivity into capability—where and when it matters most' },
-    { icon: <MapPin size={iconSizes.lg} />, title: 'Field-Ready Deployment', desc: 'From modeling and simulation of wireless performance to field-ready deployment and integration' },
-    { icon: <Shield size={iconSizes.lg} />, title: 'Mission-Aligned Performance', desc: 'Network performance, coverage, and QoS aligned to mission requirements' },
+    { image: conectivityImg, title: 'Connectivity to Capability', desc: 'Networks that turn connectivity into capability—where and when it matters most' },
+    { image: fieldReadyImg, title: 'Field-Ready Deployment', desc: 'From modeling and simulation of wireless performance to field-ready deployment and integration' },
+    { image: missionAlignedImg, title: 'Mission-Aligned Performance', desc: 'Network performance, coverage, and QoS aligned to mission requirements' },
   ];
 
   return (
@@ -218,13 +233,13 @@ function OutcomesSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="lg" className={`h-full text-center ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <div className="icon-box w-14 h-14 mx-auto mb-4">
-                  {outcome.icon}
+                <div className={`w-14 h-14 rounded-xl overflow-hidden mx-auto mb-4 ${isDark ? 'bg-primary-navy/20' : 'bg-light-100'}`}>
+                  <img src={outcome.image} alt={outcome.title} className="w-full h-full object-contain" />
                 </div>
-                <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                <h4 className="text-lg font-semibold mb-2 !text-black">
                   {outcome.title}
                 </h4>
-                <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <p className="text-sm !text-black">
                   {outcome.desc}
                 </p>
               </Card>

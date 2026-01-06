@@ -6,7 +6,11 @@ import { PageSectionNav, SectionDots } from '../components/navigation';
 import { useTheme } from '../contexts/ThemeContext';
 import { iconSizes } from '../styles/theme';
 
+// Hero image
+import innovationImg from '../assets/TED_AI-EnabledSensor_and_EmitterFusionEngine_v2/Inovation.png';
+
 const sections = [
+  { id: 'overview', label: 'Overview' },
   { id: 'ai-ecosystem', label: 'AI Ecosystem' },
   { id: 'edge-computing', label: 'Edge Computing' },
   { id: 'rd', label: 'R&D' },
@@ -21,6 +25,7 @@ export default function InnovationPage() {
       <PageSectionNav sections={sections} />
       <SectionDots sections={sections} />
 
+      <HeroSection isDark={isDark} />
       <AIEcosystemSection isDark={isDark} />
       <EdgeComputingSection isDark={isDark} />
       <RDSection isDark={isDark} />
@@ -30,6 +35,35 @@ export default function InnovationPage() {
         subtitle="Collaborate with Athena-Tek on next-generation defense innovations."
       />
     </div>
+  );
+}
+
+function HeroSection({ isDark }) {
+  return (
+    <section id="overview" className="section-padding container-main scroll-mt-36">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center max-w-4xl mx-auto"
+      >
+        {/* Hero Image */}
+        <div className="mb-8">
+          <img
+            src={innovationImg}
+            alt="Innovation"
+            className="w-full max-w-3xl mx-auto rounded-2xl shadow-lg"
+          />
+        </div>
+        <span className="tag-base tag-primary mb-4 inline-block">INNOVATION</span>
+        <h1 className={`text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
+          Driving the Future of Defense Technology
+        </h1>
+        <p className={`text-lg leading-relaxed ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+          Pioneering AI-enabled solutions, edge computing, and next-generation networking for tactical environments.
+        </p>
+      </motion.div>
+    </section>
   );
 }
 

@@ -8,7 +8,7 @@ export const viewsConfig = {
     tag: 'TED Overview',
     pillText: 'SOLDIER-WORN NODE',
     image: {
-      src: 'Images/TED-2.jpg',
+      src: 'Images/TED-2.webp',
       alt: 'TED hero visual'
     },
     panel: {
@@ -34,7 +34,7 @@ export const viewsConfig = {
     tag: 'Sensor Fusion',
     pillText: 'RTK + IMU + EMITTERS',
     image: {
-      src: 'Images/TED-SP.png',
+      src: 'Images/TED-SP.webp',
       alt: 'TED sensors and positioning artwork'
     },
     panel: {
@@ -60,7 +60,7 @@ export const viewsConfig = {
     tag: 'Network Swiss-Army Knife',
     pillText: '5G / LTE / MESH',
     image: {
-      src: 'Images/TED-RM.png',
+      src: 'Images/TED-RM.webp',
       alt: 'TED radios and mesh interfaces'
     },
     panel: {
@@ -85,7 +85,7 @@ export const viewsConfig = {
     tag: 'Edge Intelligence',
     pillText: 'ON-DEVICE MODELS',
     image: {
-      src: 'Images/TED-AI.png',
+      src: 'Images/TED-AI.webp',
       alt: 'TED AI engine, models and TPU'
     },
     panel: {
@@ -110,7 +110,7 @@ export const viewsConfig = {
     tag: 'Health & Alerts',
     pillText: 'WEARABLE INTEGRATION',
     image: {
-      src: 'Images/TED-SS.png',
+      src: 'Images/TED-SS.webp',
       alt: 'TED soldier safety and wearables'
     },
     panel: {
@@ -137,7 +137,7 @@ export const viewsConfig = {
     pillText: 'VIDEO',
     video: {
       src: 'videos/TED-Description.mp4',
-      poster: 'Images/TED-2.jpg'
+      poster: 'Images/TED-2.webp'
     },
     panel: {
       title: '',

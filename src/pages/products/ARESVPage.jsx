@@ -1,10 +1,25 @@
 import { motion } from 'framer-motion';
-import { Cpu, Radio, Shield, Zap, MapPin, Server, Check, Smartphone } from 'lucide-react';
+import { Cpu, Radio, Shield, Zap, MapPin, Server, Check } from 'lucide-react';
 import { Card } from '../../components/ui';
 import { SectionHeader, CTASection } from '../../components/common';
 import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
+
+// Product image
+import aresVImg from '../../assets/products/ares-v.webp';
+
+// Key Benefits images
+import keyBenExtendedImg from '../../assets/ProductsKeyBen.png';
+import keyBenMOUTImg from '../../assets/ProductsKeyBenMOUNT.png';
+import keyBenSingleImg from '../../assets/ProductsKeyBenSingle.png';
+
+// Additional Key Benefits images
+import singleDeviceImg from '../../assets/SingleDevice.png';
+import realismImg from '../../assets/Realism.png';
+import extendCoverageImg from '../../assets/ExtendCoverage.png';
+import situationalAwarenessImg from '../../assets/SituationalAwareness.png';
+import omImg from '../../assets/O&M.png';
 
 const sections = [
   { id: 'hero', label: 'Overview' },
@@ -39,17 +54,17 @@ export default function ARESVPage() {
 
 function HeroSection({ isDark }) {
   return (
-    <section id="hero" className="py-8 md:py-12 lg:py-16 container-main scroll-mt-36">
+    <section id="hero" className="py-8 md:py-12 lg:py-16 container-main scroll-mt-28 md:scroll-mt-36">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="text-center"
       >
-        <div className={`w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center ${
-          isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+        <div className={`w-48 h-48 md:w-64 md:h-64 mx-auto mb-6 rounded-2xl flex items-center justify-center overflow-hidden ${
+          isDark ? 'bg-primary-navy/20' : 'bg-light-100'
         }`}>
-          <Smartphone size={48} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+          <img src={aresVImg} alt="ARES V" className="w-full h-full object-contain" />
         </div>
         <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
           ARES V
@@ -68,16 +83,16 @@ function HeroSection({ isDark }) {
 
 function BenefitsSection({ isDark }) {
   const benefits = [
-    { icon: <Cpu size={iconSizes.lg} />, title: 'Single Training Device', desc: 'Multiple use cases for training & testing in one platform' },
-    { icon: <Shield size={iconSizes.lg} />, title: 'Enhanced Training Realism', desc: 'High-fidelity training scenarios with realistic feedback' },
-    { icon: <Radio size={iconSizes.lg} />, title: 'Extended Coverage', desc: '5-Watt mesh connectivity for expanded operational range' },
-    { icon: <MapPin size={iconSizes.lg} />, title: 'Improved Situational Awareness', desc: 'Real-time soldier safety monitoring and alerts' },
-    { icon: <Zap size={iconSizes.lg} />, title: 'MOUT/GPS-Denied Support', desc: 'Full operation in urban and GPS-denied environments' },
-    { icon: <Server size={iconSizes.lg} />, title: 'Reduced O&M and CAPEX', desc: 'Lower operational costs with integrated solutions' },
+    { image: singleDeviceImg, title: 'Single Training Device', desc: 'Multiple use cases for training & testing in one platform' },
+    { image: realismImg, title: 'Enhanced Training Realism', desc: 'High-fidelity training scenarios with realistic feedback' },
+    { image: extendCoverageImg, title: 'Extended Coverage', desc: '5-Watt mesh connectivity for expanded operational range' },
+    { image: situationalAwarenessImg, title: 'Improved Situational Awareness', desc: 'Real-time soldier safety monitoring and alerts' },
+    { image: keyBenMOUTImg, title: 'MOUT/GPS-Denied Support', desc: 'Full operation in urban and GPS-denied environments' },
+    { image: omImg, title: 'Reduced O&M and CAPEX', desc: 'Lower operational costs with integrated solutions' },
   ];
 
   return (
-    <section id="benefits" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
+    <section id="benefits" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-28 md:scroll-mt-36">
       <SectionHeader
         tag="WHY ARES V"
         title="Key Benefits"
@@ -94,9 +109,21 @@ function BenefitsSection({ isDark }) {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="lg" className="h-full">
-              <div className="icon-box w-12 h-12 mb-4">
-                {benefit.icon}
-              </div>
+              {benefit.image ? (
+                <div className={`w-14 h-14 rounded-xl overflow-hidden mb-4 ${
+                  isDark ? 'bg-primary-navy/20' : 'bg-light-100'
+                }`}>
+                  <img
+                    src={benefit.image}
+                    alt={benefit.title}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              ) : (
+                <div className="icon-box w-12 h-12 mb-4">
+                  {benefit.icon}
+                </div>
+              )}
               <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                 {benefit.title}
               </h4>
@@ -138,7 +165,7 @@ function DifferentiatorsSection({ isDark }) {
   ];
 
   return (
-    <section id="differentiators" className="section-dark py-5 md:py-7 lg:py-10 scroll-mt-36">
+    <section id="differentiators" className="section-dark py-5 md:py-7 lg:py-10 scroll-mt-28 md:scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="COMPETITIVE ADVANTAGE"
@@ -176,7 +203,7 @@ function HardwareSection({ isDark }) {
   ];
 
   return (
-    <section id="hardware" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
+    <section id="hardware" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-28 md:scroll-mt-36">
       <SectionHeader
         tag="DEVICE HARDWARE"
         title="Core Hardware Specifications"
@@ -246,7 +273,7 @@ function SpecificationsSection({ isDark }) {
   ];
 
   return (
-    <section id="specifications" className="section-dark py-5 md:py-7 lg:py-10 scroll-mt-36">
+    <section id="specifications" className="section-dark py-5 md:py-7 lg:py-10 scroll-mt-28 md:scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="TECHNICAL SPECIFICATIONS"
@@ -304,7 +331,7 @@ function IntegrationSection({ isDark }) {
   };
 
   return (
-    <section id="integration" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
+    <section id="integration" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-28 md:scroll-mt-36">
       <SectionHeader
         tag="ECOSYSTEM"
         title="Integration Capabilities"

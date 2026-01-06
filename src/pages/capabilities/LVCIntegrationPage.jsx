@@ -6,6 +6,14 @@ import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
 
+// Hero image
+import lvcImg from '../../assets/LVC.png';
+
+// Key Differentiators icons
+import liveDomainImg from '../../assets/LiveDomain.png';
+import integrationHubImg from '../../assets/IntegrationHub.png';
+import interoperabilityWorkImg from '../../assets/InteroperabilityWork.png';
+
 const sections = [
   { id: 'hero', label: 'Overview' },
   { id: 'differentiators', label: 'Key Differentiators' },
@@ -40,13 +48,16 @@ function HeroSection({ isDark }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center"
+        className="text-center max-w-4xl mx-auto"
       >
-        <div className={`w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center ${
-          isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-        }`}>
-          <Layers size={48} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+        <div className="mb-8">
+          <img
+            src={lvcImg}
+            alt="LVC Integration & Interoperability"
+            className="w-full max-w-[384px] mx-auto rounded-2xl shadow-lg"
+          />
         </div>
+        <span className="tag-base tag-primary mb-4 inline-block">LVC INTEGRATION</span>
         <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
           LVC Integration & Interoperability
         </h1>
@@ -64,17 +75,17 @@ function HeroSection({ isDark }) {
 function DifferentiatorsSection({ isDark }) {
   const differentiators = [
     {
-      icon: <Network size={iconSizes.xl} />,
+      icon: <img src={liveDomainImg} alt="Live Domain Expertise" className="w-12 h-12 object-contain" />,
       title: 'Live Domain Expertise',
       desc: 'Real devices, real networks, and real range data integrated into LVC ecosystems. Athena-Tek brings live-domain execution expertise that software-only providers cannot match.'
     },
     {
-      icon: <Shield size={iconSizes.xl} />,
+      icon: <img src={integrationHubImg} alt="Federation Risk Reduction" className="w-12 h-12 object-contain" />,
       title: 'Federation Risk Reduction',
       desc: 'Proven integration practices that reduce complexity and accelerate deployment. We connect live instrumentation into the broader ecosystem while minimizing integration risk.'
     },
     {
-      icon: <Layers size={iconSizes.xl} />,
+      icon: <img src={interoperabilityWorkImg} alt="Interoperability Workflows" className="w-12 h-12 object-contain" />,
       title: 'Interoperability Workflows',
       desc: 'Translation and interoperability workflows that connect live training systems into virtual and constructive environments for seamless data flow.'
     },
@@ -100,17 +111,19 @@ function DifferentiatorsSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="xl" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                  isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-                }`}>
-                  <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
-                    {diff.icon}
-                  </div>
+                <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-4">
+                  {diff.icon}
                 </div>
-                <h3 className={`text-xl font-bold mb-3 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                <h3
+                  className="text-xl font-bold mb-3"
+                  style={{ color: isDark ? 'white' : '#111827' }}
+                >
                   {diff.title}
                 </h3>
-                <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <p
+                  className="text-sm"
+                  style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                >
                   {diff.desc}
                 </p>
               </Card>

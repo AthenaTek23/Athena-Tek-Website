@@ -6,6 +6,9 @@ import { SectionHeader, CTASection } from '../../components/common';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
 
+// Hero icon (same as parent Services page)
+import modelingSimImg from '../../assets/ServicesRF.png';
+
 export default function ModelingSimulationPage() {
   const { isDark } = useTheme();
 
@@ -16,6 +19,13 @@ export default function ModelingSimulationPage() {
         <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-dark-900 to-dark-950' : 'bg-gradient-to-b from-light-100 to-white'}`} />
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <div className="relative z-10 container-main text-center">
+          <div className="w-[640px] h-[640px] rounded-2xl overflow-hidden -mb-[122px] mx-auto -mt-[122px]">
+            <img
+              src={modelingSimImg}
+              alt="Modeling & Simulation"
+              className="w-full h-full object-contain"
+            />
+          </div>
           <span className="tag-base tag-primary mb-4 inline-block">TECHNICAL SERVICES</span>
           <h1 className={`text-4xl md:text-5xl font-extrabold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
             Modeling & Simulation

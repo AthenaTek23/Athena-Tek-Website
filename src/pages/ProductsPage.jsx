@@ -1,13 +1,27 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Cpu, Smartphone, Monitor, Globe, ChevronRight, Phone, SmartphoneIcon, RadioTower, Wifi } from 'lucide-react';
+import { Monitor, Globe, ChevronRight } from 'lucide-react';
 import { Card } from '../components/ui';
 import { SectionHeader, CTASection } from '../components/common';
 import { PageSectionNav, SectionDots } from '../components/navigation';
 import { useTheme } from '../contexts/ThemeContext';
 import { iconSizes } from '../styles/theme';
 
+// Product images
+import aresVImg from '../assets/products/ares-v.webp';
+import androidTedImg from '../assets/products/android-ted.webp';
+import wifiHalowImg from '../assets/products/wifi-halow.webp';
+import zeus5gImg from '../assets/products/zeus-5g.webp';
+
+// Hero image
+import productsHeroImg from '../assets/TED_AI-EnabledSensor_and_EmitterFusionEngine_v2/TED_AI-EnabledSensor_and_EmitterFusionEngine_v2.jpg';
+
+// Software product images
+import takMonitorImg from '../assets/TAK-Monitor.png';
+import terrainImg from '../assets/3D-Terrain.png';
+
 const sections = [
+  { id: 'overview', label: 'Overview' },
   { id: 'hardware', label: 'Hardware' },
   { id: 'software', label: 'Software' },
 ];
@@ -20,6 +34,7 @@ export default function ProductsPage() {
       <PageSectionNav sections={sections} />
       <SectionDots sections={sections} />
 
+      <HeroSection isDark={isDark} />
       <HardwareSection isDark={isDark} />
       <SoftwareSection isDark={isDark} />
       <CTASection
@@ -30,34 +45,63 @@ export default function ProductsPage() {
   );
 }
 
+function HeroSection({ isDark }) {
+  return (
+    <section id="overview" className="section-padding container-main scroll-mt-36">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center max-w-4xl mx-auto"
+      >
+        {/* Hero Image */}
+        <div className="mb-8">
+          <img
+            src={productsHeroImg}
+            alt="TED AI-Enabled Sensor and Emitter Fusion Engine"
+            className="w-full max-w-3xl mx-auto rounded-2xl shadow-lg"
+          />
+        </div>
+        <span className="tag-base tag-primary mb-4 inline-block">PRODUCTS</span>
+        <h1 className={`text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
+          Training Edge Devices & Software Solutions
+        </h1>
+        <p className={`text-lg leading-relaxed ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+          Rugged hardware and intelligent software designed for military training and tactical operations.
+        </p>
+      </motion.div>
+    </section>
+  );
+}
+
 function HardwareSection({ isDark }) {
   const sectionId = 'hardware';
   const products = [
     {
-      icon: <SmartphoneIcon size={iconSizes.xl} />,
+      image: aresVImg,
       name: 'ARES V',
       description: 'AI-enabled soldier training device with advanced 5G connectivity and edge computing capabilities.',
       path: '/products/ares-v',
       features: ['5G/4G Cellular', 'Mesh Networking', 'Edge AI', 'Sensor Fusion'],
     },
     {
-      icon: <Smartphone size={iconSizes.xl} />,
+      image: androidTedImg,
       name: 'Android TED (A TED)',
       description: 'OC tool based on modified COTS 5G phone with IR capabilities for exercise control and management.',
       path: '/products/android-ted',
       features: ['ATAK Base EXCON', 'Exercise Management', 'PTT Voice Comms', 'IR Emitter'],
     },
     {
-      icon: <Wifi size={iconSizes.xl} />,
+      image: wifiHalowImg,
       name: 'Wi-Fi Halow',
-      description: 'long-range, low-power IoT applications. Remote monitoring of distributed infrastructure',
+      description: 'Long-range, low-power IoT applications. Remote monitoring of distributed infrastructure.',
       path: '/products/Wi-Fi-Halow',
       features: ['IEEE 802.11 AH', 'Mesh Networking', 'Sub-1 GHz', 'Adaptive Power', 'Adaptive Modulation'],
     },
-        {
-      icon: <RadioTower size={iconSizes.xl} />,
+    {
+      image: zeus5gImg,
       name: '5G Zeus',
-      description: 'Dedicated cellular network deployed and operated for the exclusive use of a single organization',
+      description: 'Dedicated cellular network deployed and operated for the exclusive use of a single organization.',
       path: '/products/Zeus',
       features: ['Radio Access Network (RAN) with 5G base stations', 'Spectrum: licensed, shared such as CBRS, or unlicensed'],
     },
@@ -71,7 +115,7 @@ function HardwareSection({ isDark }) {
         subtitle="Rugged, field-proven hardware for military training and operations"
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {products.map((product, i) => (
           <motion.div
             key={i}
@@ -81,13 +125,26 @@ function HardwareSection({ isDark }) {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="xl" className="h-full flex flex-col">
-              <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-              }`}>
-                <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
-                  {product.icon}
+              {/* Product image or icon fallback */}
+              {product.image ? (
+                <div className={`w-full h-48 rounded-xl overflow-hidden mb-4 ${
+                  isDark ? 'bg-primary-navy/20' : 'bg-light-100'
+                }`}>
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-              </div>
+              ) : (
+                <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
+                  isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+                }`}>
+                  <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
+                    {product.icon}
+                  </div>
+                </div>
+              )}
               <h3 className={`text-xl font-bold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                 {product.name}
               </h3>
@@ -129,14 +186,14 @@ function SoftwareSection({ isDark }) {
   const sectionId = 'software';
   const products = [
     {
-      icon: <Monitor size={iconSizes.xl} />,
+      image: takMonitorImg,
       name: 'Network Monitoring System',
       description: 'Real-time TAK network monitoring and After Action Review for military training exercises.',
       path: '/products/network-monitoring',
       features: ['LIVE Mode', 'AAR Playback', 'Network Topology', 'Casualty Tracking'],
     },
     {
-      icon: <Globe size={iconSizes.xl} />,
+      image: terrainImg,
       name: 'One World Terrain Viewer (OWT)',
       description: '3D terrain visualization platform for geospatial analysis and mission planning.',
       path: '/products/owt-viewer',
@@ -164,13 +221,25 @@ function SoftwareSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="xl" className={`h-full flex flex-col ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                  isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-                }`}>
-                  <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
-                    {product.icon}
+                {product.image ? (
+                  <div className={`w-20 h-20 rounded-xl overflow-hidden mb-4 ${
+                    isDark ? 'bg-primary-navy/20' : 'bg-light-100'
+                  }`}>
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
-                </div>
+                ) : (
+                  <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
+                    isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+                  }`}>
+                    <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
+                      {product.icon}
+                    </div>
+                  </div>
+                )}
                 <h3 className={`text-xl font-bold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                   {product.name}
                 </h3>

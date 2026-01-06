@@ -6,6 +6,9 @@ import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
 
+// Hero icon (same as parent Services page)
+import rfEngineeringImg from '../../assets/ServicesComprehensive.png';
+
 const sections = [
   { id: 'overview', label: 'Overview' },
   { id: 'services', label: 'Services' },
@@ -35,7 +38,16 @@ export default function RFEngineeringPage() {
 
 function OverviewSection({ isDark }) {
   return (
-    <section id="overview" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
+    <section id="overview" className="py-2 md:py-3 lg:py-4 container-main scroll-mt-36">
+      <div className="text-center mb-2">
+        <div className="w-[640px] h-[640px] rounded-2xl overflow-hidden -mb-[122px] mx-auto -mt-[122px]">
+          <img
+            src={rfEngineeringImg}
+            alt="RF Engineering"
+            className="w-full h-full object-contain"
+          />
+        </div>
+      </div>
       <SectionHeader
         tag="RF ENGINEERING"
         title="Radio Frequency Engineering Services"
@@ -125,10 +137,16 @@ function ServicesSection({ isDark }) {
                 <div className="icon-box w-12 h-12 mb-4">
                   {service.icon}
                 </div>
-                <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                <h4
+                  className="text-lg font-semibold mb-2"
+                  style={{ color: isDark ? 'white' : '#111827' }}
+                >
                   {service.title}
                 </h4>
-                <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <p
+                  className="text-sm"
+                  style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                >
                   {service.desc}
                 </p>
               </Card>
@@ -277,14 +295,22 @@ function ToolsSection({ isDark }) {
             viewport={{ once: true }}
           >
             <Card size="xl" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-              <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
+              <h4
+                className="text-lg font-semibold mb-4"
+                style={{ color: isDark ? '#93c5fd' : '#111827' }}
+              >
                 Engineering Tools
               </h4>
               <ul className="space-y-3">
                 {tools.map((tool, i) => (
-                  <li key={i} className={`flex items-start gap-3 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                  <li key={i} className="flex items-start gap-3">
                     <Check size={18} className={`flex-shrink-0 mt-0.5 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`} />
-                    <span className="text-sm">{tool}</span>
+                    <span
+                      className="text-sm"
+                      style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                    >
+                      {tool}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -298,17 +324,30 @@ function ToolsSection({ isDark }) {
             transition={{ delay: 0.1 }}
           >
             <Card size="xl" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-              <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
+              <h4
+                className="text-lg font-semibold mb-4"
+                style={{ color: isDark ? '#93c5fd' : '#111827' }}
+              >
                 Frequency Bands
               </h4>
               <div className="space-y-4">
                 {frequencies.map((freq, i) => (
                   <div key={i} className={`pb-3 ${i < frequencies.length - 1 ? (isDark ? 'border-b border-white/5' : 'border-b border-light-200') : ''}`}>
                     <div className="flex items-center justify-between mb-1">
-                      <span className={`font-medium ${isDark ? 'text-white' : 'text-light-900'}`}>{freq.band}</span>
+                      <span
+                        className="font-medium"
+                        style={{ color: isDark ? 'white' : '#111827' }}
+                      >
+                        {freq.band}
+                      </span>
                       <span className={`text-xs ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>{freq.range}</span>
                     </div>
-                    <span className={`text-xs ${isDark ? 'text-dark-400' : 'text-light-500'}`}>{freq.apps}</span>
+                    <span
+                      className="text-xs"
+                      style={{ color: isDark ? '#9ca3af' : '#374151' }}
+                    >
+                      {freq.apps}
+                    </span>
                   </div>
                 ))}
               </div>

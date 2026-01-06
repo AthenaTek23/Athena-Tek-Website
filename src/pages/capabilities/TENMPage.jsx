@@ -6,6 +6,15 @@ import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
 
+// Hero image
+import teNetworkImg from '../../assets/T&E-Mana.png';
+
+// Capabilities icons
+import wirelessEngImg from '../../assets/WirelessEng.png';
+import expediArchImg from '../../assets/ExpediArch.png';
+import enteInteImg from '../../assets/EnteInte.png';
+import instModerImg from '../../assets/InstModer.png';
+
 const sections = [
   { id: 'hero', label: 'Overview' },
   { id: 'capabilities', label: 'Capabilities' },
@@ -40,19 +49,20 @@ function HeroSection({ isDark }) {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center"
+        className="text-center max-w-4xl mx-auto"
       >
-        <div className={`w-24 h-24 mx-auto mb-6 rounded-2xl flex items-center justify-center ${
-          isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-        }`}>
-          <Wrench size={48} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+        {/* Hero Image */}
+        <div className="mb-8">
+          <img
+            src={teNetworkImg}
+            alt="T&E Network Modernization"
+            className="w-full max-w-[384px] mx-auto rounded-2xl shadow-lg"
+          />
         </div>
+        <span className="tag-base tag-primary mb-4 inline-block">TENM</span>
         <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
           Test & Evaluation Network Modernization
         </h1>
-        <p className={`text-xl md:text-2xl mb-6 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
-          TENM
-        </p>
         <p className={`text-base md:text-lg max-w-4xl mx-auto ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
           Athena-Tek supports the modernization of test and evaluation (T&E) networks through resilient wireless engineering, expeditionary architecture, and enterprise integration expertise. We understand that modern T&E requires distributed, secure, and high-fidelity data movement across complex environments—often under real-world operational constraints.
         </p>
@@ -64,22 +74,22 @@ function HeroSection({ isDark }) {
 function CapabilitiesSection({ isDark }) {
   const capabilities = [
     {
-      icon: <Radio size={iconSizes.xl} />,
+      icon: <img src={wirelessEngImg} alt="Wireless Engineering" className="w-12 h-12 object-contain" />,
       title: 'Wireless Engineering',
       desc: 'Resilient wireless design and RF propagation expertise for complex test environments. Wireless modeling and simulation for optimal coverage and performance.'
     },
     {
-      icon: <Server size={iconSizes.xl} />,
+      icon: <img src={expediArchImg} alt="Expeditionary Architecture" className="w-12 h-12 object-contain" />,
       title: 'Expeditionary Architecture',
       desc: 'Deployable network solutions designed for dynamic test environments. Rapid deployment capabilities that adapt to changing requirements.'
     },
     {
-      icon: <Network size={iconSizes.xl} />,
+      icon: <img src={enteInteImg} alt="Enterprise Integration" className="w-12 h-12 object-contain" />,
       title: 'Enterprise Integration',
       desc: 'Connecting test data to enterprise analytics systems for comprehensive analysis. Seamless data flow from instrumentation to decision-makers.'
     },
     {
-      icon: <Wrench size={iconSizes.xl} />,
+      icon: <img src={instModerImg} alt="Instrumentation Modernization" className="w-12 h-12 object-contain" />,
       title: 'Instrumentation Modernization',
       desc: 'Upgrading legacy systems while enabling future-ready solutions. Support for both legacy and next-generation test systems.'
     },
@@ -105,17 +115,19 @@ function CapabilitiesSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="xl" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                  isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-                }`}>
-                  <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
-                    {cap.icon}
-                  </div>
+                <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-4">
+                  {cap.icon}
                 </div>
-                <h3 className={`text-xl font-bold mb-3 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                <h3
+                  className="text-xl font-bold mb-3"
+                  style={{ color: isDark ? 'white' : '#111827' }}
+                >
                   {cap.title}
                 </h3>
-                <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <p
+                  className="text-sm"
+                  style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                >
                   {cap.desc}
                 </p>
               </Card>

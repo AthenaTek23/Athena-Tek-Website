@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Linkedin } from 'lucide-react';
 import { companyInfo } from '../../styles/theme';
 import { useTheme } from '../../contexts/ThemeContext';
 import logoImg from '../../assets/Logo.png';
@@ -43,6 +44,15 @@ export default function Footer() {
                 loading="lazy"
               />
             </Link>
+            <a
+              href="https://www.linkedin.com/company/10109504/admin/dashboard/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`inline-flex items-center gap-2 text-sm mb-4 transition-colors ${isDark ? 'text-dark-400 hover:text-primary-500' : 'text-light-600 hover:text-primary-navy'}`}
+            >
+              <Linkedin size={18} />
+              <span>LinkedIn</span>
+            </a>
             <p className={`text-sm leading-relaxed mb-4 ${isDark ? 'text-dark-400' : 'text-light-600'}`}>
               {companyInfo.tagline}
             </p>

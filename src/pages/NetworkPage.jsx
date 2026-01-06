@@ -11,7 +11,7 @@ export default function NetworkPage() {
           viewsConfig={networkViewsConfig}
           siteConfig={networkSiteConfig}
           theme="network"
-          basePath="/Athena-Tek-Website/monitors/Network"
+          basePath="/monitors/Network"
         />
       </div>
     </div>

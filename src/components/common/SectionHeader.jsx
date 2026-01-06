@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { useTheme } from '../../contexts/ThemeContext';
 
 export default function SectionHeader({
   tag,
@@ -9,12 +8,16 @@ export default function SectionHeader({
   align = 'center',
   className = '',
 }) {
-  const { isDark } = useTheme();
   const alignClasses = {
     left: 'text-left',
     center: 'text-center',
     right: 'text-right',
   };
+
+  // light=true means on dark/navy background (white text)
+  // light=false means on white background (black text)
+  const titleColor = light ? 'text-white' : 'text-light-900';
+  const subtitleColor = light ? 'text-white/80' : 'text-light-600';
 
   return (
     <div className={`mb-8 md:mb-10 ${alignClasses[align]} ${className}`}>
@@ -35,7 +38,7 @@ export default function SectionHeader({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className={`text-2xl md:text-3xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}
+        className={`text-2xl md:text-3xl font-bold mb-4 ${titleColor}`}
       >
         {title}
       </motion.h2>
@@ -46,7 +49,7 @@ export default function SectionHeader({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className={`text-base max-w-2xl mx-auto ${isDark ? 'text-dark-400' : 'text-light-600'}`}
+          className={`text-base max-w-2xl mx-auto ${subtitleColor}`}
         >
           {subtitle}
         </motion.p>

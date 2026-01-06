@@ -23,7 +23,7 @@ export default function NetworkPage() {
 function ArchitectureSection() {
   const networkTypes = [
     { icon: <Radio size={24} />, title: '5G O-RAN + SA/NSA', desc: 'High-throughput, low-latency networks for training and T&E' },
-    { icon: <Server size={24} />, title: 'Private 5G (Zeus)', desc: 'Deployable CBRS/DoD-band 5G for ranges and CTCs' },
+    { icon: <Server size={24} />, title: 'Private 5G (Zeus)', desc: 'Deployable CBRS/DoW-band 5G for ranges and CTCs' },
     { icon: <Wifi size={24} />, title: '4G LTE / CBRS', desc: 'Wide-area coverage with proven stability' },
     { icon: <Satellite size={24} />, title: 'Non-Terrestrial Networks', desc: 'Direct-to-device 4G/5G satellite connectivity' },
     { icon: <Globe size={24} />, title: 'SATCOM Backhaul', desc: 'LEO and multi-orbit support for EXCON reachback' },

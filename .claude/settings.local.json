@@ -21,7 +21,14 @@
       "Bash(unzip:*)",
       "Bash(git commit:*)",
       "Bash(git pull:*)",
-      "Bash(git stash:*)"
+      "Bash(git stash:*)",
+      "Bash(powershell -Command \"Get-ChildItem -Recurse -Include *.png,*.jpg,*.mp4 | Select-Object Name, @{N=''Size\\(MB\\)'';E={[math]::Round\\($_Length/1MB,2\\)}} | Format-Table -AutoSize\")",
+      "Bash(node optimize-images.js:*)",
+      "Bash(node optimize-images.cjs:*)",
+      "Bash(node compress-further.cjs:*)",
+      "Bash(sort:*)",
+      "Bash(node optimize-monitors.cjs)",
+      "Bash(copy:*)"
     ]
   }
 }

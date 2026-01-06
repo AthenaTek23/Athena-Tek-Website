@@ -6,6 +6,9 @@ import { SectionHeader, CTASection } from '../../components/common';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
 
+// Hero icon (same as parent Services page)
+import systemIntegrationImg from '../../assets/SystemIntegration .png';
+
 export default function SystemIntegrationPage() {
   const { isDark } = useTheme();
 
@@ -16,6 +19,13 @@ export default function SystemIntegrationPage() {
         <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-dark-900 to-dark-950' : 'bg-gradient-to-b from-light-100 to-white'}`} />
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <div className="relative z-10 container-main text-center">
+          <div className="w-[640px] h-[640px] rounded-2xl overflow-hidden mb-6 mx-auto">
+            <img
+              src={systemIntegrationImg}
+              alt="System Integration"
+              className="w-full h-full object-contain"
+            />
+          </div>
           <span className="tag-base tag-primary mb-4 inline-block">ENGINEERING SERVICES</span>
           <h1 className={`text-4xl md:text-5xl font-extrabold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
             System Integration

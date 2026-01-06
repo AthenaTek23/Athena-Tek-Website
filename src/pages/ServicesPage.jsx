@@ -7,6 +7,30 @@ import { PageSectionNav, SectionDots } from '../components/navigation';
 import { useTheme } from '../contexts/ThemeContext';
 import { iconSizes } from '../styles/theme';
 
+// RF & Network service images
+import servicesComprehensiveImg from '../assets/ServicesComprehensive.png';
+import services5GImg from '../assets/Services5G.png';
+import servicesRFImg from '../assets/ServicesRF.png';
+
+// Program Management & Software Engineering images
+import servicesDoWImg from '../assets/ServicesDoW.png';
+import servicesSWEImg from '../assets/ServicesSWE-Dev.png';
+
+// Engineering section images
+import systemEngImg from '../assets/SystenEng.png';
+import systemIntegrationImg from '../assets/SystemIntegration .png';
+
+// Program Management section images
+import lvcImg from '../assets/LVC.png';
+import knowledgeMImg from '../assets/knowledgeM.png';
+import teImg from '../assets/T&E.png';
+
+// Software Engineering section images
+import softwareImg from '../assets/Software.png';
+import sustainmentImg from '../assets/Sustainment.png';
+import integrationImg from '../assets/Integration.png';
+import aiSoftwareImg from '../assets/AI-Software.png';
+
 const sections = [
   { id: 'engineering', label: 'Engineering' },
   { id: 'rf-network', label: 'RF & Network' },
@@ -38,14 +62,14 @@ function EngineeringSection({ isDark }) {
   const sectionId = 'engineering';
   const services = [
     {
-      icon: <Settings size={iconSizes.xl} />,
+      image: systemEngImg,
       name: 'System Engineering',
-      description: 'Full lifecycle engineering support from requirements to deployment with DoD acquisition expertise.',
+      description: 'Full lifecycle engineering support from requirements to deployment with DoW acquisition expertise.',
       path: '/services/system-engineering',
       features: ['Requirements Analysis', 'System Architecture', 'Hardware/Software Engineering', 'Test & Evaluation'],
     },
     {
-      icon: <Puzzle size={iconSizes.xl} />,
+      image: systemIntegrationImg,
       name: 'System Integration',
       description: 'Live, Virtual, and Constructive (LVC) integration for comprehensive training environments.',
       path: '/services/system-integration',
@@ -71,13 +95,17 @@ function EngineeringSection({ isDark }) {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="xl" className="h-full flex flex-col">
-              <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-              }`}>
-                <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
-                  {service.icon}
+              {service.image && (
+                <div className={`w-20 h-20 rounded-xl overflow-hidden mb-4 ${
+                  isDark ? 'bg-primary-navy/20' : 'bg-light-100'
+                }`}>
+                  <img
+                    src={service.image}
+                    alt={service.name}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
-              </div>
+              )}
               <h3 className={`text-xl font-bold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                 {service.name}
               </h3>
@@ -119,21 +147,21 @@ function RFNetworkSection({ isDark }) {
   const sectionId = 'rf-network';
   const services = [
     {
-      icon: <Antenna size={iconSizes.xl} />,
+      image: servicesComprehensiveImg,
       name: 'RF Engineering',
       description: 'Comprehensive RF engineering services from spectrum analysis to antenna design, ensuring optimal wireless performance for mission-critical applications.',
       path: '/services/rf-engineering',
       features: ['Spectrum Analysis', 'Antenna Design', 'RF Site Surveys', 'Interference Mitigation', 'EMC/EMI Testing'],
     },
     {
-      icon: <Radio size={iconSizes.xl} />,
+      image: services5GImg,
       name: 'Network Design 5G/LTE',
       description: 'Private 5G and LTE network solutions with end-to-end planning, from RF propagation studies to core network architecture.',
       path: '/services/network-design',
       features: ['5G Networks', 'Private LTE', 'Mesh Networks', 'NTN/Satellite'],
     },
     {
-      icon: <BarChart3 size={iconSizes.xl} />,
+      image: servicesRFImg,
       name: 'Modeling & Simulation',
       description: 'Advanced RF propagation modeling and network simulation for coverage optimization and capacity planning.',
       path: '/services/modeling-simulation',
@@ -170,17 +198,35 @@ function RFNetworkSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="xl" className={`h-full flex flex-col ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                  isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-                }`}>
-                  <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
-                    {service.icon}
+                {service.image ? (
+                  <div className={`w-20 h-20 rounded-xl overflow-hidden mb-4 ${
+                    isDark ? 'bg-primary-navy/20' : 'bg-light-100'
+                  }`}>
+                    <img
+                      src={service.image}
+                      alt={service.name}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
-                </div>
-                <h3 className={`text-xl font-bold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                ) : (
+                  <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
+                    isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+                  }`}>
+                    <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
+                      {service.icon}
+                    </div>
+                  </div>
+                )}
+                <h3
+                  className="text-xl font-bold mb-2"
+                  style={{ color: isDark ? 'white' : '#111827' }}
+                >
                   {service.name}
                 </h3>
-                <p className={`text-sm mb-4 flex-grow ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <p
+                  className="text-sm mb-4 flex-grow"
+                  style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                >
                   {service.description}
                 </p>
                 <div className="mb-4">
@@ -240,22 +286,22 @@ function ProgramManagementSection({ isDark }) {
 
   const pmServices = [
     {
-      icon: <Briefcase size={iconSizes.lg} />,
-      title: 'DoD Acquisition Support',
+      image: servicesDoWImg,
+      title: 'DoW Acquisition Support',
       desc: 'End-to-end program management support throughout the defense acquisition lifecycle, from requirements definition to fielding and sustainment.'
     },
     {
-      icon: <Target size={iconSizes.lg} />,
+      image: lvcImg,
       title: 'Live, Virtual, Constructive (LVC)',
       desc: 'Expert support for LVC simulation programs, integrating live training, virtual environments, and constructive simulations into cohesive training solutions.'
     },
     {
-      icon: <Users size={iconSizes.lg} />,
+      image: knowledgeMImg,
       title: 'Knowledge Management',
       desc: 'Comprehensive knowledge management services ensuring institutional expertise is captured, organized, and accessible throughout program lifecycles.'
     },
     {
-      icon: <BarChart3 size={iconSizes.lg} />,
+      image: teImg,
       title: 'Test & Evaluation Management',
       desc: 'Program management for DT&E and OT&E activities, coordinating test planning, execution, and reporting for defense systems.'
     },
@@ -276,7 +322,7 @@ function ProgramManagementSection({ isDark }) {
     <section id={sectionId} className="section-padding container-main scroll-mt-36">
       <SectionHeader
         tag="PROGRAM MANAGEMENT"
-        title="DoD Program Management Support"
+        title="DoW Program Management Support"
         subtitle="Experienced program management for defense acquisition and training programs"
       />
 
@@ -290,9 +336,21 @@ function ProgramManagementSection({ isDark }) {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="lg" className="h-full">
-              <div className="icon-box w-12 h-12 mb-4">
-                {service.icon}
-              </div>
+              {service.image ? (
+                <div className={`w-14 h-14 rounded-xl overflow-hidden mb-4 ${
+                  isDark ? 'bg-primary-navy/20' : 'bg-light-100'
+                }`}>
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              ) : (
+                <div className="icon-box w-12 h-12 mb-4">
+                  {service.icon}
+                </div>
+              )}
               <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                 {service.title}
               </h4>
@@ -314,7 +372,7 @@ function ProgramManagementSection({ isDark }) {
             LVC Simulation Expertise
           </h4>
           <p className={`text-sm mb-6 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-            Our team brings decades of experience supporting Live, Virtual, and Constructive simulation programs across the DoD, delivering integrated training solutions that maximize readiness while optimizing resources.
+            Our team brings decades of experience supporting Live, Virtual, and Constructive simulation programs across the DoW, delivering integrated training solutions that maximize readiness while optimizing resources.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {lvcCapabilities.map((cap, i) => (
@@ -335,19 +393,19 @@ function SoftwareEngineeringSection({ isDark }) {
 
   const swServices = [
     {
-      icon: <Code size={iconSizes.xl} />,
+      image: softwareImg,
       title: 'Software Development',
       description: 'Modern software development using Agile methodologies and CMMI best practices, delivering high-quality solutions from concept to deployment.',
       features: ['Agile/Scrum', 'CMMI Level 3', 'DevSecOps', 'CI/CD Pipelines'],
     },
     {
-      icon: <Settings size={iconSizes.xl} />,
+      image: sustainmentImg,
       title: 'Post Deployment Software Support (PDSS)',
       description: 'Comprehensive sustainment services ensuring operational systems remain secure, current, and mission-ready throughout their lifecycle.',
       features: ['Corrective Maintenance', 'Adaptive Updates', 'Security Patches', 'Performance Optimization'],
     },
     {
-      icon: <Puzzle size={iconSizes.xl} />,
+      image: integrationImg,
       title: 'Software Integration',
       description: 'Expert integration services connecting disparate systems, APIs, and data sources into cohesive, interoperable solutions.',
       features: ['API Development', 'System Interfaces', 'Data Integration', 'Legacy Modernization'],
@@ -400,17 +458,35 @@ function SoftwareEngineeringSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="xl" className={`h-full flex flex-col ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                  isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-                }`}>
-                  <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
-                    {service.icon}
+                {service.image ? (
+                  <div className={`w-20 h-20 rounded-xl overflow-hidden mb-4 ${
+                    isDark ? 'bg-primary-navy/20' : 'bg-light-100'
+                  }`}>
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
-                </div>
-                <h3 className={`text-xl font-bold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                ) : (
+                  <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
+                    isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+                  }`}>
+                    <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
+                      {service.icon}
+                    </div>
+                  </div>
+                )}
+                <h3
+                  className="text-xl font-bold mb-2"
+                  style={{ color: isDark ? 'white' : '#111827' }}
+                >
                   {service.title}
                 </h3>
-                <p className={`text-sm mb-4 flex-grow ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <p
+                  className="text-sm mb-4 flex-grow"
+                  style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                >
                   {service.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -439,25 +515,37 @@ function SoftwareEngineeringSection({ isDark }) {
         >
           <Card size="xl" className={isDark ? 'bg-white/[0.02]' : 'bg-white'}>
             <div className="flex items-center gap-3 mb-6">
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
-                isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
+              <div className={`w-14 h-14 rounded-xl overflow-hidden ${
+                isDark ? 'bg-primary-navy/20' : 'bg-light-100'
               }`}>
-                <Cpu size={24} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
+                <img src={aiSoftwareImg} alt="AI at the Code" className="w-full h-full object-contain" />
               </div>
-              <h4 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-light-900'}`}>
+              <h4
+                className="text-xl font-bold"
+                style={{ color: isDark ? 'white' : '#111827' }}
+              >
                 AI at the Code
               </h4>
             </div>
-            <p className={`text-sm mb-6 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+            <p
+              className="text-sm mb-6"
+              style={{ color: isDark ? '#d1d5db' : '#374151' }}
+            >
               We integrate artificial intelligence throughout the software development lifecycle, enhancing developer productivity, code quality, and system reliability.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {aiFeatures.map((feature, i) => (
                 <div key={i} className={`p-4 rounded-lg ${isDark ? 'bg-white/[0.02] border border-white/5' : 'bg-light-100 border border-light-200'}`}>
-                  <h5 className={`font-semibold mb-2 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
+                  <h5
+                    className="font-semibold mb-2"
+                    style={{ color: isDark ? '#93c5fd' : '#111827' }}
+                  >
                     {feature.title}
                   </h5>
-                  <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                  <p
+                    className="text-sm"
+                    style={{ color: isDark ? '#d1d5db' : '#374151' }}
+                  >
                     {feature.desc}
                   </p>
                 </div>

@@ -11,7 +11,7 @@ export default function CTASection({
   const { isDark } = useTheme();
 
   return (
-    <section className="relative py-24 md:py-32 px-8 overflow-hidden">
+    <section className="relative py-16 md:py-24 lg:py-32 px-4 md:px-8 overflow-hidden">
       {/* Background */}
       <div className={`absolute inset-0 ${
         isDark

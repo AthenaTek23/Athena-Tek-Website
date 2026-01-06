@@ -6,6 +6,15 @@ import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
 import { iconSizes } from '../../styles/theme';
 
+// Hero image
+import takMonitorImg from '../../assets/TAK-Monitor.png';
+
+// Overview icons
+import realTimeImg from '../../assets/RealTime.png';
+import takIntegrationImg from '../../assets/TAK-Integration.png';
+import aarPlaybackImg from '../../assets/AAR-Playback.png';
+import topologyImg from '../../assets/Topology.png';
+
 const sections = [
   { id: 'overview', label: 'Overview' },
   { id: 'modes', label: 'Operating Modes' },
@@ -35,14 +44,22 @@ export default function NetworkMonitoringPage() {
 
 function OverviewSection({ isDark }) {
   const highlights = [
-    { icon: <Activity size={iconSizes.lg} />, title: 'Real-Time Monitoring', desc: 'Live tracking of soldier positions and network connectivity' },
-    { icon: <Radio size={iconSizes.lg} />, title: 'TAK Integration', desc: 'Full Team Awareness Kit (TAK) device support' },
-    { icon: <PlayCircle size={iconSizes.lg} />, title: 'AAR Playback', desc: 'Review and analyze recorded training data' },
-    { icon: <Network size={iconSizes.lg} />, title: 'Network Topology', desc: 'Visualize 802.11ah mesh network connectivity' },
+    { image: realTimeImg, title: 'Real-Time Monitoring', desc: 'Live tracking of soldier positions and network connectivity' },
+    { image: takIntegrationImg, title: 'TAK Integration', desc: 'Full Team Awareness Kit (TAK) device support' },
+    { image: aarPlaybackImg, title: 'AAR Playback', desc: 'Review and analyze recorded training data' },
+    { image: topologyImg, title: 'Network Topology', desc: 'Visualize 802.11ah mesh network connectivity' },
   ];
 
   return (
     <section id="overview" className="py-5 md:py-7 lg:py-10 container-main scroll-mt-36">
+      {/* Hero Image */}
+      <div className="mb-8 text-center">
+        <img
+          src={takMonitorImg}
+          alt="TAK Network Monitoring"
+          className="w-full max-w-[384px] mx-auto rounded-2xl shadow-lg"
+        />
+      </div>
       <SectionHeader
         tag="OVERVIEW"
         title="AAR Networking Monitor v3.0"
@@ -59,8 +76,8 @@ function OverviewSection({ isDark }) {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="lg" className="h-full text-center">
-              <div className="icon-box w-14 h-14 mx-auto mb-4">
-                {item.icon}
+              <div className={`w-16 h-16 rounded-xl overflow-hidden mx-auto mb-4 ${isDark ? 'bg-primary-navy/20' : 'bg-light-100'}`}>
+                <img src={item.image} alt={item.title} className="w-full h-full object-contain" />
               </div>
               <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                 {item.title}
