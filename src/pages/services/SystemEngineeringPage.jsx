@@ -1,13 +1,20 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Settings, Cpu, FileText, Layers, Code, Shield, Target, Users, ChevronRight, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { Card } from '../../components/ui';
 import { SectionHeader, CTASection } from '../../components/common';
 import { useTheme } from '../../contexts/ThemeContext';
-import { iconSizes } from '../../styles/theme';
 
 // Hero icon (same as parent Services page)
 import systemEngImg from '../../assets/SystenEng.png';
+
+// Service icons
+import requirementsImg from '../../assets/Requirements.png';
+import sysArchImg from '../../assets/SysArch.png';
+import hardwareImg from '../../assets/Hardware.png';
+import softwareImg from '../../assets/Software-2.png';
+import securityImg from '../../assets/Security.png';
+import teImg from '../../assets/T&E.png';
 
 export default function SystemEngineeringPage() {
   const { isDark } = useTheme();
@@ -19,11 +26,11 @@ export default function SystemEngineeringPage() {
         <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-dark-900 to-dark-950' : 'bg-gradient-to-b from-light-100 to-white'}`} />
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <div className="relative z-10 container-main text-center">
-          <div className="w-[640px] h-[640px] rounded-2xl overflow-hidden mb-6 mx-auto">
+          <div className="mb-6 mx-auto">
             <img
               src={systemEngImg}
               alt="System Engineering"
-              className="w-full h-full object-contain"
+              className="w-full max-w-[384px] mx-auto rounded-2xl shadow-lg"
             />
           </div>
           <span className="tag-base tag-primary mb-4 inline-block">ENGINEERING SERVICES</span>
@@ -57,12 +64,12 @@ export default function SystemEngineeringPage() {
 
 function ServicesSection({ isDark }) {
   const services = [
-    { icon: <FileText size={iconSizes.lg} />, title: 'Requirements Analysis', desc: 'Comprehensive requirements gathering, analysis, and documentation for complex defense systems' },
-    { icon: <Layers size={iconSizes.lg} />, title: 'System Architecture', desc: 'Design of scalable, modular system architectures that meet mission requirements' },
-    { icon: <Cpu size={iconSizes.lg} />, title: 'Hardware Engineering', desc: 'Custom hardware design, integration, and optimization for military applications' },
-    { icon: <Code size={iconSizes.lg} />, title: 'Software Engineering', desc: 'Full-stack software development with security-first approach' },
-    { icon: <Shield size={iconSizes.lg} />, title: 'Security Engineering', desc: 'Cybersecurity integration throughout the development lifecycle' },
-    { icon: <Target size={iconSizes.lg} />, title: 'Test & Evaluation', desc: 'Comprehensive testing strategies and validation protocols' },
+    { icon: requirementsImg, title: 'Requirements Analysis', desc: 'Comprehensive requirements gathering, analysis, and documentation for complex defense systems' },
+    { icon: sysArchImg, title: 'System Architecture', desc: 'Design of scalable, modular system architectures that meet mission requirements' },
+    { icon: hardwareImg, title: 'Hardware Engineering', desc: 'Custom hardware design, integration, and optimization for military applications' },
+    { icon: softwareImg, title: 'Software Engineering', desc: 'Full-stack software development with security-first approach' },
+    { icon: securityImg, title: 'Security Engineering', desc: 'Cybersecurity integration throughout the development lifecycle' },
+    { icon: teImg, title: 'Test & Evaluation', desc: 'Comprehensive testing strategies and validation protocols' },
   ];
 
   return (
@@ -83,8 +90,8 @@ function ServicesSection({ isDark }) {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="lg" className="h-full">
-              <div className="icon-box w-12 h-12 mb-4">
-                {service.icon}
+              <div className="w-14 h-14 mb-4 rounded-xl overflow-hidden">
+                <img src={service.icon} alt={service.title} className="w-full h-full object-contain" />
               </div>
               <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                 {service.title}

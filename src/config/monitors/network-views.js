@@ -5,8 +5,8 @@ export const viewsConfig = {
     label: 'Overview & Menu',
     badge: null,
     title: 'Network Focused',
-    tag: 'Overview',
-    pillText: 'LIVE TRAINING NETWORK',
+    tag: null,
+    pillText: null,
     video: {
       src: 'videos/NF-V.mp4',
       poster: 'Images/NF-1G.webp'
@@ -16,10 +16,7 @@ export const viewsConfig = {
       listItems: [
         "Athena-Tek delivers resilient, multi-bearer network architectures purpose-built for Live Training and Test & Evaluation across the world's most challenging environments. Our Network Focused pillar ensures that soldier systems, EXCON, vehicles, sensors, cameras, and data collectors remain connected under any condition - urban, rural, mountainous, maritime, or Indo-Pacific island terrain."
       ],
-      footer: {
-        text: 'After this overview, visitors are ready for',
-        links: ['Monitor 2 - TED', 'Monitor 3 - Solution Driven']
-      }
+      footer: null
     },
     isHome: true
   },
@@ -149,8 +146,7 @@ export const siteConfig = {
   sidebar: {
     title: 'Network Focused',
     subtitle: 'Expeditionary connectivity for next-generation live training.',
-    menuLabel: 'Select View',
-    footerTip: 'Tip: Explore each view here, then move to the TED and Solution Driven monitors to see how it all connects.'
+    menuLabel: 'Select View'
   },
   defaultView: 'home'
 };

@@ -11,8 +11,8 @@ import zeus5gImg from '../../assets/products/zeus-5g.webp';
 
 const sections = [
   { id: 'hero', label: 'Overview' },
-  { id: 'description', label: 'About Zeus' },
-  { id: 'why-zeus', label: 'Why Zeus' },
+  { id: 'description', label: 'About ZEUS' },
+  { id: 'why-zeus', label: 'Why ZEUS' },
   { id: 'capabilities', label: 'Capabilities' },
   { id: 'applications', label: 'Applications' },
   { id: 'athena-advantage', label: 'Athena Advantage' },
@@ -34,7 +34,7 @@ export default function ZeusPage() {
       <AthenaAdvantageSection isDark={isDark} />
       <CTASection
         title="Your Network. Your Mission. Your Terms."
-        subtitle="Contact our team to deploy Zeus for your tactical connectivity needs."
+        subtitle="Contact our team to deploy ZEUS for your tactical connectivity needs."
       />
     </div>
   );
@@ -52,10 +52,10 @@ function HeroSection({ isDark }) {
         <div className={`w-48 h-48 md:w-64 md:h-64 mx-auto mb-6 rounded-2xl flex items-center justify-center overflow-hidden ${
           isDark ? 'bg-primary-navy/20' : 'bg-light-100'
         }`}>
-          <img src={zeus5gImg} alt="5G Zeus" className="w-full h-full object-contain" />
+          <img src={zeus5gImg} alt="5G ZEUS" className="w-full h-full object-contain" />
         </div>
         <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
-          5G Zeus
+          5G ZEUS
         </h1>
         <p className={`text-xl md:text-2xl mb-6 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
           Expeditionary 5G Network in a Box
@@ -89,7 +89,7 @@ function DescriptionSection({ isDark }) {
                 Bringing Private 5G to the Edge of the Battlefield
               </h3>
               <p className={`text-base leading-relaxed ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-                Zeus delivers carrier-grade 5G connectivity in a ruggedized, rapidly deployable package designed for the modern warfighter. When missions take you beyond fixed infrastructure, Zeus ensures your forces stay connected with the speed, security, and reliability that only private 5G can provide.
+                ZEUS delivers carrier-grade 5G connectivity in a ruggedized, rapidly deployable package designed for the modern warfighter. When missions take you beyond fixed infrastructure, ZEUS ensures your forces stay connected with the speed, security, and reliability that only private 5G can provide.
               </p>
             </div>
           </div>
@@ -104,22 +104,22 @@ function WhyZeusSection({ isDark }) {
     {
       icon: <Clock size={iconSizes.lg} />,
       title: 'Deploy in Minutes, Not Months',
-      desc: 'Zeus transforms 5G from a fixed infrastructure investment into a mobile tactical asset. Unpack, power on, and establish a secure high-speed network wherever the mission demands—from remote training ranges to forward operating bases.'
+      desc: 'ZEUS transforms 5G from a fixed infrastructure investment into a mobile tactical asset. Unpack, power on, and establish a secure high-speed network wherever the mission demands—from remote training ranges to forward operating bases.'
     },
     {
       icon: <Shield size={iconSizes.lg} />,
       title: 'True Network Independence',
-      desc: 'Own your network. Control your data. Zeus operates as a fully self-contained private 5G ecosystem, keeping sensitive communications on-premises and eliminating dependence on commercial carriers or vulnerable infrastructure.'
+      desc: 'Own your network. Control your data. ZEUS operates as a fully self-contained private 5G ecosystem, keeping sensitive communications on-premises and eliminating dependence on commercial carriers or vulnerable infrastructure.'
     },
     {
       icon: <Zap size={iconSizes.lg} />,
       title: 'Built for the Harshest Environments',
-      desc: 'Hardened components, flexible power options including solar and battery, and multiple backhaul choices—fiber, microwave, or satellite via Iridium—ensure Zeus performs when and where you need it most.'
+      desc: 'Hardened components, flexible power options including solar and battery, and multiple backhaul choices—fiber, microwave, or satellite via Iridium—ensure ZEUS performs when and where you need it most.'
     },
     {
       icon: <Globe size={iconSizes.lg} />,
       title: 'Spectrum Ready for DoW',
-      desc: 'Leveraging CBRS shared spectrum (n48) with automated SAS authorization, Zeus operates within the regulatory framework already available at most Army installations, streamlining approval and accelerating fielding.'
+      desc: 'Leveraging CBRS shared spectrum (n48) with automated SAS authorization, ZEUS operates within the regulatory framework already available at most Army installations, streamlining approval and accelerating fielding.'
     },
   ];
 
@@ -128,7 +128,7 @@ function WhyZeusSection({ isDark }) {
       <div className="container-main">
         <SectionHeader
           tag="ADVANTAGES"
-          title="Why Zeus?"
+          title="Why ZEUS?"
           light
         />
 
@@ -259,10 +259,10 @@ function ApplicationsSection({ isDark }) {
                 }`}>
                   <Target size={24} className={isDark ? 'text-primary-light' : 'text-primary-navy'} />
                 </div>
-                <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
+                <h4 className="text-lg font-semibold mb-2" style={{ color: '#000000' }}>
                   {app.title}
                 </h4>
-                <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
+                <p className="text-sm" style={{ color: '#374151' }}>
                   {app.desc}
                 </p>
               </Card>
@@ -298,7 +298,7 @@ function AthenaAdvantageSection({ isDark }) {
       >
         <Card size="xl" variant="featured">
           <p className={`text-base leading-relaxed mb-6 ${isDark ? 'text-dark-300' : 'text-light-600'}`}>
-            Zeus integrates seamlessly with the Athena Technologies Training Edge Device (TED) ecosystem, enabling real-time position tracking, sensor fusion, and after-action review capabilities across your private 5G network. From individual soldier devices to vehicle-mounted systems, Zeus provides the connective backbone for comprehensive training and operational excellence.
+            ZEUS integrates seamlessly with the Athena Technologies Training Edge Device (TED) ecosystem, enabling real-time position tracking, sensor fusion, and after-action review capabilities across your private 5G network. From individual soldier devices to vehicle-mounted systems, ZEUS provides the connective backbone for comprehensive training and operational excellence.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

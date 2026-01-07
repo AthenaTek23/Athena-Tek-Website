@@ -1,32 +1,96 @@
 /* ==========================================================================
    Monitor Theme: Network
-   Gold/Amber Theme
+   Matches main website dark theme with amber accent
    ========================================================================== */
 
 .monitor-theme-network {
-  --monitor-bg: radial-gradient(circle at top, #2a281b 0%, #060807 60%);
-  --monitor-accent: #ffcc5a;
-  --monitor-accent-soft: rgba(255, 204, 90, 0.15);
-  --monitor-accent-glow: rgba(255, 204, 90, 0.4);
-  --monitor-text: #f7f5ea;
-  --monitor-text-muted: #c5c0ad;
-  --monitor-border: #3b3525;
+  /* Main website dark colors */
+  --monitor-bg: radial-gradient(circle at top, #0f172a 0%, #0a0f1a 60%);
+  --monitor-accent: #f59e0b;
+  --monitor-accent-soft: rgba(245, 158, 11, 0.12);
+  --monitor-accent-glow: rgba(245, 158, 11, 0.35);
+  --monitor-text: #ffffff;
+  --monitor-text-muted: #e2e8f0;
+  --monitor-border: #1e293b;
   --monitor-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
 
-  --monitor-sidebar-bg: linear-gradient(180deg, #080806 0%, #14120e 40%, #080806 100%);
-  --monitor-content-bg: radial-gradient(circle at top left, #27221a 0%, #070806 55%);
-  --monitor-content-border: rgba(158, 126, 58, 0.6);
+  --monitor-sidebar-bg: linear-gradient(180deg, #0a0f1a 0%, #0f172a 40%, #0a0f1a 100%);
+  --monitor-content-bg: radial-gradient(circle at top left, #0f172a 0%, #0a0f1a 55%);
+  --monitor-content-border: rgba(245, 158, 11, 0.3);
 
   --monitor-view-bg:
-    radial-gradient(circle at top right, rgba(255, 204, 90, 0.18) 0%, transparent 55%),
-    radial-gradient(circle at bottom left, rgba(255, 119, 0, 0.18) 0%, transparent 55%);
+    radial-gradient(circle at top right, rgba(245, 158, 11, 0.1) 0%, transparent 55%),
+    radial-gradient(circle at bottom left, rgba(245, 158, 11, 0.08) 0%, transparent 55%);
 
-  --monitor-pill-bg: rgba(15, 11, 6, 0.9);
-  --monitor-panel-bg: #050504;
-  --monitor-panel-border: rgba(200, 154, 70, 0.7);
-  --monitor-text-panel-bg: rgba(15, 13, 8, 0.96);
-  --monitor-text-panel-border: rgba(156, 126, 70, 0.9);
+  --monitor-pill-bg: rgba(10, 15, 26, 0.9);
+  --monitor-panel-bg: #0a0f1a;
+  --monitor-panel-border: rgba(245, 158, 11, 0.4);
+  --monitor-text-panel-bg: rgba(10, 15, 26, 0.96);
+  --monitor-text-panel-border: rgba(245, 158, 11, 0.5);
 
   background: var(--monitor-bg);
   color: var(--monitor-text);
+}
+
+/* Force consistent accent color on all titles */
+.monitor-theme-network .monitor-sidebar__title,
+.monitor-theme-network .monitor-sidebar__label,
+.monitor-theme-network .monitor-sidebar__footer b,
+.monitor-theme-network .monitor-view__title,
+.monitor-theme-network .monitor-view__title-tag,
+.monitor-theme-network .monitor-text-panel__title,
+.monitor-theme-network .monitor-pill,
+.monitor-theme-network .monitor-nav__btn--active {
+  color: #f59e0b !important;
+}
+
+/* Force backgrounds */
+.monitor-theme-network .monitor-sidebar {
+  background: linear-gradient(180deg, #0a0f1a 0%, #0f172a 40%, #0a0f1a 100%) !important;
+}
+
+.monitor-theme-network .monitor-content {
+  background: radial-gradient(circle at top, #0f172a 0%, #0a0f1a 60%) !important;
+}
+
+.monitor-theme-network .monitor-content__inner {
+  background: radial-gradient(circle at top left, #0f172a 0%, #0a0f1a 55%) !important;
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+.monitor-theme-network .monitor-graphic-panel {
+  background: #0a0f1a !important;
+  border-color: rgba(245, 158, 11, 0.4) !important;
+}
+
+.monitor-theme-network .monitor-text-panel {
+  background: rgba(10, 15, 26, 0.96) !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+}
+
+.monitor-theme-network .monitor-nav__btn {
+  border-color: #1e293b !important;
+}
+
+.monitor-theme-network .monitor-nav__btn:hover,
+.monitor-theme-network .monitor-nav__btn--active {
+  background: rgba(245, 158, 11, 0.12) !important;
+  border-color: #f59e0b !important;
+}
+
+.monitor-theme-network .monitor-pill {
+  background: rgba(10, 15, 26, 0.9) !important;
+  border-color: #f59e0b !important;
+}
+
+.monitor-theme-network .monitor-pill__dot {
+  background: #f59e0b !important;
+}
+
+.monitor-theme-network .monitor-text-panel__list-item::before {
+  background: #f59e0b !important;
+}
+
+.monitor-theme-network .monitor-text-panel__footer strong {
+  color: #f59e0b !important;
 }

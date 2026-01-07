@@ -156,8 +156,7 @@ export const siteConfig = {
     label: null,
     title: 'TED',
     subtitle: 'The Training Edge Device - the soldier-worn AI node that glues the network and effects together.',
-    menuLabel: 'Select Capability',
-    footerTip: 'Tip: After exploring TED, move to Monitor 3 to see how these capabilities change training effects and AARs.'
+    menuLabel: 'Select Capability'
   },
   defaultView: 'home'
 };

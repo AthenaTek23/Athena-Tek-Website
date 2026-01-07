@@ -247,7 +247,7 @@ function IntegrationSection({ isDark }) {
             viewport={{ once: true }}
           >
             <Card size="xl" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-              <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
+              <h4 className="text-lg font-semibold mb-4" style={{ color: '#000000' }}>
                 Integration Points
               </h4>
               <div className="space-y-3">
@@ -268,7 +268,7 @@ function IntegrationSection({ isDark }) {
             transition={{ delay: 0.1 }}
           >
             <Card size="xl" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-              <h4 className={`text-lg font-semibold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
+              <h4 className="text-lg font-semibold mb-4" style={{ color: '#000000' }}>
                 Reduced Risk, Accelerated Deployment
               </h4>
               <p className={`text-sm ${isDark ? 'text-dark-300' : 'text-light-600'}`}>

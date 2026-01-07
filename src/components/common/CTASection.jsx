@@ -11,7 +11,7 @@ export default function CTASection({
   const { isDark } = useTheme();
 
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 px-4 md:px-8 overflow-hidden">
+    <section className="relative py-6 md:py-8 px-4 md:px-8 overflow-hidden">
       {/* Background */}
       <div className={`absolute inset-0 ${
         isDark
@@ -19,57 +19,42 @@ export default function CTASection({
           : 'bg-gradient-to-br from-primary-navy/5 via-white to-primary-navy/5'
       }`} />
 
-      {/* Decorative elements */}
-      <div className={`absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl ${
-        isDark ? 'bg-primary-500/5' : 'bg-primary-navy/10'
-      }`} />
-      <div className={`absolute bottom-0 right-1/4 w-96 h-96 rounded-full blur-3xl ${
-        isDark ? 'bg-primary-500/5' : 'bg-primary-navy/10'
-      }`} />
-
       {/* Content */}
       <div className="relative z-10 max-w-3xl mx-auto text-center">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className={`text-3xl md:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}
+          transition={{ duration: 0.3 }}
+          className={`text-xl md:text-2xl font-bold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}
         >
           {title}
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className={`text-lg mb-10 ${isDark ? 'text-dark-400' : 'text-light-600'}`}
+          transition={{ duration: 0.3, delay: 0.1 }}
+          className={`text-sm mb-4 ${isDark ? 'text-dark-400' : 'text-light-600'}`}
         >
           {subtitle}
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-6"
+          transition={{ duration: 0.3, delay: 0.2 }}
+          className="flex flex-col sm:flex-row gap-2 justify-center items-center"
         >
-          <Button to="/ContactUsPage" variant="primary" size="lg" icon={<Mail size={18} />} iconPosition="left">
+          <Button to="/contact" variant="primary" size="sm" icon={<Mail size={14} />} iconPosition="left">
             Contact Us
           </Button>
+          <span className={`text-sm font-mono ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
+            {companyInfo.email}
+          </span>
         </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className={`font-mono ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}
-        >
-          {companyInfo.email}
-        </motion.p>
       </div>
     </section>
   );

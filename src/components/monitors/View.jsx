@@ -22,7 +22,7 @@ const View = ({ viewData, basePath = '' }) => {
           {badge && <div className="monitor-view__badge">{badge}</div>}
           <div className="monitor-view__title">
             <span>{title}</span>
-            <span className="monitor-view__title-tag">{tag}</span>
+            {tag && <span className="monitor-view__title-tag">{tag}</span>}
           </div>
         </div>
         <Pill text={pillText} />

@@ -16,9 +16,11 @@ const Sidebar = ({ config, views, activeView, onViewChange }) => (
       menuLabel={config.menuLabel || 'Select View'}
     />
 
-    <footer className="monitor-sidebar__footer">
-      <b>Tip:</b> {config.footerTip.replace('Tip: ', '')}
-    </footer>
+{config.footerTip && (
+      <footer className="monitor-sidebar__footer">
+        <b>Tip:</b> {config.footerTip.replace('Tip: ', '')}
+      </footer>
+    )}
   </aside>
 );
 

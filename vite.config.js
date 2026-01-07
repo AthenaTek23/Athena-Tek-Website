@@ -4,7 +4,7 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Athena-Tek-Website/',  // Use '/' for GoDaddy root domain, '/Athena-Tek-Website/' for GitHub Pages
+  base: '/',  // Use '/' for GoDaddy root domain, '/Athena-Tek-Website/' for GitHub Pages
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

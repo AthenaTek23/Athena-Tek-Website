@@ -5,22 +5,8 @@ import { useTheme } from '../../contexts/ThemeContext';
 import logoImg from '../../assets/Logo.png';
 
 const footerLinks = {
-  products: [
-    { label: 'Android TED', path: '/products/android-ted' },
-    { label: 'ARES V', path: '/products/ares-v' },
-    { label: 'Network Monitoring', path: '/products/network-monitoring' },
-    { label: 'OWT Viewer', path: '/products/owt-viewer' },
-  ],
-  services: [
-    { label: 'System Engineering', path: '/services/system-engineering' },
-    { label: 'System Integration', path: '/services/system-integration' },
-    { label: 'Modeling & Simulation', path: '/services/modeling-simulation' },
-    { label: 'Network Design', path: '/services/network-design' },
-  ],
   company: [
     { label: 'About Us', path: '/about' },
-    { label: 'Capabilities', path: '/capabilities' },
-    { label: 'Innovation', path: '/innovation' },
     { label: 'Newsroom', path: '/news' },
     { label: 'Contact Us', path: '/contact' },
   ],
@@ -33,10 +19,10 @@ export default function Footer() {
   return (
     <footer className={`border-t ${isDark ? 'bg-dark-950 border-white/5' : 'bg-light-100 border-light-300'}`}>
       <div className="container-main py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+        <div className="flex flex-col items-center text-center gap-8">
           {/* Brand */}
-          <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center mb-4">
+          <div className="bg-white rounded-xl shadow-lg border border-light-200 px-8 py-6">
+            <Link to="/" className="flex items-center justify-center mb-4">
               <img
                 src={logoImg}
                 alt={companyInfo.name}
@@ -48,86 +34,39 @@ export default function Footer() {
               href="https://www.linkedin.com/company/10109504/admin/dashboard/"
               target="_blank"
               rel="noopener noreferrer"
-              className={`inline-flex items-center gap-2 text-sm mb-4 transition-colors ${isDark ? 'text-dark-400 hover:text-primary-500' : 'text-light-600 hover:text-primary-navy'}`}
+              className="inline-flex items-center justify-center gap-2 text-sm font-semibold mb-4 transition-colors hover:opacity-80"
+              style={{ color: '#003087' }}
             >
               <Linkedin size={18} />
               <span>LinkedIn</span>
             </a>
-            <p className={`text-sm leading-relaxed mb-4 ${isDark ? 'text-dark-400' : 'text-light-600'}`}>
+            <p className="text-sm font-semibold leading-relaxed mb-4" style={{ color: '#003087' }}>
               {companyInfo.tagline}
             </p>
-            <p className={`text-sm ${isDark ? 'text-dark-400' : 'text-light-600'}`}>
+            <p className="text-sm font-semibold" style={{ color: '#003087' }}>
               {companyInfo.location}
             </p>
             <a
               href={`mailto:${companyInfo.email}`}
-              className={`text-sm transition-colors ${isDark ? 'text-dark-400 hover:text-primary-500' : 'text-light-600 hover:text-primary-navy'}`}
+              className="text-sm font-semibold transition-colors hover:opacity-80"
+              style={{ color: '#003087' }}
             >
               {companyInfo.email}
             </a>
           </div>
 
-          {/* Products */}
-          <div>
-            <h4 className={`text-sm font-semibold uppercase tracking-wider mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
-              Products
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.products.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className={`text-sm transition-colors ${
-                      isDark
-                        ? 'text-dark-400 hover:text-primary-500'
-                        : 'text-light-600 hover:text-primary-navy'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className={`text-sm font-semibold uppercase tracking-wider mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
-              Services
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className={`text-sm transition-colors ${
-                      isDark
-                        ? 'text-dark-400 hover:text-primary-500'
-                        : 'text-light-600 hover:text-primary-navy'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Company */}
-          <div>
-            <h4 className={`text-sm font-semibold uppercase tracking-wider mb-4 ${isDark ? 'text-white' : 'text-light-900'}`}>
+          <div className="bg-white rounded-xl shadow-lg border border-light-200 px-8 py-6">
+            <h4 className="text-sm font-semibold uppercase tracking-wider mb-4" style={{ color: '#003087' }}>
               Company
             </h4>
-            <ul className="space-y-3">
+            <ul className="flex flex-wrap justify-center gap-4">
               {footerLinks.company.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className={`text-sm transition-colors ${
-                      isDark
-                        ? 'text-dark-400 hover:text-primary-500'
-                        : 'text-light-600 hover:text-primary-navy'
-                    }`}
+                    className="inline-block px-4 py-2 text-sm font-semibold rounded-lg bg-light-100 shadow-sm border border-light-200 transition-all hover:shadow-md hover:bg-light-200"
+                    style={{ color: '#003087' }}
                   >
                     {link.label}
                   </Link>
@@ -141,7 +80,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className={`border-t ${isDark ? 'border-white/5' : 'border-light-300'}`}>
         <div className="container-main py-6">
-          <p className={`text-sm text-center ${isDark ? 'text-dark-500' : 'text-light-500'}`}>
+          <p className="text-sm font-semibold text-center" style={{ color: '#003087' }}>
             © {currentYear} {companyInfo.name}. All rights reserved.
           </p>
         </div>

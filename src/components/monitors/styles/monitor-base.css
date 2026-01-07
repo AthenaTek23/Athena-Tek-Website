@@ -45,7 +45,7 @@
   font-size: 1.9rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: var(--monitor-text);
+  color: var(--monitor-accent);
 }
 
 .monitor-sidebar__subtitle {
@@ -173,7 +173,7 @@
   display: flex;
   gap: 0.5rem;
   align-items: baseline;
-  color: var(--monitor-text);
+  color: var(--monitor-accent);
 }
 
 .monitor-view__title-tag {
@@ -275,14 +275,15 @@ video.monitor-graphic-panel__img {
 
 .monitor-text-panel__title {
   font-size: 1.2rem;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--monitor-text);
+  color: var(--monitor-accent);
 }
 
 .monitor-text-panel__description {
   font-size: 0.98rem;
-  color: var(--monitor-text-muted);
+  color: var(--monitor-text);
   line-height: 1.6;
 }
 

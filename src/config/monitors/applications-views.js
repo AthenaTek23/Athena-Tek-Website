@@ -1,9 +1,9 @@
-// Monitor 3 - Solution Driven (AI Ecosystem) - View Configuration
+// Solution Driven (AI Ecosystem) - View Configuration
 export const viewsConfig = {
   home: {
     id: 'home',
     label: 'Overview',
-    badge: 'Monitor 3',
+    badge: null,
     title: 'Solution Driven',
     tag: 'Use Cases',
     pillText: 'TRAINING EFFECTS',
@@ -139,13 +139,12 @@ export const viewsConfig = {
 };
 
 export const siteConfig = {
-  title: 'Athena-Tek | Monitor 3 - Solution Driven',
+  title: 'Athena-Tek | Solution Driven',
   sidebar: {
-    label: 'Monitor 3',
+    label: null,
     title: 'Solution Driven',
     subtitle: 'How TED and the network transform training realism, RTCA and AAR.',
-    menuLabel: 'Select Use Case',
-    footerTip: 'Tip: Use this monitor to tell the "so what" story - show visitors what changes for soldiers, O/Cs and commanders.'
+    menuLabel: 'Select Use Case'
   },
   defaultView: 'home'
 };

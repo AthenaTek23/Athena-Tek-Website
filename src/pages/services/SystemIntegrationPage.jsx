@@ -1,13 +1,17 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Puzzle, Monitor, Gamepad2, Box, Network, Users, Settings, Zap, ChevronRight, Check } from 'lucide-react';
+import { Check } from 'lucide-react';
 import { Card } from '../../components/ui';
 import { SectionHeader, CTASection } from '../../components/common';
 import { useTheme } from '../../contexts/ThemeContext';
-import { iconSizes } from '../../styles/theme';
 
 // Hero icon (same as parent Services page)
 import systemIntegrationImg from '../../assets/SystemIntegration .png';
+
+// LVC icons
+import liveImg from '../../assets/Live.png';
+import virtualImg from '../../assets/Virtual.png';
+import constructiveImg from '../../assets/Constructive.png';
 
 export default function SystemIntegrationPage() {
   const { isDark } = useTheme();
@@ -19,11 +23,11 @@ export default function SystemIntegrationPage() {
         <div className={`absolute inset-0 ${isDark ? 'bg-gradient-to-b from-dark-900 to-dark-950' : 'bg-gradient-to-b from-light-100 to-white'}`} />
         <div className="absolute inset-0 grid-pattern opacity-50" />
         <div className="relative z-10 container-main text-center">
-          <div className="w-[640px] h-[640px] rounded-2xl overflow-hidden mb-6 mx-auto">
+          <div className="mb-6 mx-auto">
             <img
               src={systemIntegrationImg}
               alt="System Integration"
-              className="w-full h-full object-contain"
+              className="w-full max-w-[384px] mx-auto rounded-2xl shadow-lg"
             />
           </div>
           <span className="tag-base tag-primary mb-4 inline-block">ENGINEERING SERVICES</span>
@@ -34,12 +38,12 @@ export default function SystemIntegrationPage() {
             Live, Virtual, and Constructive (LVC) integration for comprehensive training environments
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <Link to="#lvc" className="btn-primary">
+            <a href="#lvc" className="btn-primary">
               LVC Integration
-            </Link>
-            <Link to="#partners" className="btn-secondary">
+            </a>
+            <a href="#partners" className="btn-secondary">
               Partner Systems
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -58,19 +62,19 @@ export default function SystemIntegrationPage() {
 function LVCSection({ isDark }) {
   const lvcTypes = [
     {
-      icon: <Users size={iconSizes.xl} />,
+      icon: liveImg,
       title: 'Live',
       desc: 'Real soldiers with instrumented equipment in physical training environments',
       features: ['MILES integration', 'TSPI tracking', 'Biometric monitoring', 'Real-time feedback'],
     },
     {
-      icon: <Monitor size={iconSizes.xl} />,
+      icon: virtualImg,
       title: 'Virtual',
       desc: 'Simulated environments with real operators in immersive training scenarios',
       features: ['Flight simulators', 'Ground vehicle trainers', 'Networked operations', 'Scenario injection'],
     },
     {
-      icon: <Gamepad2 size={iconSizes.xl} />,
+      icon: constructiveImg,
       title: 'Constructive',
       desc: 'Computer-generated entities and wargaming for large-scale exercises',
       features: ['Entity simulation', 'Behavior modeling', 'Threat generation', 'Staff training'],
@@ -78,7 +82,7 @@ function LVCSection({ isDark }) {
   ];
 
   return (
-    <section id="lvc" className="section-padding container-main">
+    <section id="lvc" className="section-padding container-main scroll-mt-36">
       <SectionHeader
         tag="LVC INTEGRATION"
         title="Live, Virtual, Constructive"
@@ -95,12 +99,8 @@ function LVCSection({ isDark }) {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="xl" className="h-full">
-              <div className={`w-16 h-16 rounded-xl flex items-center justify-center mb-4 ${
-                isDark ? 'bg-primary-navy/30' : 'bg-primary-navy/10'
-              }`}>
-                <div className={isDark ? 'text-primary-light' : 'text-primary-navy'}>
-                  {type.icon}
-                </div>
+              <div className="w-20 h-20 rounded-xl overflow-hidden mb-4">
+                <img src={type.icon} alt={type.title} className="w-full h-full object-contain" />
               </div>
               <h3 className={`text-2xl font-bold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                 {type.title}
@@ -149,7 +149,7 @@ function PartnersSection({ isDark }) {
   ];
 
   return (
-    <section id="partners" className="section-dark section-padding">
+    <section id="partners" className="section-dark section-padding scroll-mt-36">
       <div className="container-main">
         <SectionHeader
           tag="PARTNER INTEGRATIONS"
@@ -168,7 +168,7 @@ function PartnersSection({ isDark }) {
               transition={{ delay: i * 0.1 }}
             >
               <Card size="lg" className={`h-full ${isDark ? 'bg-white/[0.02]' : 'bg-white'}`}>
-                <h4 className={`text-lg font-bold mb-3 ${isDark ? 'text-primary-light' : 'text-primary-navy'}`}>
+                <h4 className="text-lg font-bold mb-3" style={{ color: '#000000' }}>
                   {partner.name}
                 </h4>
                 <ul className="space-y-2">

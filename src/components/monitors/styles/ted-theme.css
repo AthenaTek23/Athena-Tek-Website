@@ -1,32 +1,96 @@
 /* ==========================================================================
    Monitor Theme: TED
-   Cyan/Teal Theme
+   Matches main website dark theme with teal accent
    ========================================================================== */
 
 .monitor-theme-ted {
-  --monitor-bg: radial-gradient(circle at top, #182033 0%, #05060a 60%);
-  --monitor-accent: #46e0ff;
-  --monitor-accent-soft: rgba(70, 224, 255, 0.12);
-  --monitor-accent-glow: rgba(70, 224, 255, 0.35);
-  --monitor-text: #e9f3ff;
-  --monitor-text-muted: #a0b1c6;
-  --monitor-border: #22293b;
+  /* Main website dark colors */
+  --monitor-bg: radial-gradient(circle at top, #0f172a 0%, #0a0f1a 60%);
+  --monitor-accent: #14b8a6;
+  --monitor-accent-soft: rgba(20, 184, 166, 0.12);
+  --monitor-accent-glow: rgba(20, 184, 166, 0.35);
+  --monitor-text: #ffffff;
+  --monitor-text-muted: #e2e8f0;
+  --monitor-border: #1e293b;
   --monitor-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
 
-  --monitor-sidebar-bg: linear-gradient(180deg, #05060a 0%, #090b16 40%, #05060a 100%);
-  --monitor-content-bg: radial-gradient(circle at top left, #192032 0%, #05060a 55%);
-  --monitor-content-border: rgba(72, 134, 222, 0.4);
+  --monitor-sidebar-bg: linear-gradient(180deg, #0a0f1a 0%, #0f172a 40%, #0a0f1a 100%);
+  --monitor-content-bg: radial-gradient(circle at top left, #0f172a 0%, #0a0f1a 55%);
+  --monitor-content-border: rgba(20, 184, 166, 0.3);
 
   --monitor-view-bg:
-    radial-gradient(circle at top right, rgba(70, 224, 255, 0.12) 0%, transparent 55%),
-    radial-gradient(circle at bottom left, rgba(0, 255, 184, 0.16) 0%, transparent 55%);
+    radial-gradient(circle at top right, rgba(20, 184, 166, 0.1) 0%, transparent 55%),
+    radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.08) 0%, transparent 55%);
 
-  --monitor-pill-bg: rgba(4, 10, 24, 0.9);
-  --monitor-panel-bg: #05060a;
-  --monitor-panel-border: rgba(80, 120, 200, 0.6);
-  --monitor-text-panel-bg: rgba(5, 8, 20, 0.96);
-  --monitor-text-panel-border: rgba(70, 110, 190, 0.9);
+  --monitor-pill-bg: rgba(10, 15, 26, 0.9);
+  --monitor-panel-bg: #0a0f1a;
+  --monitor-panel-border: rgba(20, 184, 166, 0.4);
+  --monitor-text-panel-bg: rgba(10, 15, 26, 0.96);
+  --monitor-text-panel-border: rgba(20, 184, 166, 0.5);
 
   background: var(--monitor-bg);
   color: var(--monitor-text);
+}
+
+/* Force consistent accent color on all titles */
+.monitor-theme-ted .monitor-sidebar__title,
+.monitor-theme-ted .monitor-sidebar__label,
+.monitor-theme-ted .monitor-sidebar__footer b,
+.monitor-theme-ted .monitor-view__title,
+.monitor-theme-ted .monitor-view__title-tag,
+.monitor-theme-ted .monitor-text-panel__title,
+.monitor-theme-ted .monitor-pill,
+.monitor-theme-ted .monitor-nav__btn--active {
+  color: #14b8a6 !important;
+}
+
+/* Force backgrounds */
+.monitor-theme-ted .monitor-sidebar {
+  background: linear-gradient(180deg, #0a0f1a 0%, #0f172a 40%, #0a0f1a 100%) !important;
+}
+
+.monitor-theme-ted .monitor-content {
+  background: radial-gradient(circle at top, #0f172a 0%, #0a0f1a 60%) !important;
+}
+
+.monitor-theme-ted .monitor-content__inner {
+  background: radial-gradient(circle at top left, #0f172a 0%, #0a0f1a 55%) !important;
+  border-color: rgba(20, 184, 166, 0.3) !important;
+}
+
+.monitor-theme-ted .monitor-graphic-panel {
+  background: #0a0f1a !important;
+  border-color: rgba(20, 184, 166, 0.4) !important;
+}
+
+.monitor-theme-ted .monitor-text-panel {
+  background: rgba(10, 15, 26, 0.96) !important;
+  border-color: rgba(20, 184, 166, 0.5) !important;
+}
+
+.monitor-theme-ted .monitor-nav__btn {
+  border-color: #1e293b !important;
+}
+
+.monitor-theme-ted .monitor-nav__btn:hover,
+.monitor-theme-ted .monitor-nav__btn--active {
+  background: rgba(20, 184, 166, 0.12) !important;
+  border-color: #14b8a6 !important;
+}
+
+.monitor-theme-ted .monitor-pill {
+  background: rgba(10, 15, 26, 0.9) !important;
+  border-color: #14b8a6 !important;
+}
+
+.monitor-theme-ted .monitor-pill__dot {
+  background: #14b8a6 !important;
+}
+
+.monitor-theme-ted .monitor-text-panel__list-item::before {
+  background: #14b8a6 !important;
+}
+
+.monitor-theme-ted .monitor-text-panel__footer strong {
+  color: #14b8a6 !important;
 }

@@ -1,13 +1,18 @@
 import { motion } from 'framer-motion';
-import { Globe, Layers, Box, MapPin, Eye, Server, Cpu, Database, Check } from 'lucide-react';
+import { Globe, Server, Check } from 'lucide-react';
 import { Card } from '../../components/ui';
 import { SectionHeader, CTASection } from '../../components/common';
 import { PageSectionNav, SectionDots } from '../../components/navigation';
 import { useTheme } from '../../contexts/ThemeContext';
-import { iconSizes } from '../../styles/theme';
 
 // Hero image
 import terrainImg from '../../assets/3D-Terrain.png';
+
+// Feature icons
+import owtImg from '../../assets/OWT.png';
+import modelsImg from '../../assets/Models.png';
+import tilesImg from '../../assets/3DTile.png';
+import webglImg from '../../assets/WebGL.png';
 
 const sections = [
   { id: 'overview', label: 'Overview' },
@@ -38,10 +43,10 @@ export default function OWTViewerPage() {
 
 function OverviewSection({ isDark }) {
   const highlights = [
-    { icon: <Globe size={iconSizes.lg} />, title: '3D Globe Rendering', desc: 'WGS84 ellipsoid with high-fidelity terrain visualization' },
-    { icon: <Layers size={iconSizes.lg} />, title: '3D Tiles Support', desc: 'Native OGC 3D Tiles 1.0/1.1 loader for efficient streaming' },
-    { icon: <Box size={iconSizes.lg} />, title: 'Building Models', desc: 'Refined 3D building and infrastructure models' },
-    { icon: <Eye size={iconSizes.lg} />, title: 'WebGL Performance', desc: 'GPU-accelerated rendering for smooth interaction' },
+    { icon: owtImg, title: '3D Globe Rendering', desc: 'WGS84 ellipsoid with high-fidelity terrain visualization' },
+    { icon: tilesImg, title: '3D Tiles Support', desc: 'Native OGC 3D Tiles 1.0/1.1 loader for efficient streaming' },
+    { icon: modelsImg, title: 'Building Models', desc: 'Refined 3D building and infrastructure models' },
+    { icon: webglImg, title: 'WebGL Performance', desc: 'GPU-accelerated rendering for smooth interaction' },
   ];
 
   return (
@@ -70,8 +75,8 @@ function OverviewSection({ isDark }) {
             transition={{ delay: i * 0.1 }}
           >
             <Card size="lg" className="h-full text-center">
-              <div className="icon-box w-14 h-14 mx-auto mb-4">
-                {item.icon}
+              <div className="w-14 h-14 mx-auto mb-4 rounded-xl overflow-hidden">
+                <img src={item.icon} alt={item.title} className="w-full h-full object-contain" />
               </div>
               <h4 className={`text-lg font-semibold mb-2 ${isDark ? 'text-white' : 'text-light-900'}`}>
                 {item.title}

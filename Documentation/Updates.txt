@@ -1,3 +1,15 @@
+ 
+ The issue was CSS specificity.
+
+  The base styles in monitor-base.css were using CSS variables like color: var(--monitor-accent), but those variables were defined on the .monitor-theme-network class. When the CSS was compiled, the base styles had equal or higher specificity than the theme styles, so the variable values weren't being applied consistently.
+
+  The fix: I added explicit style overrides with higher specificity by:
+
+  1. Using descendant selectors: .monitor-theme-network .monitor-sidebar__title instead of just .monitor-sidebar__title
+  2. Adding !important: Forces the styles to take priority regardless of CSS cascade order
+  3. Using direct hex values: color: #f59e0b !important instead of var(--monitor-accent) - this eliminated any potential issues with CSS variable inheritance
+
+  So even though the CSS variables were technically defined, the way the stylesheets were compiled and ordered meant the variable values weren't resolving correctly for all elements. The explicit overrides bypassed that problem entirely.
  Changes Made
 
   1. CSS Utility Classes (src/styles/index.css)
