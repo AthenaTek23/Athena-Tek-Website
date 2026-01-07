@@ -110,7 +110,7 @@ export const viewsConfig = {
     pillText: 'VIDEO',
     video: {
       src: 'videos/Multi5GMAPs.mp4',
-      poster: 'Images/NF-Ex.png'
+      poster: 'Images/NF-Ex.webp'
     },
     panel: {
       title: '',
@@ -131,7 +131,7 @@ export const viewsConfig = {
     pillText: 'VIDEO',
     video: {
       src: 'videos/SingleMAP28.mp4',
-      poster: 'Images/NF-Star.png'
+      poster: 'Images/NF-Star.webp'
     },
     panel: {
       title: '',

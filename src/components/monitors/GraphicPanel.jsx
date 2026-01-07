@@ -1,11 +1,16 @@
 import React, { memo } from 'react';
 
 const GraphicPanel = memo(({ src, alt, video, poster, basePath = '' }) => {
+  // Get Vite's base URL for GitHub Pages deployment
+  const baseUrl = import.meta.env.BASE_URL || '/';
+
   // Prepend basePath to src/video/poster if they are relative paths
   const getPath = (path) => {
     if (!path) return path;
-    if (path.startsWith('http') || path.startsWith('/')) return path;
-    return `${basePath}/${path}`;
+    if (path.startsWith('http')) return path;
+    // For absolute paths starting with /, prepend the base URL (removing trailing slash to avoid double slashes)
+    if (path.startsWith('/')) return `${baseUrl.replace(/\/$/, '')}${path}`;
+    return `${baseUrl.replace(/\/$/, '')}${basePath}/${path}`;
   };
 
   return (
