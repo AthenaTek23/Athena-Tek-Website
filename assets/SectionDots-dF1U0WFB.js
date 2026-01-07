@@ -1,0 +1,14 @@
+import{j as o,m as d,A as f}from"./vendor-motion-CX9B87cL.js";import{u as h}from"./index-eref5y-m.js";import{r as c}from"./vendor-react-DNUgy55u.js";function m(t,i={}){const{offset:r=150,threshold:e=.3}=i,[a,g]=c.useState(t[0]||"");return c.useEffect(()=>{const s=()=>{const b=window.scrollY+r;for(let n=t.length-1;n>=0;n--){const l=document.getElementById(t[n]);if(l){const u=l.offsetTop,x=l.offsetHeight;if(b>=u-x*e){g(t[n]);break}}}};return s(),window.addEventListener("scroll",s,{passive:!0}),()=>window.removeEventListener("scroll",s)},[t,r,e]),a}function p(t,i=140){const r=document.getElementById(t);if(!r)return;const e=r.getBoundingClientRect().top+window.scrollY;window.scrollTo({top:e-i,behavior:"smooth"})}function j({sections:t}){const{isDark:i,isSepia:r}=h(),e=m(t.map(a=>a.id));return o.jsxs(o.Fragment,{children:[o.jsx("div",{className:"h-2"}),o.jsx("nav",{className:`
+          fixed top-20 left-0 right-0 z-40 shadow-lg
+          ${i?"bg-dark-900/95 backdrop-blur-sm border-b border-white/5":r?"bg-[#f5f0e1]/95 backdrop-blur-sm border-b border-[#5a5030]/25":"bg-white/95 backdrop-blur-sm border-b border-light-200"}
+        `,children:o.jsx("div",{className:"container-main",children:o.jsx("div",{className:"flex items-center gap-1 py-2 overflow-x-auto scrollbar-hide",children:t.map(a=>o.jsxs("button",{onClick:()=>p(a.id),className:`
+                  relative px-4 py-2 text-sm font-medium rounded-lg whitespace-nowrap transition-colors
+                  ${e===a.id?"text-white":i?"text-dark-400 hover:text-white hover:bg-primary-navy/20":r?"text-[#3d2914] hover:text-[#2d1f0f] hover:bg-[#c4a35a]/25":"text-light-500 hover:text-light-700 hover:bg-primary-navy/10"}
+                `,children:[a.label,e===a.id&&o.jsx(d.div,{layoutId:"activeSection",className:`absolute inset-0 rounded-lg ${r?"bg-[#5a5030]":"bg-primary-navy"}`,style:{zIndex:-1},transition:{type:"spring",bounce:.2,duration:.6}})]},a.id))})})})]})}function S({sections:t}){const{isDark:i}=h(),r=m(t.map(e=>e.id));return o.jsx("div",{className:"fixed right-6 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-3",children:t.map(e=>o.jsxs("button",{onClick:()=>p(e.id),className:"group relative flex items-center justify-end","aria-label":`Go to ${e.label}`,children:[o.jsx(f,{children:o.jsx("span",{className:`
+                absolute right-6 px-3 py-1.5 rounded text-xs font-medium whitespace-nowrap
+                opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none
+                ${i?"bg-dark-800 text-white":"bg-white text-light-900 shadow-lg"}
+              `,children:e.label})}),o.jsx(d.div,{className:`
+              w-3 h-3 rounded-full transition-colors
+              ${r===e.id?i?"bg-primary-light":"bg-primary-navy":i?"bg-dark-600 hover:bg-dark-500":"bg-light-300 hover:bg-light-400"}
+            `,animate:{scale:r===e.id?1.3:1},transition:{type:"spring",bounce:.5}})]},e.id))})}export{j as P,S};
